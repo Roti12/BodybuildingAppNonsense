@@ -88,7 +88,7 @@ public class GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == testButton) {
 					System.out.println("Hello, you have pressed a button");
-					QueryItems.queryOntology("http://test.com", QueryStrings.queryDeadlift);
+					QueryItems.queryOntology("http://test.com", QueryStrings.showAll);
 				}
 				
 			}

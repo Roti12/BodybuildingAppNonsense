@@ -5,10 +5,10 @@ public class QueryStrings {
 	
 	//Excercises
 	
-	public static String queryDeadlift = "PREFIX ont: <http://machine&excercises.com/ontology.owl#>"
+	public static String showAll = "PREFIX ont: <http://machine&excercises.com/ontology.owl#>"
 			+ "SELECT * WHERE { ?x ?y ?z . }";
 	
-	public static String queryDeadlifdt = "PREFIX ont: <http://machines&excercises.com/ontology.owl#>" 
+	public static String queryDeadlift = "PREFIX ont: <http://machines&excercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
 			+ "ont:Deadlift ont:Works ?Muscles ;"
 			+ "ont:Requires ?Required_Equipment ;"
