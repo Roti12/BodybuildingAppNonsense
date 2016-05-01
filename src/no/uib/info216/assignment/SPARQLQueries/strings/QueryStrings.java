@@ -1,4 +1,4 @@
-package SPARQLQueries.strings;
+package no.uib.info216.assignment.SPARQLQueries.strings;
 
 public class QueryStrings {
 

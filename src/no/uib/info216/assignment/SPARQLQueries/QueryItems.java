@@ -1,4 +1,4 @@
-package SPARQLQueries;
+package no.uib.info216.assignment.SPARQLQueries;
 
 import no.uib.info216.assignment.dataset.Datasets;
 

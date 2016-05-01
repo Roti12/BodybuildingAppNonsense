@@ -1,4 +1,4 @@
-package GUI;
+package no.uib.info216.assignment.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -22,9 +22,8 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.border.EmptyBorder;
 
-import SPARQLQueries.QueryItems;
-import SPARQLQueries.strings.QueryStrings;
-import no.uib.info216.assignment.dataset.Datasets;
+import no.uib.info216.assignment.SPARQLQueries.QueryItems;
+import no.uib.info216.assignment.SPARQLQueries.strings.QueryStrings;
 
 public class GUI extends JFrame {
 
@@ -53,7 +52,7 @@ public class GUI extends JFrame {
 	 * Create the frame.
 	 * 
 	 * @param title
-	 *            the title of the GUI frame. Sets up the graphical interface,
+	 *            the title of the no.uib.info216.assignment.GUI frame. Sets up the graphical interface,
 	 *            adds relevant items onto it.
 	 */
 	public GUI(String title) {

@@ -1,6 +1,6 @@
 package no.uib.info216.assignment.main;
 
-import GUI.GUI;
+import no.uib.info216.assignment.GUI.GUI;
 import no.uib.info216.assignment.dataset.Datasets;
 import no.uib.info216.assignment.models.Models;
 

@@ -1,4 +1,4 @@
-package GUI;
+package no.uib.info216.assignment.GUI;
 
 import javax.swing.JFrame;
 
@@ -10,7 +10,7 @@ public class popupExcercises {
 		frame.setSize(500, 500);
 		frame.setTitle(exercise);
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
