@@ -47,6 +47,7 @@ public class GUI extends JFrame {
 										// issues.
 	private JSplitPane splitPane; // splits the pane.
 	private static GUI instance = null;
+	private popupExcercises pop;
 
 	/**
 	 * Create the frame.
@@ -88,6 +89,7 @@ public class GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == testButton) {
 					System.out.println("Hello, you have pressed a button");
+					pop = new popupExcercises(testButton.getText());
 					QueryItems.queryOntology("http://test.com", QueryStrings.showAll);
 				}
 				
