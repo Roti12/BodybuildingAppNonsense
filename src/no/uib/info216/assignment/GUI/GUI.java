@@ -1,11 +1,14 @@
 package no.uib.info216.assignment.GUI;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.List;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -37,16 +40,18 @@ public class GUI extends JFrame {
 	private JButton btnUpdate; // updates the search field in the search tab.
 	private JTabbedPane tabbedPane;
 	private JButton btnNewIssue; // button to add new issues to allIssues tab.
-	private List userList;
+	private List equipmentList;
 	private JTextField searchByIDField;
-	private JMenuItem menuImportData; // menuitem for importing xml file.
+	private JMenuItem menuNewProgram; // menuitem for importing xml file.
+	private JMenuItem menuMyProgram;
 	private JMenuItem menuExitAppliction; // menuitem to exit the application.
 	private JMenuItem menuSettingsAddUser; // menuitems to add user.
 	private JButton btnGetHighPriority; // button to retrieve high priority
 										// issues.
 	private JSplitPane splitPane; // splits the pane.
 	private static GUI instance = null;
-	private popupExcercises pop;
+	private PopupExcercises popEx;
+	private PopupEquipment popEq;
 
 	/**
 	 * Create the frame.
@@ -58,7 +63,7 @@ public class GUI extends JFrame {
 	public GUI(String title) {
 		setTitle(title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Double width = screenSize.getWidth() / 2;
 		Double height = screenSize.getHeight() / 2;
@@ -80,7 +85,7 @@ public class GUI extends JFrame {
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
 
-		JButton testButton = new JButton("Test"); 
+		JButton testButton = new JButton("Deadlift"); 
 		
 		testButton.addActionListener(new ActionListener() {
 			
@@ -88,8 +93,8 @@ public class GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == testButton) {
 					System.out.println("Hello, you have pressed a button");
-					pop = new popupExcercises(testButton.getText());
-					QueryItems.queryOntology("http://test.com", QueryStrings.showAll);
+					popEx = new PopupExcercises(testButton.getText());
+					QueryItems.queryOntology("Workout Planner", QueryStrings.queryDeadlift);
 				}
 				
 			}
@@ -113,23 +118,41 @@ public class GUI extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("Equipment", null, scrollPane, null);
 
-		userList = new List();
-		scrollPane.setViewportView(userList);
+		equipmentList = new List();
+		equipmentList.add("Bench");
+		equipmentList.add("Bench Press Rack");
+		equipmentList.add("Squat Rack");
+		equipmentList.add("Olympic Barbell Men");
+		equipmentList.add("Cap Barbell Dumbells");
+		equipmentList.add("Rounded Dumbells");
+		equipmentList.add("Hexagonal Dumbells");
+		equipmentList.add("Squared Dumbells");
+		equipmentList.add("Kettlebells");
+		equipmentList.add("Weighted Plates");
+		
+		scrollPane.setViewportView(equipmentList);
 
-		JLabel lblAllUsers = new JLabel("All Users");
+		JLabel lblAllUsers = new JLabel("Gym Equipment");
 
 		scrollPane.setColumnHeaderView(lblAllUsers);
+		
+		MouseClicks(equipmentList);
+		
 		getContentPane().add(contentPane);
 
+		
 		JMenuBar menuBar = new JMenuBar(); // menubar at the top of the frame.
 		setJMenuBar(menuBar);
 
-		JMenu mnNewMenu = new JMenu("File"); // creates a new JMenu and adds it
+		JMenu mnNewMenu = new JMenu("Program"); // creates a new JMenu and adds it
 												// to menuBar.
 		menuBar.add(mnNewMenu);
 
-		menuImportData = new JMenuItem("Import from XML");
-		mnNewMenu.add(menuImportData);
+		menuNewProgram = new JMenuItem("New Program");
+		mnNewMenu.add(menuNewProgram);
+		
+		menuMyProgram = new JMenuItem("My Program");
+		mnNewMenu.add(menuMyProgram);
 
 		menuExitAppliction = new JMenuItem("Exit");
 		menuExitAppliction.addActionListener(new ActionListener() {
@@ -144,12 +167,28 @@ public class GUI extends JFrame {
 
 		mnNewMenu.add(menuExitAppliction);
 
-		JMenu mnSettings = new JMenu("Settings");
+		JMenu mnSettings = new JMenu("Help");
 		menuBar.add(mnSettings);
 
 		menuSettingsAddUser = new JMenuItem("Add user");
 		mnSettings.add(menuSettingsAddUser);
 		setVisible(true);
+	}
+	
+	
+	public void MouseClicks(Object e) {
+		((Component) e).addMouseListener(new MouseAdapter(){
+			
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 2) {
+					if (e.getSource() == equipmentList) {
+						String x = e.getComponent().toString().substring(41);
+						popEq = new PopupEquipment(x);
+					}
+				}
+			}
+			
+		});
 	}
 
 	public static synchronized GUI getInstance() {
@@ -189,8 +228,8 @@ public class GUI extends JFrame {
 	/**
 	 * @return userList the list of users.
 	 */
-	public List getUserList() {
-		return userList;
+	public List getEquipmentList() {
+		return equipmentList;
 	}
 
 	/**
@@ -203,8 +242,12 @@ public class GUI extends JFrame {
 	/**
 	 * @return the menuImportData
 	 */
-	public JMenuItem getMenuImportData() {
-		return menuImportData;
+	public JMenuItem getMenuNewProgram() {
+		return menuNewProgram;
+	}
+	
+	public JMenuItem getMenuMyProgram() {
+		return menuMyProgram;
 	}
 
 	/**

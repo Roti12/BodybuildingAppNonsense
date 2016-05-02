@@ -1,5 +1,7 @@
 package no.uib.info216.assignment.SPARQLQueries;
 
+
+
 import no.uib.info216.assignment.dataset.Datasets;
 
 import org.apache.jena.query.Query;

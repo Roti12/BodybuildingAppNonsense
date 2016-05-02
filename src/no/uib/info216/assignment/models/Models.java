@@ -14,8 +14,6 @@ public class Models {
 		FileManager.get().addLocatorClassLoader(Models.class.getClassLoader());
 		testModel = FileManager.get().loadModel(path);
 		
-		
-		
 		return testModel;
 	}
 	

@@ -18,7 +18,7 @@ public class Main {
 		GUI.getInstance();
 		dataset = new Datasets();
 		model = new Models();
-		dataset.addModelToSet(model.addFileModel("MachinesAndExcercises.owl"), "http://test.com");
+		dataset.addModelToSet(model.addFileModel("MachinesAndExcercises.owl"), "Workout Planner");
 	}
 	
 }
