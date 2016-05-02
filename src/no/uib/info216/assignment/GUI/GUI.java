@@ -183,7 +183,8 @@ public class GUI extends JFrame {
 				if (e.getClickCount() == 2) {
 					if (e.getSource() == equipmentList) {
 						String x = e.getComponent().toString().substring(41);
-						popEq = new PopupEquipment(x);
+						String y = x.substring(0, x.length() - 1);
+						popEq = new PopupEquipment(y);
 					}
 				}
 			}
