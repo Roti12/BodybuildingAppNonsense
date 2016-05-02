@@ -16,7 +16,7 @@ public class QueryItems {
 
 	
 	public static void queryOntology(String modelName, String queryString) {
-		Model model = Datasets.getDataset().getNamedModel("http://test.com");
+		Model model = Datasets.getDataset().getNamedModel("Workout Planner");
 		
 		Query query = QueryFactory.create(queryString);
 		QueryExecution qexec = QueryExecutionFactory.create(query, model);

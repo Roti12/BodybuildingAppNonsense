@@ -48,6 +48,10 @@ public class GUI extends JFrame {
 	private JMenuItem menuSettingsAddUser; // menuitems to add user.
 	private JButton btnGetHighPriority; // button to retrieve high priority
 										// issues.
+	JButton deadliftButton;
+	JButton squatButton;
+	JButton benchPressButton;
+	JButton overheadPressButton;
 	private JSplitPane splitPane; // splits the pane.
 	private static GUI instance = null;
 	private PopupExcercises popEx;
@@ -85,25 +89,44 @@ public class GUI extends JFrame {
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
 
-		JButton testButton = new JButton("Deadlift"); 
+		this.deadliftButton = new JButton("Deadlift"); 
+		this.squatButton = new JButton("Squat");
+		this.benchPressButton = new JButton("Bench Press"); 
+		this.overheadPressButton = new JButton("Overhead Press"); 
 		
-		testButton.addActionListener(new ActionListener() {
+																
+		sl_panel.putConstraint(SpringLayout.NORTH, deadliftButton, 15, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, deadliftButton, 40, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, deadliftButton, -500, SpringLayout.EAST, panel);
+		panel.add(deadliftButton);
+		
+		sl_panel.putConstraint(SpringLayout.NORTH, squatButton, 70, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, squatButton, 45, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, squatButton, -500, SpringLayout.EAST, panel);
+		panel.add(squatButton);
+		
+		sl_panel.putConstraint(SpringLayout.NORTH, benchPressButton, 125, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, benchPressButton, 50, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, benchPressButton, -500, SpringLayout.EAST, panel);
+		panel.add(benchPressButton);
+		
+		sl_panel.putConstraint(SpringLayout.NORTH, overheadPressButton, 180, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, overheadPressButton, 35, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.EAST,overheadPressButton, -500, SpringLayout.EAST, panel);
+		panel.add(overheadPressButton);
+		
+		deadliftButton.addActionListener(new ActionListener() {
 			
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == testButton) {
+				if(e.getSource() == deadliftButton) {
 					System.out.println("Hello, you have pressed a button");
-					popEx = new PopupExcercises(testButton.getText());
+					popEx = new PopupExcercises(deadliftButton.getText());
 					QueryItems.queryOntology("Workout Planner", QueryStrings.queryDeadlift);
-				}
+				} 
 				
 			}
 		});
-																
-		sl_panel.putConstraint(SpringLayout.NORTH, testButton, 10, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, testButton, 35, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, testButton, -399, SpringLayout.EAST, panel);
-		panel.add(testButton);
+		
 		
 		splitPane = new JSplitPane();
 		tabbedPane.addTab("Excercises", null, splitPane, null);
@@ -176,6 +199,24 @@ public class GUI extends JFrame {
 	}
 	
 	
+	
+	public JButton getDeadliftButton() {
+		return deadliftButton;
+	}
+	public JButton getSquatButton() {
+		return squatButton;
+	}
+	public JButton getBenchPressButton() {
+		return benchPressButton;
+	}
+	public JButton getoverheadPressButton() {
+		return overheadPressButton;
+	}
+
+	public void setDeadliftButton(JButton deadliftButton) {
+		this.deadliftButton = deadliftButton;
+	}
+
 	public void MouseClicks(Object e) {
 		((Component) e).addMouseListener(new MouseAdapter(){
 			
@@ -198,7 +239,6 @@ public class GUI extends JFrame {
 		}
 		return instance;
 	}
-
 
 	/**
 	 * @return the btnUpdate button.
