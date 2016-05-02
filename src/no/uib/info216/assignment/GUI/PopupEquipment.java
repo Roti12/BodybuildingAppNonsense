@@ -94,7 +94,7 @@ public class PopupEquipment extends JFrame {
 		tabbedPane.addTab(equipmentName, null, panel, null);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 
-		lblUsername = new JLabel("Username:");
+		lblUsername = new JLabel("");
 		panel.add(lblUsername);
 		
 		if (!newUser) {
@@ -105,23 +105,23 @@ public class PopupEquipment extends JFrame {
 			panel.add(textFieldUsername);
 		}
 
-		lblFirstName = new JLabel("First Name:");
+		lblFirstName = new JLabel("Used By:");
 		panel.add(lblFirstName);
 
 		textFieldFirstname = new JTextField(15);
 		panel.add(textFieldFirstname);
 		textFieldFirstname.setToolTipText("First Name");
 
-		lblLastName = new JLabel("Last Name:");
+		lblLastName = new JLabel("Weight:");
 		panel.add(lblLastName);
 
 		textFieldLastname = new JTextField(15);
 		panel.add(textFieldLastname);
-		textFieldLastname.setToolTipText("Last Name");
+		textFieldLastname.setToolTipText("Other:");
 		
-
 		
-		lblNewPassword = new JLabel("New Password:");
+		
+		lblNewPassword = new JLabel("Other:");
 		panel.add(lblNewPassword);
 
 		textFieldNewPassword = new JPasswordField(15);
