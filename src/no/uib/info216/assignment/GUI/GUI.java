@@ -54,8 +54,7 @@ public class GUI extends JFrame {
 	JButton overheadPressButton;
 	private JSplitPane splitPane; // splits the pane.
 	private static GUI instance = null;
-	private PopupExcercises popEx;
-	private PopupEquipment popEq;
+
 
 	/**
 	 * Create the frame.
@@ -115,17 +114,7 @@ public class GUI extends JFrame {
 		sl_panel.putConstraint(SpringLayout.EAST,overheadPressButton, -500, SpringLayout.EAST, panel);
 		panel.add(overheadPressButton);
 		
-		deadliftButton.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == deadliftButton) {
-					System.out.println("Hello, you have pressed a button");
-					popEx = new PopupExcercises(deadliftButton.getText());
-					QueryItems.queryOntology("Workout Planner", QueryStrings.queryDeadlift);
-				} 
-				
-			}
-		});
+
 		
 		
 		splitPane = new JSplitPane();
@@ -159,8 +148,7 @@ public class GUI extends JFrame {
 
 		scrollPane.setColumnHeaderView(lblAllUsers);
 		
-		MouseClicks(equipmentList);
-		
+
 		getContentPane().add(contentPane);
 
 		
@@ -217,21 +205,7 @@ public class GUI extends JFrame {
 		this.deadliftButton = deadliftButton;
 	}
 
-	public void MouseClicks(Object e) {
-		((Component) e).addMouseListener(new MouseAdapter(){
-			
-			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() == 2) {
-					if (e.getSource() == equipmentList) {
-						String x = e.getComponent().toString().substring(41);
-						String y = x.substring(0, x.length() - 1);
-						popEq = new PopupEquipment(y);
-					}
-				}
-			}
-			
-		});
-	}
+
 
 	public static synchronized GUI getInstance() {
 		if (instance == null) {
