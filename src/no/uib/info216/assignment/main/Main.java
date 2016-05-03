@@ -51,9 +51,8 @@ public class Main {
         MouseClicks(GUI.getInstance().getEquipmentList());
 
 
-        GUI.getInstance().getDeadliftButton().addActionListener(new ActionListener() {
+        GUI.getInstance().getDeadliftButton().addActionListener(e ->{
 
-            public void actionPerformed(ActionEvent e) {
 
                 //	System.out.println("Hello, you have pressed a button");
                 ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.queryDeadlift);
@@ -84,12 +83,10 @@ public class Main {
                 popEx = new PopupExercises("Deadlift",exercise);
 
 
-            }
-        });
+            });
 
-        GUI.getInstance().getSquatButton().addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent e) {
+        GUI.getInstance().getSquatButton().addActionListener(e ->{
 
                 //	System.out.println("Hello, you have pressed a button");
                 ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.querySquat);
@@ -113,13 +110,10 @@ public class Main {
                 popEx = new PopupExercises("Squat", exercise);
 
 
-            }
+
         });
 
-        GUI.getInstance().getBenchPressButton().addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-
+        GUI.getInstance().getBenchPressButton().addActionListener(e -> {
                 //	System.out.println("Hello, you have pressed a button");
                 ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.queryBenchPress);
                 List<Resource> can_useList = new ArrayList<>();
@@ -141,7 +135,7 @@ public class Main {
                 popEx = new PopupExercises("Benchpress",exercise);
 
 
-            }
+
         });
 
 

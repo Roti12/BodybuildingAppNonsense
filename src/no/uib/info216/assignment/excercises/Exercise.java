@@ -28,7 +28,7 @@ public class Exercise {
     public String toString() {
 
 
-        return String.format("Muscles: %s, %s, %s, %s", getMusclesString(), this.equipment, this.description, getCan_UseString());
+        return String.format("%s, %s, %s, %s", getMusclesString(), this.equipment, this.description, getCan_UseString());
     }
 
     public Literal getDescription() {
