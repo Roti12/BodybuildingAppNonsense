@@ -29,14 +29,7 @@ public class PopupEquipment extends JFrame {
 	private JTabbedPane tabbedPane;
 	private JPanel panel;
 
-	/**
-	 * Constructor for the UserView, initializes all necessary components and
-	 * classes
-	 * 
-	 * @param user
-	 * @param iTracker
-	 * @param setup
-	 */
+
 	public PopupEquipment(String equipmentName) {
 
 		setTitle("Equipment");

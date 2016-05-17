@@ -35,19 +35,16 @@ public class GUI extends JFrame {
 	 */
 	private static final long serialVersionUID = -7513854125040781915L;
 	private JPanel contentPane; // Panel
-	private JComboBox<String> userBox; // dropdown menu for different search
-										// options.
+
 	private JButton btnUpdate; // updates the search field in the search tab.
 	private JTabbedPane tabbedPane;
-	private JButton btnNewIssue; // button to add new issues to allIssues tab.
 	private List equipmentList;
-	private JTextField searchByIDField;
+
 	private JMenuItem menuNewProgram; // menuitem for importing xml file.
 	private JMenuItem menuMyProgram;
 	private JMenuItem menuExitAppliction; // menuitem to exit the application.
 	private JMenuItem menuSettingsAddUser; // menuitems to add user.
-	private JButton btnGetHighPriority; // button to retrieve high priority
-										// issues.
+
 	JButton deadliftButton;
 	JButton squatButton;
 	JButton benchPressButton;
@@ -116,16 +113,13 @@ public class GUI extends JFrame {
 		
 
 		
-		
-		splitPane = new JSplitPane();
-		tabbedPane.addTab("Excercises", null, splitPane, null);
 
-		btnNewIssue = new JButton("New issue");
-		btnNewIssue.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		splitPane.setLeftComponent(btnNewIssue);
+		JPanel excercisePanel = new JPanel(new SpringLayout());
+		tabbedPane.addTab("Excercises", excercisePanel);
+
+		JButton TricepExtension = new JButton("Tricep Extension");
+		excercisePanel.add(TricepExtension);
+
 
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("Equipment", null, scrollPane, null);
@@ -221,9 +215,6 @@ public class GUI extends JFrame {
 		return btnUpdate;
 	}
 
-	public JTextField getSearchByIDField() {
-		return this.searchByIDField;
-	}
 
 	/**
 	 * @param btnUpdate
@@ -233,12 +224,6 @@ public class GUI extends JFrame {
 		this.btnUpdate = btnUpdate;
 	}
 
-	/**
-	 * @return the userBox.
-	 */
-	public JComboBox<String> getUserBox() {
-		return userBox;
-	}
 
 	/**
 	 * @return userList the list of users.
@@ -266,13 +251,6 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * @return the btnNewIssue button.
-	 */
-	public JButton getBtnNewIssue() {
-		return btnNewIssue;
-	}
-
-	/**
 	 * @return the menuExitAppliction
 	 */
 	public JMenuItem getMenuExitAppliction() {
@@ -286,10 +264,4 @@ public class GUI extends JFrame {
 		return menuSettingsAddUser;
 	}
 
-	/**
-	 * @return the btnGetHighPriority
-	 */
-	public JButton getBtnGetHighPriority() {
-		return btnGetHighPriority;
-	}
 }
