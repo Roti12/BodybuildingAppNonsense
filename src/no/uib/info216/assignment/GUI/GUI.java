@@ -119,6 +119,15 @@ public class GUI extends JFrame {
 		JButton latPulldown = new JButton("Lat Pulldown Machine");
 		machinePanel.add(latPulldown);
 
+		latPulldown.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == latPulldown) {
+					PopupMachines pop = new PopupMachines(latPulldown.getText());
+				}
+			}
+		});
+
 
 		JScrollPane scrollPane = new JScrollPane();
 		tabbedPane.addTab("Equipment", null, scrollPane, null);
