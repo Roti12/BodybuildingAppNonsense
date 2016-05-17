@@ -80,12 +80,26 @@ public class GUI extends JFrame {
 		sl_panel.putConstraint(SpringLayout.EAST, chooseExperience, -250, SpringLayout.EAST, programPanel);
 		programPanel.add(chooseExperience);
 
+		JButton createProgram = new JButton("CREATE PROGRAM");
+
+		sl_panel.putConstraint(SpringLayout.VERTICAL_CENTER, createProgram, 50, SpringLayout.VERTICAL_CENTER, programPanel);
+		sl_panel.putConstraint(SpringLayout.EAST, createProgram, -335, SpringLayout.EAST, programPanel);
+		programPanel.add(createProgram);
+
 
 		sl_panel.putConstraint(SpringLayout.VERTICAL_CENTER, experienceOptions, 0, SpringLayout.VERTICAL_CENTER, programPanel);
 		sl_panel.putConstraint(SpringLayout.EAST, experienceOptions, -335, SpringLayout.EAST, programPanel);
 		programPanel.add(experienceOptions);
 
 
+		createProgram.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == createProgram && experienceOptions.getSelectedItem().equals("None")) {
+					System.out.println("Program not yet finished");
+				}
+			}
+		});
 
 
 
