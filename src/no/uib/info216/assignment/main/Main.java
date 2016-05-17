@@ -69,9 +69,13 @@ public class Main {
                     Resource muscle = (Resource) binding.get("Muscles");
                     muscles.add(muscle);
                     equipment = (Resource) binding.get("Required_Equipment");
-
+                    Resource tempUse = null;
                     label = binding.getLiteral("label");
 
+                    tempUse = (Resource) binding.get("Can_Use");
+                    if (tempUse.equals(can_use)) {
+                        break;
+                    }
                     can_use = (Resource) binding.get("Can_Use");
 
                     can_useList.add(can_use);
