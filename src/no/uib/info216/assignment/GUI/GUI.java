@@ -1,17 +1,13 @@
 package no.uib.info216.assignment.GUI;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.List;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -21,12 +17,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.border.EmptyBorder;
 
-import no.uib.info216.assignment.SPARQLQueries.QueryItems;
-import no.uib.info216.assignment.SPARQLQueries.strings.QueryStrings;
 
 public class GUI extends JFrame {
 
@@ -117,8 +110,14 @@ public class GUI extends JFrame {
 		JPanel excercisePanel = new JPanel(new SpringLayout());
 		tabbedPane.addTab("Excercises", excercisePanel);
 
-		JButton TricepExtension = new JButton("Tricep Extension");
-		excercisePanel.add(TricepExtension);
+		JButton tricepExtension = new JButton("Tricep Extension");
+		excercisePanel.add(tricepExtension);
+
+		JPanel machinePanel = new JPanel(new SpringLayout());
+		tabbedPane.addTab("Machines", machinePanel);
+
+		JButton latPulldown = new JButton("Lat Pulldown Machine");
+		machinePanel.add(latPulldown);
 
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -175,7 +174,7 @@ public class GUI extends JFrame {
 		JMenu mnSettings = new JMenu("Help");
 		menuBar.add(mnSettings);
 
-		menuSettingsAddUser = new JMenuItem("Add user");
+		menuSettingsAddUser = new JMenuItem("Info");
 		mnSettings.add(menuSettingsAddUser);
 		setVisible(true);
 	}
