@@ -1,23 +1,10 @@
 package no.uib.info216.assignment.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.List;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.SpringLayout;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 
@@ -72,46 +59,67 @@ public class GUI extends JFrame {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 
-		JPanel panel = new JPanel();
-		tabbedPane.addTab("My Program", null, panel, null);
+		JPanel programPanel = new JPanel();
+		tabbedPane.addTab("My Program", null, programPanel, null);
 
 		SpringLayout sl_panel = new SpringLayout();
-		panel.setLayout(sl_panel);
+		programPanel.setLayout(sl_panel);
 
-		this.deadliftButton = new JButton("Deadlift"); 
+		JComboBox<String> experienceOptions = new JComboBox<>();
+		experienceOptions.addItem("None");
+		experienceOptions.addItem("Less than 6 months");
+		experienceOptions.addItem("More than 6 months");
+		experienceOptions.addItem("Less than a year");
+		experienceOptions.addItem("More than a year");
+		experienceOptions.addItem("Less than 2 years");
+		experienceOptions.addItem("More than 2 years");
+
+		JLabel chooseExperience = new JLabel("Please select your previous experience with weightlifting");
+
+		sl_panel.putConstraint(SpringLayout.VERTICAL_CENTER, chooseExperience, -100, SpringLayout.VERTICAL_CENTER, programPanel);
+		sl_panel.putConstraint(SpringLayout.EAST, chooseExperience, -250, SpringLayout.EAST, programPanel);
+		programPanel.add(chooseExperience);
+
+
+		sl_panel.putConstraint(SpringLayout.VERTICAL_CENTER, experienceOptions, 0, SpringLayout.VERTICAL_CENTER, programPanel);
+		sl_panel.putConstraint(SpringLayout.EAST, experienceOptions, -335, SpringLayout.EAST, programPanel);
+		programPanel.add(experienceOptions);
+
+
+
+
+
+		JPanel excercisePanel = new JPanel();
+		tabbedPane.addTab("Excercises", null, excercisePanel, null);
+
+		SpringLayout ex_panel = new SpringLayout();
+		excercisePanel.setLayout(ex_panel);
+
+		this.deadliftButton = new JButton("Deadlift");
 		this.squatButton = new JButton("Squat");
-		this.benchPressButton = new JButton("Bench Press"); 
-		this.overheadPressButton = new JButton("Overhead Press"); 
-		
-																
-		sl_panel.putConstraint(SpringLayout.NORTH, deadliftButton, 15, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, deadliftButton, 40, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, deadliftButton, -500, SpringLayout.EAST, panel);
-		panel.add(deadliftButton);
-		
-		sl_panel.putConstraint(SpringLayout.NORTH, squatButton, 70, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, squatButton, 45, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, squatButton, -500, SpringLayout.EAST, panel);
-		panel.add(squatButton);
-		
-		sl_panel.putConstraint(SpringLayout.NORTH, benchPressButton, 125, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, benchPressButton, 50, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, benchPressButton, -500, SpringLayout.EAST, panel);
-		panel.add(benchPressButton);
-		
-		sl_panel.putConstraint(SpringLayout.NORTH, overheadPressButton, 180, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, overheadPressButton, 35, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.EAST,overheadPressButton, -500, SpringLayout.EAST, panel);
-		panel.add(overheadPressButton);
-		
+		this.benchPressButton = new JButton("Bench Press");
+		this.overheadPressButton = new JButton("Overhead Press");
 
-		
 
-		JPanel excercisePanel = new JPanel(new SpringLayout());
-		tabbedPane.addTab("Excercises", excercisePanel);
+		ex_panel.putConstraint(SpringLayout.NORTH, deadliftButton, 15, SpringLayout.NORTH, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.WEST, deadliftButton, 40, SpringLayout.WEST, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.EAST, deadliftButton, -500, SpringLayout.EAST, excercisePanel);
+		excercisePanel.add(deadliftButton);
 
-		JButton tricepExtension = new JButton("Tricep Extension");
-		excercisePanel.add(tricepExtension);
+		ex_panel.putConstraint(SpringLayout.NORTH, squatButton, 70, SpringLayout.NORTH, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.WEST, squatButton, 45, SpringLayout.WEST, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.EAST, squatButton, -500, SpringLayout.EAST, excercisePanel);
+		excercisePanel.add(squatButton);
+
+		ex_panel.putConstraint(SpringLayout.NORTH, benchPressButton, 125, SpringLayout.NORTH, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.WEST, benchPressButton, 50, SpringLayout.WEST, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.EAST, benchPressButton, -500, SpringLayout.EAST, excercisePanel);
+		excercisePanel.add(benchPressButton);
+
+		ex_panel.putConstraint(SpringLayout.NORTH, overheadPressButton, 180, SpringLayout.NORTH, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.WEST, overheadPressButton, 35, SpringLayout.WEST, excercisePanel);
+		ex_panel.putConstraint(SpringLayout.EAST,overheadPressButton, -500, SpringLayout.EAST, excercisePanel);
+		excercisePanel.add(overheadPressButton);
 
 		JPanel machinePanel = new JPanel(new SpringLayout());
 		tabbedPane.addTab("Machines", machinePanel);

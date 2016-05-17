@@ -17,14 +17,14 @@ public class PopupMachines extends JFrame {
 
     private static final long serialVersionUID = -4062320114203994593L;
     private JPanel contentPane; // panel to be used to add elements to.
-    private JLabel labelUsername, lblUsername, lblFirstName, lblLastName;
+    private JLabel labelUsername, lblUsername, labelOffers, labelImplements;
     private JTextField textFieldUsername; // field so user can enter username.
     private JTextField textFieldFirstname;
     private JTextField textFieldLastname;
     private JButton btnSave;  // button for saving the user.
     private JButton btnClose; // button to close the user view.
     private JTextField textFieldNewPassword;
-    private JLabel lblNewPassword;
+    private JLabel labelDefinition;
     private boolean newUser = false;
     private JTabbedPane tabbedPane;
     private JPanel panel;
@@ -98,24 +98,24 @@ public class PopupMachines extends JFrame {
             panel.add(textFieldUsername);
         }
 
-        lblFirstName = new JLabel("Used By:");
-        panel.add(lblFirstName);
+        labelOffers = new JLabel("Offers:");
+        panel.add(labelOffers);
 
         textFieldFirstname = new JTextField(15);
         panel.add(textFieldFirstname);
         textFieldFirstname.setToolTipText("First Name");
 
-        lblLastName = new JLabel("Weight:");
-        panel.add(lblLastName);
+        labelImplements = new JLabel("Implements:");
+        panel.add(labelImplements);
 
         textFieldLastname = new JTextField(15);
         panel.add(textFieldLastname);
-        textFieldLastname.setToolTipText("Other:");
+        textFieldLastname.setToolTipText("Definition:");
 
 
 
-        lblNewPassword = new JLabel("Other:");
-        panel.add(lblNewPassword);
+        labelDefinition = new JLabel("Definition:");
+        panel.add(labelDefinition);
 
         textFieldNewPassword = new JPasswordField(15);
         panel.add(textFieldNewPassword);
