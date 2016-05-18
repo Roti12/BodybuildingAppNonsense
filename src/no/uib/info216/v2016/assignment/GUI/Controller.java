@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import no.uib.info216.v2016.assignment.excercises.Exercise;
+import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
 
 
 import java.io.IOException;
@@ -79,8 +80,12 @@ public class Controller implements Initializable {
     private final MenuItem detailsMenuItem = new MenuItem("Details");
 
 
+    private ProgramCreator program = null;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        program  = new ProgramCreator();
         comboboxExperience.setItems(experienceList);
 
         //Set days items list's
@@ -91,6 +96,8 @@ public class Controller implements Initializable {
         listviewFriday.setItems(fridayList);
         listviewSaturday.setItems(saturdayList);
         listviewSunday.setItems(sundayList);
+
+        addListeners();
 
 
     }
@@ -138,9 +145,6 @@ public class Controller implements Initializable {
         });
 
 
-
-
-
         buttonCreate_Program.setOnAction(event -> createNewProgram());
 
 
@@ -149,7 +153,26 @@ public class Controller implements Initializable {
 
     private void createNewProgram()
     {
-        //here
+        mondayList.clear();
+        tuesdayList.clear();
+        wednesdayList.clear();
+        thursdayList.clear();
+        fridayList.clear();
+        saturdayList.clear();
+        sundayList.clear();
+
+
+        System.out.println("creating");
+        program.create(); //implement levels  ?
+
+        //add newly created program to schedule
+        mondayList.addAll(program.getMonday());
+        thursdayList.addAll(program.getTuesday());
+        wednesdayList.addAll(program.getWednesday());
+        thursdayList.addAll(program.getThursday());
+        fridayList.addAll(program.getFriday());
+        saturdayList.addAll(program.getSaturday());
+        sundayList.addAll(program.getSunday());
     }
 
 

@@ -44,12 +44,20 @@ public class ProgramCreator {
      These are just a few examples for what you can do, but you really don’t need to make things more complicated than this.
      */
 
-    public void create() {
-        createMonday();
-        for (Exercise e: monday
-             ) {System.out.println(e);
+    public void create() {//implement levels  ? !=?
+        clear();
 
-        }
+        createMonday();
+    }
+
+    private void clear() {
+        monday.clear();
+        tuesday.clear();
+        wednesday.clear();
+        thursday.clear();
+        friday.clear();
+        saturday.clear();
+        sunday.clear();
     }
 
     private void createMonday() {
@@ -70,7 +78,7 @@ public class ProgramCreator {
         while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
             Resource muscle = (Resource) binding.get("Muscles");
-            if(!muscles.contains(muscle)) {
+            if (!muscles.contains(muscle)) {
                 muscles.add(muscle);
             }
             label = binding.getLiteral("label");
@@ -95,7 +103,7 @@ public class ProgramCreator {
             QuerySolution binding = result.nextSolution();
 
             Resource muscle = (Resource) binding.get("Muscles");
-            if(!muscles.contains(muscle)) {
+            if (!muscles.contains(muscle)) {
 
                 muscles.add(muscle);
             }
@@ -108,7 +116,7 @@ public class ProgramCreator {
                 break;
             }
             can_use = (Resource) binding.get("Can_Use");
-            if(!can_useList.contains(can_use)) {
+            if (!can_useList.contains(can_use)) {
 
                 can_useList.add(can_use);
             }
@@ -170,13 +178,13 @@ public class ProgramCreator {
             label = binding.getLiteral("label");
 
             Resource muscle = (Resource) binding.get("Muscles");
-            if(!muscles.contains(muscle)) {
+            if (!muscles.contains(muscle)) {
 
                 muscles.add(muscle);
             }
 
             can_use = (Resource) binding.get("Equipment");
-            if(!can_useList.contains(can_use)) {
+            if (!can_useList.contains(can_use)) {
 
                 can_useList.add(can_use);
             }
@@ -185,4 +193,34 @@ public class ProgramCreator {
 
         return new Exercise("Bicep Curls", label, null, can_useList, muscles);
     }
+
+
+    public List<Exercise> getSunday() {
+        return sunday;
+    }
+
+    public List<Exercise> getMonday() {
+        return monday;
+    }
+
+    public List<Exercise> getTuesday() {
+        return tuesday;
+    }
+
+    public List<Exercise> getWednesday() {
+        return wednesday;
+    }
+
+    public List<Exercise> getThursday() {
+        return thursday;
+    }
+
+    public List<Exercise> getFriday() {
+        return friday;
+    }
+
+    public List<Exercise> getSaturday() {
+        return saturday;
+    }
+
 }

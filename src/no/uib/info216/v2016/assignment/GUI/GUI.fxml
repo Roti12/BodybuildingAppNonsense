@@ -70,7 +70,7 @@
                                  <children>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <ListView fx:id="listviewMonday" layoutX="-37.0" prefHeight="417.0" prefWidth="194.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ListView fx:id="listviewMonday" layoutX="-8.0" prefHeight="417.0" prefWidth="194.0" styleClass="list_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <effect>
                                                 <Glow />
                                              </effect>
@@ -85,7 +85,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                        <children>
-                                          <ListView fx:id="listviewTuesday" layoutX="-4.0" prefHeight="417.0" prefWidth="194.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ListView fx:id="listviewTuesday" layoutX="-4.0" prefHeight="417.0" prefWidth="194.0" styleClass="list_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <effect>
                                                 <Glow />
                                              </effect>
@@ -100,7 +100,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                        <children>
-                                          <ListView fx:id="listviewWednesday" prefHeight="417.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ListView fx:id="listviewWednesday" prefHeight="417.0" prefWidth="200.0" styleClass="list_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <effect>
                                                 <Glow />
                                              </effect>
@@ -115,7 +115,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                                        <children>
-                                          <ListView fx:id="listviewThursday" prefHeight="417.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ListView fx:id="listviewThursday" prefHeight="417.0" prefWidth="200.0" styleClass="list_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <effect>
                                                 <Glow />
                                              </effect>
@@ -130,7 +130,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
                                        <children>
-                                          <ListView fx:id="listviewFriday" prefHeight="417.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ListView fx:id="listviewFriday" prefHeight="417.0" prefWidth="200.0" styleClass="list_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <effect>
                                                 <Glow />
                                              </effect>
@@ -145,7 +145,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
                                        <children>
-                                          <ListView fx:id="listviewSaturday" prefHeight="417.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ListView fx:id="listviewSaturday" prefHeight="417.0" prefWidth="200.0" styleClass="list_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <effect>
                                                 <Glow />
                                              </effect>
@@ -160,7 +160,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
                                        <children>
-                                          <ListView fx:id="listviewSunday" prefHeight="417.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <ListView fx:id="listviewSunday" prefHeight="417.0" prefWidth="200.0" styleClass="list_view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <effect>
                                                 <Glow />
                                              </effect>
