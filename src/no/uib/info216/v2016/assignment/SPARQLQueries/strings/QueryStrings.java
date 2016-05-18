@@ -87,5 +87,8 @@ public class QueryStrings {
 			+ "SELECT * WHERE {"
 			+ "ont:Seated_Cable_Row ont:Is_Used_In ?Excercises ;"
 			+ "ont:label ?label . }";
-	
+
+	public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "}";
 }

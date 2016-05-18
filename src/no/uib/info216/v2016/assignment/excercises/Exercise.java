@@ -29,8 +29,9 @@ public class Exercise {
     @Override
     public String toString() {
 
+        return String.format("%s", this.name);
 
-        return String.format("%s: %s, %s, %s, %s", this.name, getMusclesString(), this.equipment, this.description, getCan_UseString());
+      //  return String.format("%s: %s, %s, %s, %s", this.name, getMusclesString(), this.equipment, this.description, getCan_UseString());
     }
 
 

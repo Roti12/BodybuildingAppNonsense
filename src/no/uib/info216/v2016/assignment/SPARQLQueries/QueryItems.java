@@ -8,7 +8,7 @@ import org.apache.jena.rdf.model.Model;
 public class QueryItems {
 
 	
-	public static ResultSet queryOntology(String modelName, String queryString) {
+	public static ResultSet queryOntology(String queryString) {
 		Model model = Datasets.getDataset().getNamedModel("Workout Planner");
 
 		Query query = QueryFactory.create(queryString);

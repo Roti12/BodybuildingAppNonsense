@@ -4,6 +4,7 @@ import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
 import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 
@@ -23,6 +24,18 @@ public class ProgramCreator {
     private List<Exercise> saturday = null;
     private List<Exercise> sunday = null;
 
+
+    private int LEVEL = 0;
+
+    public class WORKOUT {
+        public static final int LEVEL_1 = 0;
+        public static final int LEVEL_2 = 1;
+        public static final int LEVEL_3 = 2;
+        public static final int LEVEL_4 = 3;
+        public static final int LEVEL_5 = 4;
+        public static final int LEVEL_6 = 5;
+        public static final int LEVEL_7 = 6;
+    }
 
     public ProgramCreator() {
         monday = new ArrayList<>();
@@ -44,10 +57,31 @@ public class ProgramCreator {
      These are just a few examples for what you can do, but you really don’t need to make things more complicated than this.
      */
 
-    public void create() {//implement levels  ? !=?
-        clear();
+    public List<String> getEquipment()
+    {
+        //get all equipment from ontology ?
 
+
+        ResultSet result = QueryItems.queryOntology( QueryStrings.queryEquipment);
+        List<String> tmp = new ArrayList<>();
+
+        //parse
+
+
+        return tmp;
+    }
+    public void create(int LEVEL) {
+        clear();
+        setLEVEL(LEVEL);
+
+        //Create the days
         createMonday();
+        createTuesday();
+        createWednesday();
+        createThursday();
+        createFriday();
+        createSaturday();
+        createSunday();
     }
 
     private void clear() {
@@ -61,17 +95,310 @@ public class ProgramCreator {
     }
 
     private void createMonday() {
-        monday.add(getSquat());
-        monday.add(getDeadlift());
-        monday.add(getBenchPress());
-        monday.add(getCableRow());
-        monday.add(getBicepCurl());
+        switch (LEVEL) {
+            case WORKOUT.LEVEL_1:
+                monday.add(getSquat());
+                monday.add(getDeadlift());
+                monday.add(getBenchPress());
+                monday.add(getCableRow());
+                monday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_2:
+                break;
+            case WORKOUT.LEVEL_3:
+                break;
+            case WORKOUT.LEVEL_4:
+                break;
+            case WORKOUT.LEVEL_5:
+                monday.add(getBicepCurl());
+                monday.add(getBicepCurl());
+                monday.add(getBicepCurl());
+                monday.add(getBicepCurl());
+                monday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_6:
+                monday.add(getSquat());
+                monday.add(getDeadlift());
+                monday.add(getBenchPress());
+                monday.add(getCableRow());
+                monday.add(getBicepCurl());
+                break;
+            case  WORKOUT.LEVEL_7:
+                monday.add(getSquat());
+                monday.add(getDeadlift());
+                monday.add(getBenchPress());
+                monday.add(getCableRow());
+                monday.add(getBicepCurl());
+                break;
+        }
+
+    }
+
+    private void createTuesday() {
+        switch (LEVEL) {
+            case WORKOUT.LEVEL_1:
+                break;
+            case WORKOUT.LEVEL_2:
+                tuesday.add(getSquat());
+                tuesday.add(getDeadlift());
+                tuesday.add(getBenchPress());
+                tuesday.add(getCableRow());
+                tuesday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_3:
+                tuesday.add(getSquat());
+                tuesday.add(getDeadlift());
+                tuesday.add(getBenchPress());
+                tuesday.add(getCableRow());
+                tuesday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_4:
+                tuesday.add(getDeadlift());
+                tuesday.add(getDeadlift());
+                tuesday.add(getDeadlift());
+                tuesday.add(getDeadlift());
+                tuesday.add(getDeadlift());
+                break;
+            case WORKOUT.LEVEL_5:
+                tuesday.add(getSquat());
+                tuesday.add(getSquat());
+                tuesday.add(getSquat());
+                tuesday.add(getSquat());
+                tuesday.add(getSquat());
+                break;
+            case WORKOUT.LEVEL_6:
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                break;
+            case  WORKOUT.LEVEL_7:
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                tuesday.add(getBicepCurl());
+                break;
+        }
+
+
+    }
+
+    private void createWednesday() {
+        switch (LEVEL) {
+            case WORKOUT.LEVEL_1:
+                wednesday.add(getSquat());
+                wednesday.add(getDeadlift());
+                wednesday.add(getBenchPress());
+                wednesday.add(getCableRow());
+                wednesday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_2:
+                break;
+            case WORKOUT.LEVEL_3:
+                break;
+            case WORKOUT.LEVEL_4:
+                wednesday.add(getBenchPress());
+                wednesday.add(getBenchPress());
+                wednesday.add(getBicepCurl());
+                wednesday.add(getBenchPress());
+                wednesday.add(getBenchPress());
+                break;
+            case WORKOUT.LEVEL_5:
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                break;
+            case WORKOUT.LEVEL_6:
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                wednesday.add(getCableRow());
+                break;
+            case  WORKOUT.LEVEL_7:
+                wednesday.add(getDeadlift());
+                wednesday.add(getDeadlift());
+                wednesday.add(getDeadlift());
+                wednesday.add(getDeadlift());
+                wednesday.add(getDeadlift());
+                break;
+        }
+
+
+    }
+
+    private void createThursday() {
+        switch (LEVEL) {
+            case WORKOUT.LEVEL_1:
+
+                break;
+            case WORKOUT.LEVEL_2:
+                thursday.add(getSquat());
+                thursday.add(getDeadlift());
+                thursday.add(getBenchPress());
+                thursday.add(getCableRow());
+                thursday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_3:
+                thursday.add(getSquat());
+                thursday.add(getDeadlift());
+                thursday.add(getBenchPress());
+                thursday.add(getCableRow());
+                thursday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_4:
+                thursday.add(getCableRow());
+                thursday.add(getCableRow());
+                thursday.add(getCableRow());
+                thursday.add(getCableRow());
+                thursday.add(getCableRow());
+                break;
+            case WORKOUT.LEVEL_5:
+                break;
+            case WORKOUT.LEVEL_6:
+                thursday.add(getDeadlift());
+                thursday.add(getDeadlift());
+                thursday.add(getDeadlift());
+                thursday.add(getDeadlift());
+                thursday.add(getDeadlift());
+                break;
+            case  WORKOUT.LEVEL_7:
+                thursday.add(getBenchPress());
+                thursday.add(getBenchPress());
+                thursday.add(getBenchPress());
+                thursday.add(getBenchPress());
+                thursday.add(getBenchPress());
+                break;
+
+        }
+
+
+    }
+
+    private void createFriday() {
+        switch (LEVEL) {
+            case WORKOUT.LEVEL_1:
+                friday.add(getSquat());
+                friday.add(getDeadlift());
+                friday.add(getBenchPress());
+                friday.add(getCableRow());
+                friday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_2:
+                break;
+            case WORKOUT.LEVEL_3:
+                friday.add(getSquat());
+                friday.add(getDeadlift());
+                friday.add(getBenchPress());
+                friday.add(getCableRow());
+                friday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_4:
+                break;
+            case WORKOUT.LEVEL_5:
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                break;
+            case WORKOUT.LEVEL_6:
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                friday.add(getBenchPress());
+                break;
+            case  WORKOUT.LEVEL_7:
+                friday.add(getCableRow());
+                friday.add(getCableRow());
+                friday.add(getCableRow());
+                friday.add(getCableRow());
+                friday.add(getCableRow());
+                break;
+        }
+
+    }
+
+    private void createSaturday() {
+        switch (LEVEL) {
+            case WORKOUT.LEVEL_1:
+                break;
+            case WORKOUT.LEVEL_2:
+                saturday.add(getSquat());
+                saturday.add(getDeadlift());
+                saturday.add(getBenchPress());
+                saturday.add(getCableRow());
+                saturday.add(getBicepCurl());
+                break;
+            case WORKOUT.LEVEL_3:
+                break;
+            case WORKOUT.LEVEL_4:
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                break;
+            case WORKOUT.LEVEL_5:
+                break;
+            case WORKOUT.LEVEL_6:
+                break;
+            case  WORKOUT.LEVEL_7:
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                saturday.add(getSquat());
+                break;
+        }
+
+    }
+
+    private void createSunday() {
+        switch (LEVEL) {
+            case WORKOUT.LEVEL_1:
+
+                break;
+            case WORKOUT.LEVEL_2:
+                break;
+            case WORKOUT.LEVEL_3:
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                break;
+            case WORKOUT.LEVEL_4:
+                break;
+            case WORKOUT.LEVEL_5:
+                sunday.add(getDeadlift());
+                sunday.add(getDeadlift());
+                sunday.add(getDeadlift());
+                sunday.add(getDeadlift());
+                sunday.add(getDeadlift());
+                break;
+            case WORKOUT.LEVEL_6:
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                sunday.add(getSquat());
+                break;
+            case  WORKOUT.LEVEL_7:
+
+                break;
+        }
 
     }
 
     private Exercise getSquat() {
         //	System.out.println("Hello, you have pressed a button");
-        ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.querySquat);
+        ResultSet result = QueryItems.queryOntology( QueryStrings.querySquat);
         List<Resource> muscles = new ArrayList<>();
         Literal label = null;
 
@@ -91,7 +418,7 @@ public class ProgramCreator {
 
     private Exercise getDeadlift() {
         //	System.out.println("Hello, you have pressed a button");
-        ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.queryDeadlift);
+        ResultSet result = QueryItems.queryOntology( QueryStrings.queryDeadlift);
         List<Resource> muscles = new ArrayList<>();
         List<Resource> can_useList = new ArrayList<>();
 
@@ -129,7 +456,7 @@ public class ProgramCreator {
     }
 
     private Exercise getBenchPress() {
-        ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.queryBenchPress);
+        ResultSet result = QueryItems.queryOntology( QueryStrings.queryBenchPress);
         List<Resource> can_useList = new ArrayList<>();
 
         Resource can_use;
@@ -148,7 +475,7 @@ public class ProgramCreator {
     }
 
     private Exercise getCableRow() {
-        ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.querySeatedCableRowMachine);
+        ResultSet result = QueryItems.queryOntology( QueryStrings.querySeatedCableRowMachine);
         Literal label = null;
 
         while (result.hasNext()) {
@@ -166,7 +493,7 @@ public class ProgramCreator {
 
 
     private Exercise getBicepCurl() {
-        ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.queryBicepCurl);
+        ResultSet result = QueryItems.queryOntology( QueryStrings.queryBicepCurl);
         List<Resource> can_useList = new ArrayList<>();
         List<Resource> muscles = new ArrayList<>();
         Literal label = null;
@@ -194,6 +521,13 @@ public class ProgramCreator {
         return new Exercise("Bicep Curls", label, null, can_useList, muscles);
     }
 
+    public int getLEVEL() {
+        return LEVEL;
+    }
+
+    public void setLEVEL(int LEVEL) {
+        this.LEVEL = LEVEL;
+    }
 
     public List<Exercise> getSunday() {
         return sunday;

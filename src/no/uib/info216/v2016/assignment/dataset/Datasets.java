@@ -9,20 +9,15 @@ public class Datasets {
 	private static Dataset dataset = TDBFactory.createDataset();
 	
 	public void addModelToSet(Model model, String name) {
-		@SuppressWarnings("unused")
 		String namedGraphURI = name;
 		dataset.addNamedModel(name, model);
 
-		// dataset.getNamedModel(name).write(System.out, "N-TRIPLE");
+		//dataset.getNamedModel(name).write(System.out, "TURTLE");
 	}
 
 	public static Dataset getDataset() {
 		return dataset;
 	}
 
-	@SuppressWarnings("static-access")
-	public void setDataset(Dataset dataset) {
-		this.dataset = dataset;
-	}
-	
+
 }

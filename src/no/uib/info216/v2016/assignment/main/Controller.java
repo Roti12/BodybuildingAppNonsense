@@ -1,4 +1,4 @@
-package no.uib.info216.v2016.assignment.GUI;
+package no.uib.info216.v2016.assignment.main;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -60,6 +60,20 @@ public class Controller implements Initializable {
                     "More than 2 years"
             );
 
+    private final ObservableList<String> equipmentList =
+            FXCollections.observableArrayList(
+
+                    "Bench",
+                    "Bench Press Rack",
+                    "Squat Rack",
+                    "Olympic Barbell Men",
+                    "Cap Barbell Dumbells",
+                    "Rounded Dumbells",
+                    "Hexagonal Dumbells",
+                    "Squared Dumbells",
+                    "Kettlebells",
+                    "Weighted Plates"
+            );
 
     @FXML
     TabPane tabHolder;
@@ -69,7 +83,9 @@ public class Controller implements Initializable {
     private
     ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday;
     @FXML
-    Button buttonCreate_Program,buttonClose_Exercise,buttonClose_Machine,buttonClose_Equipment;
+    ListView listviewEquipment;
+    @FXML
+    Button buttonCreate_Program, buttonClose_Exercise, buttonClose_Machine, buttonClose_Equipment;
     @FXML
     private
     ComboBox<String> comboboxExperience;
@@ -82,12 +98,21 @@ public class Controller implements Initializable {
 
     private ProgramCreator program = null;
 
+    /**
+     * Sets the Main controller, meaning the one from the first windows eg. the GUI
+     *
+     * @param controller The main controller, not a window controller
+     */
+    public void setMainController(Controller controller) {
+        this.mainController = controller;
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        program  = new ProgramCreator();
+        program = new ProgramCreator();
         comboboxExperience.setItems(experienceList);
-
+        getEquipment();
         //Set days items list's
         listviewMonday.setItems(mondayList);
         listviewTuesday.setItems(tuesdayList);
@@ -97,6 +122,7 @@ public class Controller implements Initializable {
         listviewSaturday.setItems(saturdayList);
         listviewSunday.setItems(sundayList);
 
+        listviewEquipment.setItems(equipmentList);
         addListeners();
 
 
@@ -150,9 +176,12 @@ public class Controller implements Initializable {
 
     }
 
+    private void getEquipment() {
+        program.getEquipment();
+    }
 
-    private void createNewProgram()
-    {
+    private void createNewProgram() {
+
         mondayList.clear();
         tuesdayList.clear();
         wednesdayList.clear();
@@ -161,28 +190,21 @@ public class Controller implements Initializable {
         saturdayList.clear();
         sundayList.clear();
 
+        int workoutLevel = comboboxExperience.getSelectionModel().getSelectedIndex();
 
-        System.out.println("creating");
-        program.create(); //implement levels  ?
+        if (workoutLevel > -1) {
+            System.out.println("creating");
+            program.create(workoutLevel); //implement levels  ?
 
-        //add newly created program to schedule
-        mondayList.addAll(program.getMonday());
-        thursdayList.addAll(program.getTuesday());
-        wednesdayList.addAll(program.getWednesday());
-        thursdayList.addAll(program.getThursday());
-        fridayList.addAll(program.getFriday());
-        saturdayList.addAll(program.getSaturday());
-        sundayList.addAll(program.getSunday());
-    }
-
-
-    /**
-     * Sets the Main controller, meaning the one from the first windows eg. the GUI
-     *
-     * @param controller The main controller, not a window controller
-     */
-    public void setMainController(Controller controller) {
-        this.mainController = controller;
+            //add newly created program to schedule
+            mondayList.addAll(program.getMonday());
+            tuesdayList.addAll(program.getTuesday());
+            wednesdayList.addAll(program.getWednesday());
+            thursdayList.addAll(program.getThursday());
+            fridayList.addAll(program.getFriday());
+            saturdayList.addAll(program.getSaturday());
+            sundayList.addAll(program.getSunday());
+        }
     }
 
 

@@ -1,4 +1,4 @@
-package no.uib.info216.v2016.assignment.GUI;
+package no.uib.info216.v2016.assignment.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,14 +17,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root ;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GUI.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../GUI/GUI.fxml"));
 
         Controller controller = new Controller();
         controller.setMainController(controller);
         fxmlLoader.setController(controller);
         root = fxmlLoader.load();
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(this.getClass().getResource("GUI.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("../GUI/GUI.css").toExternalForm());
         controller.initializeGUI();
 
         primaryStage.setTitle("Workout Planner");
