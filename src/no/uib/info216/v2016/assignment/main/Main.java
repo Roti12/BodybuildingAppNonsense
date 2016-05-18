@@ -1,26 +1,23 @@
-package no.uib.info216.assignment.main;
+package no.uib.info216.v2016.assignment.main;
 
-import no.uib.info216.assignment.GUI.GUI;
-import no.uib.info216.assignment.GUI.PopupEquipment;
-import no.uib.info216.assignment.GUI.PopupExercises;
-import no.uib.info216.assignment.SPARQLQueries.QueryItems;
-import no.uib.info216.assignment.SPARQLQueries.strings.QueryStrings;
-import no.uib.info216.assignment.dataset.Datasets;
-import no.uib.info216.assignment.excercises.Exercise;
-import no.uib.info216.assignment.models.Models;
+import no.uib.info216.v2016.assignment.GUI.GUI;
+import no.uib.info216.v2016.assignment.GUI.PopupEquipment;
+import no.uib.info216.v2016.assignment.GUI.PopupExercises;
+import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
+import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
+import no.uib.info216.v2016.assignment.dataset.Datasets;
+import no.uib.info216.v2016.assignment.excercises.Exercise;
+import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
+import no.uib.info216.v2016.assignment.models.Models;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +39,26 @@ public class Main {
         model = new Models();
         dataset.addModelToSet(model.addFileModel("MachinesAndExcercises.owl"), "Workout Planner");
         appendActions();
+        ProgramCreator program= new ProgramCreator();
+        program.create();
+        getall();
+    }
 
+    private static void getall()
+    {
+        ResultSet result = QueryItems.queryOntology("Workout Planner", QueryStrings.querySeatedCableRowMachine);
+        List<Resource> muscles = new ArrayList<>();
+        List<Resource> can_useList = new ArrayList<>();
+
+        Resource equipment = null;
+        Literal label = null;
+        Resource can_use = null;
+        while (result.hasNext()) {
+            ResultSetFormatter.out(result);
+
+
+
+        }
     }
 
     public static void appendActions() {
@@ -82,7 +98,7 @@ public class Main {
 
                 }
 
-                Exercise exercise = new Exercise(label, equipment, can_useList, muscles);
+                Exercise exercise = new Exercise("Deadlift",label, equipment, can_useList, muscles);
                 System.out.println(exercise);
                 popEx = new PopupExercises("Deadlift",exercise);
 
@@ -109,7 +125,7 @@ public class Main {
 
                 }
 
-                Exercise exercise = new Exercise(label, null, null, muscles);
+                Exercise exercise = new Exercise("Squat",label, null, null, muscles);
                 System.out.println(exercise);
                 popEx = new PopupExercises("Squat", exercise);
 
@@ -134,7 +150,7 @@ public class Main {
 
                 }
 
-                Exercise exercise = new Exercise(null, null, can_useList, null);
+                Exercise exercise = new Exercise("Benchpress",null, null, can_useList, null);
                 System.out.println(exercise);
                 popEx = new PopupExercises("Benchpress",exercise);
 

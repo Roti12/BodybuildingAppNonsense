@@ -1,4 +1,4 @@
-package no.uib.info216.assignment.SPARQLQueries.strings;
+package no.uib.info216.v2016.assignment.SPARQLQueries.strings;
 
 public class QueryStrings {
 
@@ -68,17 +68,17 @@ public class QueryStrings {
 	
 	public static String queryLatPullMachine = "PREFIX ont: <http://machines&excercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
-			+ "ont:Seated_Cable_Row ont:Implements ?Excercises ;"
+			+ "ont:Lat_Pulldown_Machine ont:Implements ?Excercises ;"
 			+ "ont:label ?label . }";
 	
 	public static String queryPreacherCurlMachine = "PREFIX ont: <http://machines&excercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
-			+ "ont:Seated_Cable_Row ont:Implements ?Excercises ;"
+			+ "ont:Preacher_Curl ont:Implements ?Excercises ;"
 			+ "ont:label ?label . }";
 	
 	public static String querySeatedCableRowMachine = "PREFIX ont: <http://machines&excercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
-			+ "ont:Seated_Cable_Row ont:Implements ?Excercises ;"
+			+ "ont:Seated_Cable_Row_Machine ont:Implements ?Excercises ;"
 			+ "ont:label ?label . }";
 	
 	// Equipment

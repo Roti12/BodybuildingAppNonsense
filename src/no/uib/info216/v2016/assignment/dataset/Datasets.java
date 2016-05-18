@@ -1,4 +1,4 @@
-package no.uib.info216.assignment.dataset;
+package no.uib.info216.v2016.assignment.dataset;
 
 import org.apache.jena.query.Dataset;
 import org.apache.jena.rdf.model.Model;

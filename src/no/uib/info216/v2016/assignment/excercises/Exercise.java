@@ -1,4 +1,4 @@
-package no.uib.info216.assignment.excercises;
+package no.uib.info216.v2016.assignment.excercises;
 
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
@@ -11,12 +11,14 @@ import java.util.List;
 public class Exercise {
 
 
+    private String name;
     private Literal description ;
     private Resource equipment;
     private List<Resource> can_use;
     private List<Resource> muscles;
 
-    public Exercise(Literal description, Resource equipment, List<Resource> can_use, List<Resource> muscles) {
+    public Exercise(String name, Literal description, Resource equipment, List<Resource> can_use, List<Resource> muscles) {
+        setName(name);
         setDescription(description);
         setEquipment(equipment);
         setCan_use(can_use);
@@ -28,7 +30,16 @@ public class Exercise {
     public String toString() {
 
 
-        return String.format("%s, %s, %s, %s", getMusclesString(), this.equipment, this.description, getCan_UseString());
+        return String.format("%s: %s, %s, %s, %s", this.name, getMusclesString(), this.equipment, this.description, getCan_UseString());
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Literal getDescription() {

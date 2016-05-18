@@ -1,17 +1,8 @@
-package no.uib.info216.assignment.GUI;
+package no.uib.info216.v2016.assignment.GUI;
 
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
-import javax.swing.JTabbedPane;
-import javax.swing.BoxLayout;
+import java.awt.*;
 
 public class PopupEquipment extends JFrame {
 

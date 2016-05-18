@@ -1,13 +1,9 @@
-package no.uib.info216.assignment.SPARQLQueries;
+package no.uib.info216.v2016.assignment.SPARQLQueries;
 
 
-
-import no.uib.info216.assignment.dataset.Datasets;
-
+import no.uib.info216.v2016.assignment.dataset.Datasets;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
 
 public class QueryItems {
 

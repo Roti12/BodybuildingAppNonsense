@@ -1,4 +1,4 @@
-package no.uib.info216.assignment.models;
+package no.uib.info216.v2016.assignment.models;
 
 
 import org.apache.jena.rdf.model.Model;

@@ -1,6 +1,6 @@
-package no.uib.info216.assignment.GUI;
+package no.uib.info216.v2016.assignment.GUI;
 
-import no.uib.info216.assignment.excercises.Exercise;
+import no.uib.info216.v2016.assignment.excercises.Exercise;
 
 import javax.swing.*;
 import java.awt.*;

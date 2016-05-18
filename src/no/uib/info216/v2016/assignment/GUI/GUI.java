@@ -1,11 +1,10 @@
-package no.uib.info216.assignment.GUI;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+package no.uib.info216.v2016.assignment.GUI;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class GUI extends JFrame {
