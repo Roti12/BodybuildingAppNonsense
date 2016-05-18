@@ -1,0 +1,17 @@
+.list_view
+{
+    -fx-font: 16pt "Consolas";
+}
+
+.list_view .list-cell:filled:selected:focused, .list-cell:filled:selected {
+    /* 3:, 4: */
+    -fx-background-color: linear-gradient(#333 0%, #888 25%, #aaa 75%, #eee 100%);
+    -fx-text-fill: white; /* 5 */
+}
+.list_view .list-cell { -fx-text-fill: black; /* 5 */ }
+.list_view .list-cell:odd { -fx-background-color: white; /* 1 */ }
+.list_view .list-cell:even { -fx-background-color: #ccf2ff; /* for information */ }
+.list_view .list-cell:filled:hover {
+    -fx-background-color: gray; /* 2 */
+    -fx-text-fill: white; /* 5 */
+}
