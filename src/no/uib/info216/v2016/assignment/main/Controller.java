@@ -714,7 +714,7 @@ public class Controller implements Initializable {
         }
 
         if (currentEquipmentSelected.getUsed_in() != null) {
-            equipmentCanUseList.addAll(currentEquipmentSelected.getUsed_in().stream().map(e -> new Exercise(e.getLocalName())).collect(Collectors.toList()));
+            equipmentCanUseList.addAll(currentEquipmentSelected.getUsed_in().stream().filter(r -> r != null).map(r -> new Exercise(r.getLocalName())).collect(Collectors.toList()));
         }
         if (currentEquipmentSelected.getWeight() != null) {
 
