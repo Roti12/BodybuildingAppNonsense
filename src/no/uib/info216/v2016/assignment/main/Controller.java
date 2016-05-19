@@ -517,34 +517,9 @@ public class Controller implements Initializable {
 
         String query = null;
 
-        if (search.equals("Bench Press Rack")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Squat Rack")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Olympic Barbell Men")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Cap Barbell Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Rounded Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Hexagonal Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Squared Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Kettlebells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
-        if (search.equals("Weighted Plates")) {
-            query = QueryStrings.queryOlympiaBar;
-        }
         if (search.equals("Bench")) {
+            query = QueryStrings.queryBench;
+        }if (search.equals("Bench Press Rack")) {
             query = QueryStrings.queryBenchPressRack;
         }if (search.equals("Squat Rack")) {
             query = QueryStrings.querySquatRack;
