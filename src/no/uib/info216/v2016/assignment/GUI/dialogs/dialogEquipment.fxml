@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TitledPane fx:id="paneEquipment" animated="false" text="Equipment" />
+      <Pane prefHeight="374.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="is_used_in" layoutX="52.0" layoutY="55.0" text="Is used in: ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="definitionEquipment" layoutX="41.0" layoutY="140.0" text="Definition:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="weightEquipment" layoutX="52.0" layoutY="240.0" text="Weight:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="is_used_in_text" layoutX="247.0" layoutY="35.0" prefHeight="71.0" prefWidth="258.0" />
+            <TextArea fx:id="weightEquipment_text" layoutX="247.0" layoutY="220.0" prefHeight="71.0" prefWidth="258.0" />
+            <TextArea fx:id="definitionEquipment_text" layoutX="247.0" layoutY="119.0" prefHeight="71.0" prefWidth="258.0" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
