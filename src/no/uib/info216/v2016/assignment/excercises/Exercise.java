@@ -11,15 +11,15 @@ import java.util.List;
 public class Exercise {
 
 
-    private String name;
-    private Literal description ;
-    private Resource equipment;
-    private List<Resource> can_use;
-    private List<Resource> muscles;
+    private String name= null;
+    private Literal definition = null;
+    private Resource equipment = null;
+    private List<Resource> can_use= null;
+    private List<Resource> muscles= null;
 
-    public Exercise(String name, Literal description, Resource equipment, List<Resource> can_use, List<Resource> muscles) {
+    public Exercise(String name, Literal definition, Resource equipment, List<Resource> can_use, List<Resource> muscles) {
         setName(name);
-        setDescription(description);
+        setDefinition(definition);
         setEquipment(equipment);
         setCan_use(can_use);
         setMuscles(muscles);
@@ -44,11 +44,11 @@ public class Exercise {
     }
 
     public Literal getDescription() {
-        return description;
+        return definition;
     }
 
-    public void setDescription(Literal description) {
-        this.description = description;
+    public void setDefinition(Literal definition) {
+        this.definition = definition;
     }
 
     public Resource getEquipment() {

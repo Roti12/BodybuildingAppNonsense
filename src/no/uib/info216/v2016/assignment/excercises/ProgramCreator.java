@@ -2,10 +2,8 @@ package no.uib.info216.v2016.assignment.excercises;
 
 import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
 import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
-import org.apache.jena.query.Query;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 
