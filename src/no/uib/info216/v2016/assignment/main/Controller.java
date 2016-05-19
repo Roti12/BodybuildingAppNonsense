@@ -201,7 +201,7 @@ public class Controller implements Initializable {
 
 
     public void initializeEquipmentDialog() {
-        addEquipmentData();
+       //addEquipmentData();
         ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipmentUsedIn);
         System.out.println("hello");
         if (result.hasNext() != false) System.out.println("NOT EMPTY");
@@ -294,7 +294,7 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    showEquipment("Equipment");
+                    //showEquipment("Equipment");
                 }
             }
         });
@@ -456,13 +456,13 @@ public class Controller implements Initializable {
     }
 
 
-    private void addEquipmentData() {
+    private void addEquipmentData(Equipment equipment) {
         textEquipmentWeight.clear();
         textEquipmentDefinition.clear();
         textEquipmentUsedIn.clear();
-        textEquipmentDefinition.setText("Definition goes here");
-        textEquipmentUsedIn.setText("Used in goes here");
-        textEquipmentWeight.setText("Weight goes here.");
+        textEquipmentDefinition.setText(equipment.getDefinition().getString());
+        textEquipmentUsedIn.setText(equipment.getUsed_in().toString());
+        textEquipmentWeight.setText(equipment.getWeight().getString());
     }
 
     /**
