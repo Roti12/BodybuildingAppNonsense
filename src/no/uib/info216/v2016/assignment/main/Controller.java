@@ -203,13 +203,6 @@ public class Controller implements Initializable {
     public void initializeEquipmentDialog() {
        //addEquipmentData();
         ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipmentUsedIn);
-        System.out.println("hello");
-        if (result.hasNext() != false) System.out.println("NOT EMPTY");
-        while (result.hasNext()) {
-            QuerySolution soln = result.nextSolution();
-            System.out.println(soln);
-
-        }
 
     }
 
@@ -294,7 +287,7 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    //showEquipment("Equipment");
+                    showEquipment("Equipment");
                 }
             }
         });
