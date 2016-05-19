@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
 import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
+import no.uib.info216.v2016.assignment.excercises.Equipment;
 import no.uib.info216.v2016.assignment.excercises.Exercise;
 import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
 import org.apache.jena.query.QuerySolution;
@@ -29,6 +30,7 @@ import org.apache.jena.rdf.model.Resource;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -73,19 +75,19 @@ public class Controller implements Initializable {
                     "More than 2 years"
             );
 
-    private final ObservableList<String> equipmentList =
+    private final ObservableList<Equipment> equipmentList =
             FXCollections.observableArrayList(
 
-                    "Bench",
-                    "Bench Press Rack",
-                    "Squat Rack",
-                    "Olympic Barbell Men",
-                    "Cap Barbell Dumbells",
-                    "Rounded Dumbells",
-                    "Hexagonal Dumbells",
-                    "Squared Dumbells",
-                    "Kettlebells",
-                    "Weighted Plates"
+                    new Equipment("Bench"),
+                    new Equipment("Bench Press Rack"),
+                    new Equipment("Squat Rack"),
+                    new Equipment("Olympic Barbell Men"),
+                    new Equipment("Cap Barbell Dumbells"),
+                    new Equipment("Rounded Dumbells"),
+                    new Equipment("Hexagonal Dumbells"),
+                    new Equipment("Squared Dumbells"),
+                    new Equipment("Kettlebells"),
+                    new Equipment("Weighted Plates")
             );
     private final ObservableList<String> equipmentUseList =
             FXCollections.observableArrayList(
@@ -104,7 +106,9 @@ public class Controller implements Initializable {
     private
     ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday;
     @FXML
-    ListView<String> listviewEquipment, listviewMusclesWorked, listviewCanUse;
+    ListView<Equipment> listviewEquipment;
+    @FXML
+    ListView<String> listviewMusclesWorked, listviewCanUse;
     @FXML
     Label labelRequires;
     @FXML
@@ -118,7 +122,6 @@ public class Controller implements Initializable {
     private Stage stage;
 
     private Controller mainController = null;
-
 
 
     private Exercise currentExerciseSelected;
@@ -136,6 +139,7 @@ public class Controller implements Initializable {
     public void setCurrentExerciseSelected(Exercise currentExerciseSelected) {
         this.currentExerciseSelected = currentExerciseSelected;
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -159,31 +163,31 @@ public class Controller implements Initializable {
         //Set days items list's
         listviewMonday.setItems(mondayList);
         setListCellFactory(listviewMonday);
-        setListCellListener(listviewMonday);
+        setExerciseListener(listviewMonday);
 
         listviewTuesday.setItems(tuesdayList);
         setListCellFactory(listviewTuesday);
-        setListCellListener(listviewTuesday);
+        setExerciseListener(listviewTuesday);
 
         listviewWednesday.setItems(wednesdayList);
         setListCellFactory(listviewWednesday);
-        setListCellListener(listviewWednesday);
+        setExerciseListener(listviewWednesday);
 
         listviewThursday.setItems(thursdayList);
         setListCellFactory(listviewThursday);
-        setListCellListener(listviewThursday);
+        setExerciseListener(listviewThursday);
 
         listviewFriday.setItems(fridayList);
         setListCellFactory(listviewFriday);
-        setListCellListener(listviewFriday);
+        setExerciseListener(listviewFriday);
 
         listviewSaturday.setItems(saturdayList);
         setListCellFactory(listviewSaturday);
-        setListCellListener(listviewSaturday);
+        setExerciseListener(listviewSaturday);
 
         listviewSunday.setItems(sundayList);
         setListCellFactory(listviewSunday);
-        setListCellListener(listviewSunday);
+        setExerciseListener(listviewSunday);
 
 
         listviewEquipment.setItems(equipmentList);
@@ -194,6 +198,21 @@ public class Controller implements Initializable {
     public void initializeExerciseDialog() {
         addExerciseData(currentExerciseSelected);
     }
+
+
+    public void initializeEquipmentDialog() {
+        addEquipmentData();
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipmentUsedIn);
+        System.out.println("hello");
+        if (result.hasNext() != false) System.out.println("NOT EMPTY");
+        while (result.hasNext()) {
+            QuerySolution soln = result.nextSolution();
+            System.out.println(soln);
+
+        }
+
+    }
+
 
     /**
      * Will set the listviews cell to a custom exercise cell. this is to display the correct data.
@@ -250,7 +269,7 @@ public class Controller implements Initializable {
      *
      * @param listview The listview to be listened
      */
-    private void setListCellListener(ListView<Exercise> listview) {
+    private void setExerciseListener(ListView<Exercise> listview) {
 
         listview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             currentExerciseSelected = newValue;//Updates when item selection changed
@@ -262,36 +281,15 @@ public class Controller implements Initializable {
             public void handle(MouseEvent click) {
 
                 if (click.getClickCount() == 2) {
-                                     showExercise();
+                    showExercise();
                 }
             }
         });
 
     }
 
-    public void initializeEquipmentDialog() {
-        fillEquipmentPopup();
-        ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipmentUsedIn);
-        System.out.println("hello");
-        if (result.hasNext() != false) System.out.println("NOT EMPTY");
-        while (result.hasNext()) {
-            QuerySolution soln = result.nextSolution();
-             System.out.println(soln);
 
-        }
-
-    }
-
-    public void fillEquipmentPopup() {
-        textEquipmentWeight.clear();
-        textEquipmentDefinition.clear();
-        textEquipmentUsedIn.clear();
-        textEquipmentDefinition.setText("Definition goes here");
-        textEquipmentUsedIn.setText("Used in goes here");
-        textEquipmentWeight.setText("Weight goes here.");
-    }
-
-    private void setEquipmentListener(ListView<String> listviewEquipment) {
+    private void setEquipmentListener(ListView<Equipment> listviewEquipment) {
         listviewEquipment.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -301,7 +299,6 @@ public class Controller implements Initializable {
             }
         });
     }
-
 
 
     /**
@@ -333,16 +330,14 @@ public class Controller implements Initializable {
         );
 
 
-
         buttonCreate_Program.setOnAction(event -> createNewProgram());
 
 
     }
 
-   // private void getEquipment() {
-     //   program.getEquipment();
+    // private void getEquipment() {
+    //   program.getEquipment();
     //}
-
 
 
     private void createNewProgram() {
@@ -427,7 +422,7 @@ public class Controller implements Initializable {
             stage.initOwner(buttonCreate_Program.getScene().getWindow());
 
 
-             if (fxmlFile.contains("dialogExercise.fxml")) controller.initializeExerciseDialog();
+            if (fxmlFile.contains("dialogExercise.fxml")) controller.initializeExerciseDialog();
             if (fxmlFile.contains("dialogEquipment.fxml")) controller.initializeEquipmentDialog();
             stage.showAndWait();
 
@@ -438,7 +433,7 @@ public class Controller implements Initializable {
 
     private void addExerciseData(Exercise data) {
         listviewMusclesWorked.setItems(musclesList);
-       listviewCanUse.setItems(equipmentUseList);
+        listviewCanUse.setItems(equipmentUseList);
         if (data.getMuscles() != null) {
             musclesList.addAll(data.getMuscles().stream().map(Resource::getLocalName).collect(Collectors.toList()));
         }
@@ -458,6 +453,16 @@ public class Controller implements Initializable {
             closeExercise();
         });
 
+    }
+
+
+    private void addEquipmentData() {
+        textEquipmentWeight.clear();
+        textEquipmentDefinition.clear();
+        textEquipmentUsedIn.clear();
+        textEquipmentDefinition.setText("Definition goes here");
+        textEquipmentUsedIn.setText("Used in goes here");
+        textEquipmentWeight.setText("Weight goes here.");
     }
 
     /**

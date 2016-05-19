@@ -16,11 +16,13 @@ public class Equipment {
 
     private List<Resource> used_in = null;
     private Literal definition = null;
-    private Literal weight  = null;
+    private Literal weight = null;
 
+    public Equipment(String name) {
+        this.name = name;
+    }
 
-    public Equipment(String name, List<Resource> used_in, Literal definition, Literal weight)
-    {
+    public Equipment(String name, List<Resource> used_in, Literal definition, Literal weight) {
         this.name = name;
         this.used_in = used_in;
         this.definition = definition;
@@ -28,9 +30,8 @@ public class Equipment {
     }
 
     @Override
-    public String toString()
-    {
-        return String.format("Name: %s",this.name);
+    public String toString() {
+        return String.format("Name: %s", this.name);
     }
 
     public String getName() {
@@ -65,8 +66,6 @@ public class Equipment {
     public Literal getWeight() {
         return weight;
     }
-
-
 
 
 }
