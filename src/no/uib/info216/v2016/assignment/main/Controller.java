@@ -569,6 +569,8 @@ public class Controller implements Initializable {
 
         listviewEquipmentUsedIn.setItems(equipmentCanUseList);
 
+       currentEquipmentSelected = searchEquipment();
+
         if (currentEquipmentSelected.getDefinition() != null) {
             textEquipmentDefinition.setText(currentEquipmentSelected.getDefinition().getString());
         }
