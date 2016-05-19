@@ -3,17 +3,21 @@ package no.uib.info216.v2016.assignment.main;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -546,12 +550,16 @@ public class Controller implements Initializable {
         Literal label = null;
 
         while (result.hasNext()) {
+
             QuerySolution binding = result.nextSolution();
             Resource exercise = (Resource) binding.get("Exercises");
+
             if (!is_used_in.contains(exercise)) {
                 is_used_in.add(exercise);
             }
+
             weight = binding.getLiteral("weight");
+
             try {
                 label = binding.getLiteral("label");
             } catch (Exception e) {
@@ -668,9 +676,26 @@ public class Controller implements Initializable {
 
     private void addFullExerciseData() {
 
-        imageHeatmap.setImage(new Image(currentFullExerciseSelected.getMucleHeatmap()));
-        imagemalestart.setImage(new Image(currentFullExerciseSelected.getMaleImageStart()));
-        imagemaleend.setImage(new Image(currentFullExerciseSelected.getMaleImageEnd()));
+
+        Task task = new Task() {
+            @Override
+            protected Object call() throws Exception {
+                final int max = 3;
+                imageHeatmap.setImage(new Image(currentFullExerciseSelected.getMucleHeatmap()));
+
+                updateProgress(1, max);
+                imagemalestart.setImage(new Image(currentFullExerciseSelected.getMaleImageStart()));
+                updateProgress(2, max);
+                imagemaleend.setImage(new Image(currentFullExerciseSelected.getMaleImageEnd()));
+                updateProgress(3, max);
+
+                return null;
+            }
+        }    ;
+        ProgressBar bar = new ProgressBar();
+        bar.progressProperty().bind(task.progressProperty());
+        new Thread(task).start();
+
 
         buttonClose_FullExercise.setOnAction((EventHandler<ActionEvent>) event -> {
             closeFullExercise();
@@ -697,7 +722,7 @@ public class Controller implements Initializable {
             textEquipmentWeight.setText(currentEquipmentSelected.getWeight().getString());
         }
         buttonClose_Equipment.setOnAction((EventHandler<ActionEvent>) event -> {
-            closeExercise();
+            closeEquipment();
         });
 
     }
