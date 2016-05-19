@@ -553,7 +553,7 @@ public class Controller implements Initializable {
             }
             weight = binding.getLiteral("weight");
             try {
-                label = binding.getLiteral("weight");
+                label = binding.getLiteral("label");
             } catch (Exception e) {
             }
         }
