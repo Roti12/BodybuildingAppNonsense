@@ -96,7 +96,7 @@ public class QueryStrings {
 
 	public static String queryKettleBells = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "ont:KettleBells ont:Is_Used_In ?Excercises ;"
+			+ "ont:Kettebells ont:Is_Used_In ?Excercises ;"
 			+ "ont:label ?label ;"
 			+ "ont:Weight ?weight . }";
 
