@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import no.uib.info216.v2016.assignment.excercises.Equipment;
 import no.uib.info216.v2016.assignment.excercises.Exercise;
+import no.uib.info216.v2016.assignment.excercises.FullExercise;
 import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
 import org.apache.jena.rdf.model.Resource;
 
@@ -96,6 +97,7 @@ public class Controller implements Initializable {
             );
 
 
+
     @FXML
     private TabPane tabHolder;
     @FXML
@@ -104,6 +106,8 @@ public class Controller implements Initializable {
     private ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday, listviewEquipmentUsedIn;
     @FXML
     private ListView<Equipment> listviewEquipment;
+    @FXML
+    private ListView<FullExercise> listviewFullExercises;
     @FXML
     private ListView<String> listviewExerciseMusclesWorked, listviewExerciseCanUse;
     @FXML
@@ -137,6 +141,9 @@ public class Controller implements Initializable {
 
     public void setCurrentEquipmentSelected(Equipment currentEquipmentSelected) {
         this.currentEquipmentSelected = currentEquipmentSelected;
+    }
+    public void setListviewFullExercisesSource(ObservableList<FullExercise> exercises) {
+        this.listviewFullExercises.setItems(exercises);
     }
 
     @Override

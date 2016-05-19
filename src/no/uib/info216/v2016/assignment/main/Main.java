@@ -26,6 +26,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(this.getClass().getResource("../GUI/GUI.css").toExternalForm());
         controller.initializeGUI();
+        controller.setListviewFullExercisesSource(Parser.parse());
 
         primaryStage.setTitle("Workout Planner");
         primaryStage.setScene(scene);
@@ -37,6 +38,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
 
 
         System.out.println("Loading model..");
