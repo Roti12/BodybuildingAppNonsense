@@ -274,11 +274,11 @@ public class Controller implements Initializable {
         ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipment);
         System.out.println("hello");
         if (result.hasNext() != false) System.out.println("NOT EMPTY");
-//        while (result.hasNext()) {
-//            QuerySolution soln = result.nextSolution();
-//            System.out.println(soln);
-//
-//        }
+        while (result.hasNext()) {
+            QuerySolution soln = result.nextSolution();
+             System.out.println(soln);
+
+        }
 
     }
 
