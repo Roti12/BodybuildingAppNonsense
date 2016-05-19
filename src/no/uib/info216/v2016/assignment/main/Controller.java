@@ -430,25 +430,25 @@ public class Controller implements Initializable {
         String query = null;
 
         if (search.equals("Bench Press Rack")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.queryBenchPressRack;
         }if (search.equals("Squat Rack")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.querySquatRack;
         }if (search.equals("Olympic Barbell Men")) {
             query = QueryStrings.queryOlympiaBar;
         }if (search.equals("Cap Barbell Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.queryCapDumbbell;
         }if (search.equals("Rounded Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.queryRoundedDumbell;
         }if (search.equals("Hexagonal Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.queryHexDumbbell;
         }if (search.equals("Squared Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.querySquaredDumbell;
         }if (search.equals("Kettlebells")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.queryKettleBells;
         }if (search.equals("Weighted Plates")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.queryWeightedPlates;
         }if (search.equals("Bench")) {
-            query = QueryStrings.queryOlympiaBar;
+            query = QueryStrings.queryBench;
         }
             ResultSet result = QueryItems.queryOntology(query);
             List<Resource> is_used_in = new ArrayList<>();

@@ -15,11 +15,6 @@ public class QueryStrings {
 			+ "ont:label ?label ;"
 			+ "ont:Can_Use ?Can_Use . }";
 	
-	public static String olympicBar = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
-			+ "SELECT * WHERE {"
-			+ "ont:Olympic_Barbell_Men ont:Is_Used_In ?z ;"
-			+ "ont:Weight ?Weight . }";
-	
 	public static String querySquat = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
 			+ "ont:Squat ont:Works ?Muscles ;"
@@ -38,10 +33,6 @@ public class QueryStrings {
 	public static String queryOverheadPress = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
 			+ "ont:Overhead_press ont:Can_Use ?Equipment . }";
-	
-	public static String queryBench = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
-			+ "SELECT * WHERE {"
-			+ "ont:Bench ont:Is_Used_In ?Excercise . }";
 
 	public static String queryLPulldownMachine = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
@@ -88,10 +79,62 @@ public class QueryStrings {
 			+ "ont:Olympic_Barbell_Men ont:Is_Used_In ?Exercises ;"
 			+ "ont:Weight ?weight . }";
 
-	public static String queryBenchPressRack = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
+	public static String queryBench = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "ont:Seated_Cable_Row ont:Is_Used_In ?Excercises ;"
+			+ "ont:Bench ont:Is_Used_In ?Excercises ;"
 			+ "ont:label ?label . }";
+
+	public static String queryBenchPressRack = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Bench_Press_Rack ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label . }";
+
+	public static String querySquatRack = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Squat_Rack ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label . }";
+
+	public static String queryKettleBells = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:KettleBells ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label ;"
+			+ "ont:Weight ?weight . }";
+
+	public static String queryWeightedPlates = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Weighted_Plates ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label ;"
+			+ "ont:Weight ?weight . }";
+
+	public static String queryCapDumbbell = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Cap_Barbell_Dumbells ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label ;"
+			+ "ont:Weight ?weight . }";
+
+	public static String queryHexDumbbell = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Hexagonal_Dumbells ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label ;"
+			+ "ont:Weight ?weight . }";
+
+	public static String queryRoundedDumbell = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Rounded_Dumbells ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label ;"
+			+ "ont:Weight ?weight . }";
+
+	public static String querySquaredDumbell = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Squared_Dumbells ont:Is_Used_In ?Excercises ;"
+			+ "ont:label ?label ;"
+			+ "ont:Weight ?weight . }";
+
+
+
+
+
+
 
 	public static String queryEquipmentUsedIn = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
