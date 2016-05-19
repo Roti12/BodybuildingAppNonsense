@@ -18,8 +18,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
+import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
 import no.uib.info216.v2016.assignment.excercises.Exercise;
 import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Resource;
 
 
@@ -267,6 +271,15 @@ public class Controller implements Initializable {
 
     public void initializeEquipmentDialog() {
         fillEquipmentPopup();
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipment);
+        System.out.println("hello");
+        if (result.hasNext() != false) System.out.println("NOT EMPTY");
+//        while (result.hasNext()) {
+//            QuerySolution soln = result.nextSolution();
+//            System.out.println(soln);
+//
+//        }
+
     }
 
     public void fillEquipmentPopup() {
@@ -329,6 +342,8 @@ public class Controller implements Initializable {
     private void getEquipment() {
         program.getEquipment();
     }
+
+
 
     private void createNewProgram() {
 

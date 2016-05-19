@@ -93,7 +93,7 @@ public class QueryStrings {
 										+ "PREFIX owl: <http://www.w3.org/2002/07/owl#>"
 										+ "SELECT * WHERE {"
 										+ "?equipment rdf:type owl:NamedIndividual ;"
-										+		" rdf:type ont:Equipment . }";
+										+			" rdf:type ont:Equipment . }";
 
 	/*public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
