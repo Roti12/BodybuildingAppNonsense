@@ -101,7 +101,7 @@ public class Controller implements Initializable {
     @FXML
     private Tab tabProgram, tabExercises, tabMachines, tabEquipment;
     @FXML
-    private ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday,listviewEquipmentUsedIn;
+    private ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday, listviewEquipmentUsedIn;
     @FXML
     private ListView<Equipment> listviewEquipment;
     @FXML
@@ -409,6 +409,21 @@ public class Controller implements Initializable {
         }
     }
 
+
+    private Equipment searchEquipment() {
+        String search = currentEquipmentSelected.getName();
+
+        //Search here!:)
+
+///msoldkfmslkdmflskdmfklmsd
+        //smdfokmsdflsdmf
+        //skdfjlskdjflsd
+
+
+        return currentEquipmentSelected;
+
+
+    }
 
     /********************************
      * Code For the Popup Windows
