@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -104,7 +106,6 @@ public class Controller implements Initializable {
             );
 
 
-
     @FXML
     private TabPane tabHolder;
     @FXML
@@ -122,14 +123,17 @@ public class Controller implements Initializable {
     @FXML
     private TextArea textExerciseDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn;
     @FXML
-    private Button buttonCreate_Program, buttonClose_Exercise, buttonClose_Machine, buttonClose_Equipment;
+    private Button buttonCreate_Program, buttonClose_Exercise, buttonClose_FullExercise, buttonClose_Machine, buttonClose_Equipment;
     @FXML
     private
     ComboBox<String> comboboxExperience;
+    @FXML
+    ImageView imageHeatmap;
 
     private Stage stage;
     private Controller mainController = null;
     private Exercise currentExerciseSelected;
+    private FullExercise currentFullExerciseSelected;
     private Equipment currentEquipmentSelected;
     private ProgramCreator program = null;
 
@@ -145,12 +149,19 @@ public class Controller implements Initializable {
     public void setCurrentExerciseSelected(Exercise currentExerciseSelected) {
         this.currentExerciseSelected = currentExerciseSelected;
     }
+    public void setCurrentFullExerciseSelected(FullExercise currentFullExerciseSelected) {
+        this.currentFullExerciseSelected = currentFullExerciseSelected;
+    }
+
 
     public void setCurrentEquipmentSelected(Equipment currentEquipmentSelected) {
         this.currentEquipmentSelected = currentEquipmentSelected;
     }
+
     public void setListviewFullExercisesSource(ObservableList<FullExercise> exercises) {
         this.listviewFullExercises.setItems(exercises);
+        setFullExerciseCellFactory(this.listviewFullExercises);
+        setFullExerciseListener(this.listviewFullExercises);
     }
 
     @Override
@@ -206,6 +217,7 @@ public class Controller implements Initializable {
         listviewEquipment.setItems(equipmentList);
         setEquipmentCellFactory(listviewEquipment);
 
+
         addListeners();
 
     }
@@ -219,6 +231,9 @@ public class Controller implements Initializable {
         addEquipmentData();
     }
 
+    public void initializeFullExerciseDialog() {
+        addFullExerciseData();
+    }
 
     /**
      * Will set the listviews cell to a custom exercise cell. this is to display the correct data.
@@ -318,6 +333,79 @@ public class Controller implements Initializable {
                 }); // setCellFactory
     }
 
+
+    /**
+     * Will set the listviews cell to a custom exercise cell. this is to display the correct data.
+     *
+     * @param listview The listview to be customised
+     */
+    private void setFullExerciseCellFactory(ListView<FullExercise> listview) {
+
+        listview
+                .setCellFactory(new Callback<ListView<FullExercise>, ListCell<FullExercise>>() {
+
+                    public ListCell<FullExercise> call(ListView<FullExercise> param) {
+                        final ContextMenu contextMenu = new ContextMenu();
+                        final MenuItem detailsMenuItem = new MenuItem();
+
+                        final Label leadLbl = new Label();
+                        final Tooltip tooltip = new Tooltip();
+                        final ListCell<FullExercise> cell = new ListCell<FullExercise>() {
+                            @Override
+                            public void updateItem(FullExercise item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (item != null) {
+                                    leadLbl.setText(item.getName());
+                                    setText(item.getName());
+                                    if (item.getGuide() != null) {
+                                        tooltip.setText(item.getGuide().toString());
+                                    }
+                                    setTooltip(tooltip);
+                                }
+                            }
+                        }; // ListCell
+
+
+                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty().getName()));
+                        detailsMenuItem.setOnAction(event -> showExercise());
+
+                        contextMenu.getItems().addAll(detailsMenuItem);
+
+                        cell.emptyProperty().addListener((obs, wasEmpty, isNowEmpty) -> {
+                            if (isNowEmpty) {
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(contextMenu);
+                            }
+                        });
+                        return cell;
+                    }
+                }); // setCellFactory
+    }
+
+    /**
+     * Will set the listviews listener to open correct window
+     *
+     * @param listview The listview to be listened
+     */
+    private void setFullExerciseListener(ListView<FullExercise> listview) {
+
+        listview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            currentFullExerciseSelected = newValue;//Updates when item selection changed
+        });
+
+        listview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent click) {
+
+                if (click.getClickCount() == 2) {
+                    showFullExercise();
+                }
+            }
+        });
+
+    }
 
     /**
      * Will set the listviews listener to open correct window
@@ -431,45 +519,54 @@ public class Controller implements Initializable {
 
         if (search.equals("Bench Press Rack")) {
             query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Squat Rack")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Olympic Barbell Men")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Cap Barbell Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Rounded Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Hexagonal Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Squared Dumbells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Kettlebells")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Weighted Plates")) {
-            query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Bench")) {
+        }
+        if (search.equals("Squat Rack")) {
             query = QueryStrings.queryOlympiaBar;
         }
-            ResultSet result = QueryItems.queryOntology(query);
-            List<Resource> is_used_in = new ArrayList<>();
-            Literal weight = null;
-            Literal label = null;
+        if (search.equals("Olympic Barbell Men")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        if (search.equals("Cap Barbell Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        if (search.equals("Rounded Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        if (search.equals("Hexagonal Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        if (search.equals("Squared Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        if (search.equals("Kettlebells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        if (search.equals("Weighted Plates")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        if (search.equals("Bench")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+        ResultSet result = QueryItems.queryOntology(query);
+        List<Resource> is_used_in = new ArrayList<>();
+        Literal weight = null;
+        Literal label = null;
 
-            while (result.hasNext()) {
-                QuerySolution binding = result.nextSolution();
-                Resource exercise = (Resource) binding.get("Exercises");
-                if (!is_used_in.contains(exercise)) {
-                    is_used_in.add(exercise);
-                }
-                weight = binding.getLiteral("weight");
-                try {
-                    label = binding.getLiteral("weight");
-                } catch (Exception e) {
-                }
+        while (result.hasNext()) {
+            QuerySolution binding = result.nextSolution();
+            Resource exercise = (Resource) binding.get("Exercises");
+            if (!is_used_in.contains(exercise)) {
+                is_used_in.add(exercise);
             }
+            weight = binding.getLiteral("weight");
+            try {
+                label = binding.getLiteral("weight");
+            } catch (Exception e) {
+            }
+        }
 
 
-            return new Equipment(currentEquipmentSelected.getName(), is_used_in, null, weight);
+        return new Equipment(currentEquipmentSelected.getName(), is_used_in, null, weight);
 
     }
 
@@ -491,6 +588,15 @@ public class Controller implements Initializable {
     public void showExercise() {
 
         createDialog("../GUI/dialogs/dialogExercise.fxml", currentExerciseSelected.getName());
+
+    }
+
+    /**
+     * Creates a Popup for full exercise
+     */
+    public void showFullExercise() {
+
+        createDialog("../GUI/dialogs/dialogFullExercise.fxml", currentFullExerciseSelected.getName());
 
     }
 
@@ -517,6 +623,7 @@ public class Controller implements Initializable {
             controller.setMainController(this.mainController);
             controller.setCurrentExerciseSelected(currentExerciseSelected);
             controller.setCurrentEquipmentSelected(currentEquipmentSelected);
+            controller.setCurrentFullExerciseSelected(currentFullExerciseSelected);
             fxmlLoader.setController(controller);
 
             root = fxmlLoader.load();
@@ -529,6 +636,8 @@ public class Controller implements Initializable {
 
             if (fxmlFile.contains("dialogExercise.fxml")) controller.initializeExerciseDialog();
             if (fxmlFile.contains("dialogEquipment.fxml")) controller.initializeEquipmentDialog();
+            if (fxmlFile.contains("dialogFullExercise.fxml")) controller.addFullExerciseData();
+
 
             stage.showAndWait();
 
@@ -563,6 +672,16 @@ public class Controller implements Initializable {
 
     }
 
+    private void addFullExerciseData() {
+
+        imageHeatmap.setImage(new Image(currentFullExerciseSelected.getMucleHeatmap()));
+
+
+        buttonClose_FullExercise.setOnAction((EventHandler<ActionEvent>) event -> {
+            closeFullExercise();
+        });
+
+    }
 
     private void addEquipmentData() {
 
@@ -592,7 +711,7 @@ public class Controller implements Initializable {
      */
     public void closeEquipment() {
 
-        stage = (Stage) buttonClose_Equipment.getScene().getWindow(); //change
+        stage = (Stage) buttonClose_Equipment.getScene().getWindow();
 
         stage.close();
 
@@ -605,7 +724,20 @@ public class Controller implements Initializable {
     public void closeExercise() {
 
 
-        stage = (Stage) buttonClose_Exercise.getScene().getWindow(); //change
+        stage = (Stage) buttonClose_Exercise.getScene().getWindow();
+
+        stage.close();
+
+
+    }
+
+    /**
+     * Closes the dialog
+     */
+    public void closeFullExercise() {
+
+
+        stage = (Stage) buttonClose_FullExercise.getScene().getWindow();
 
         stage.close();
 
@@ -617,7 +749,7 @@ public class Controller implements Initializable {
      */
     public void closeMachine() {
 
-        stage = (Stage) buttonClose_Machine.getScene().getWindow(); //change
+        stage = (Stage) buttonClose_Machine.getScene().getWindow();
 
         stage.close();
     }

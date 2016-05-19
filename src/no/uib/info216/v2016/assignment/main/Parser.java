@@ -49,7 +49,7 @@ public class Parser {
                 // take each value from the json array separately
                 while (i1.hasNext()) {
                     JSONObject innerObj2 = (JSONObject) i1.next();
-                    
+
 
                     String name = objects[0].substring(1,objects[0].length() -1);
                     String link = (innerObj2.get("link").toString());
