@@ -16,15 +16,22 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
+import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
 import no.uib.info216.v2016.assignment.excercises.Equipment;
 import no.uib.info216.v2016.assignment.excercises.Exercise;
 import no.uib.info216.v2016.assignment.excercises.FullExercise;
 import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -420,15 +427,49 @@ public class Controller implements Initializable {
     private Equipment searchEquipment() {
         String search = currentEquipmentSelected.getName();
 
-        //Search here!:)
+        String query = null;
 
-///msoldkfmslkdmflskdmfklmsd
-        //smdfokmsdflsdmf
-        //skdfjlskdjflsd
+        if (search.equals("Bench Press Rack")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Squat Rack")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Olympic Barbell Men")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Cap Barbell Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Rounded Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Hexagonal Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Squared Dumbells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Kettlebells")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Weighted Plates")) {
+            query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Bench")) {
+            query = QueryStrings.queryOlympiaBar;
+        }
+            ResultSet result = QueryItems.queryOntology(query);
+            List<Resource> is_used_in = new ArrayList<>();
+            Literal weight = null;
+            Literal label = null;
+
+            while (result.hasNext()) {
+                QuerySolution binding = result.nextSolution();
+                Resource exercise = (Resource) binding.get("Exercises");
+                if (!is_used_in.contains(exercise)) {
+                    is_used_in.add(exercise);
+                }
+                weight = binding.getLiteral("weight");
+                try {
+                    label = binding.getLiteral("weight");
+                } catch (Exception e) {
+                }
+            }
 
 
-        return currentEquipmentSelected;
-
+            return new Equipment(currentEquipmentSelected.getName(), is_used_in, null, weight);
 
     }
 
@@ -524,8 +565,6 @@ public class Controller implements Initializable {
 
 
     private void addEquipmentData() {
-
-        //search for the shit and adddddd the things
 
 
         listviewEquipmentUsedIn.setItems(equipmentCanUseList);
