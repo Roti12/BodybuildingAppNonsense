@@ -1,23 +1,32 @@
 package no.uib.info216.v2016.assignment.main;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import no.uib.info216.v2016.assignment.excercises.Exercise;
 import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
+import org.apache.jena.rdf.model.Resource;
 
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 /**
  * The controller for the GUI, handles all button presses and actions the GUI has to perform
@@ -74,6 +83,14 @@ public class Controller implements Initializable {
                     "Kettlebells",
                     "Weighted Plates"
             );
+    private final ObservableList<String> equipmentUseList =
+            FXCollections.observableArrayList(
+            );
+
+    private final ObservableList<String> musclesList =
+            FXCollections.observableArrayList(
+            );
+
 
     @FXML
     TabPane tabHolder;
@@ -83,7 +100,11 @@ public class Controller implements Initializable {
     private
     ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday;
     @FXML
-    ListView listviewEquipment;
+    ListView listviewEquipment, listviewMusclesWorked, listviewCanUse;
+    @FXML
+    Label labelRequires;
+    @FXML
+    TextArea textDefinition;
     @FXML
     Button buttonCreate_Program, buttonClose_Exercise, buttonClose_Machine, buttonClose_Equipment;
     @FXML
@@ -93,9 +114,10 @@ public class Controller implements Initializable {
     private Stage stage;
 
     private Controller mainController = null;
-    private final MenuItem detailsMenuItem = new MenuItem("Details");
 
 
+
+    private Exercise currentExerciseSelected;
     private ProgramCreator program = null;
 
     /**
@@ -107,24 +129,11 @@ public class Controller implements Initializable {
         this.mainController = controller;
     }
 
-
+    public void setCurrentExerciseSelected(Exercise currentExerciseSelected) {
+        this.currentExerciseSelected = currentExerciseSelected;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        program = new ProgramCreator();
-        comboboxExperience.setItems(experienceList);
-        getEquipment();
-        //Set days items list's
-        listviewMonday.setItems(mondayList);
-        listviewTuesday.setItems(tuesdayList);
-        listviewWednesday.setItems(wednesdayList);
-        listviewThursday.setItems(thursdayList);
-        listviewFriday.setItems(fridayList);
-        listviewSaturday.setItems(saturdayList);
-        listviewSunday.setItems(sundayList);
-
-        listviewEquipment.setItems(equipmentList);
-        addListeners();
-
 
     }
 
@@ -135,8 +144,118 @@ public class Controller implements Initializable {
      * Gets data from database
      */
     public void initializeGUI() {
+        program = new ProgramCreator();
+
+        comboboxExperience.setItems(experienceList);
+        getEquipment();
+
+
+        //Set days items list's
+        listviewMonday.setItems(mondayList);
+        setListCellFactory(listviewMonday);
+        setListCellListener(listviewMonday);
+
+        listviewTuesday.setItems(tuesdayList);
+        setListCellFactory(listviewTuesday);
+        setListCellListener(listviewTuesday);
+
+        listviewWednesday.setItems(wednesdayList);
+        setListCellFactory(listviewWednesday);
+        setListCellListener(listviewWednesday);
+
+        listviewThursday.setItems(thursdayList);
+        setListCellFactory(listviewThursday);
+        setListCellListener(listviewThursday);
+
+        listviewFriday.setItems(fridayList);
+        setListCellFactory(listviewFriday);
+        setListCellListener(listviewFriday);
+
+        listviewSaturday.setItems(saturdayList);
+        setListCellFactory(listviewSaturday);
+        setListCellListener(listviewSaturday);
+
+        listviewSunday.setItems(sundayList);
+        setListCellFactory(listviewSunday);
+        setListCellListener(listviewSunday);
+
+
+        listviewEquipment.setItems(equipmentList);
+        addListeners();
 
     }
+
+    /**
+     * Will set the listviews cell to a custom exercise cell. this is to display the correct data.
+     *
+     * @param listview The listview to be customised
+     */
+    private void setListCellFactory(ListView<Exercise> listview) {
+
+        listview
+                .setCellFactory(new Callback<ListView<Exercise>, ListCell<Exercise>>() {
+
+                    public ListCell<Exercise> call(ListView<Exercise> param) {
+                        final ContextMenu contextMenu = new ContextMenu();
+                        final MenuItem detailsMenuItem = new MenuItem();
+
+                        final Label leadLbl = new Label();
+                        final Tooltip tooltip = new Tooltip();
+                        final ListCell<Exercise> cell = new ListCell<Exercise>() {
+                            @Override
+                            public void updateItem(Exercise item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (item != null) {
+                                    leadLbl.setText(item.getName());
+                                    setText(item.getName());
+                                    if (item.getDescription() != null) {
+                                        tooltip.setText(item.getDescription().getString());
+                                    }
+                                    setTooltip(tooltip);
+                                }
+                            }
+                        }; // ListCell
+
+
+                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty()));
+                        detailsMenuItem.setOnAction(event -> showExercise());
+
+                        contextMenu.getItems().addAll(detailsMenuItem);
+
+                        cell.emptyProperty().addListener((obs, wasEmpty, isNowEmpty) -> {
+                            if (isNowEmpty) {
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(contextMenu);
+                            }
+                        });
+                        return cell;
+                    }
+                }); // setCellFactory
+    }
+
+
+    /**
+     * Will set the listviews listener to open correct window
+     *
+     * @param listview The listview to be listened
+     */
+    private void setListCellListener(ListView<Exercise> listview) {
+        listview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent click) {
+
+                if (click.getClickCount() == 2) {
+                     currentExerciseSelected = listview.getSelectionModel()
+                            .getSelectedItem();
+                    showExercise();
+                }
+            }
+        });
+    }
+
+
 
 
     /**
@@ -166,10 +285,6 @@ public class Controller implements Initializable {
 
                 }
         );
-
-        comboboxExperience.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-        });
-
 
         buttonCreate_Program.setOnAction(event -> createNewProgram());
 
@@ -217,7 +332,7 @@ public class Controller implements Initializable {
      * Creates a Popup for equipment
      */
     public void showEquipment() {
-        createDialog("/dialogs/dialogEquipment.fxml", "title");
+        createDialog("../GUI/dialogs/dialogEquipment.fxml", "title");
     }
 
     /**
@@ -225,7 +340,7 @@ public class Controller implements Initializable {
      */
     public void showExercise() {
 
-        createDialog("/dialogs/dialogExercise.fxml", "title");
+        createDialog("../GUI/dialogs/dialogExercise.fxml", currentExerciseSelected.getName());
 
     }
 
@@ -233,7 +348,7 @@ public class Controller implements Initializable {
      * Creates a Popup for machines
      */
     public void showMachine() {
-        createDialog("/dialogs/dialogMachine.fxml", "title");
+        createDialog("../GUI/dialogs/dialogMachine.fxml", "title");
 
     }
 
@@ -250,8 +365,12 @@ public class Controller implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
             Controller controller = new Controller();
             controller.setMainController(this.mainController);
+            controller.setCurrentExerciseSelected(currentExerciseSelected);
+
             fxmlLoader.setController(controller);
+
             root = fxmlLoader.load();
+          //  if (fxmlFile.contains("dialogExercise.fxml")) addExerciseData(controller.currentExerciseSelected);
 
             stage.setScene(new Scene(root));
             stage.setTitle(title);
@@ -264,6 +383,29 @@ public class Controller implements Initializable {
         }
     }
 
+    private void addExerciseData(Exercise data) {
+        listviewMusclesWorked.setItems(musclesList);
+        listviewCanUse.setItems(equipmentUseList);
+
+        if (data.getMuscles() != null) {
+            musclesList.addAll(data.getMuscles().stream().map(Resource::getLocalName).collect(Collectors.toList()));
+        }
+
+        if (data.getCan_use() != null) {
+            equipmentUseList.addAll(data.getCan_use().stream().map(Resource::getLocalName).collect(Collectors.toList()));
+        }
+
+        if (data.getEquipment() != null) {
+            labelRequires.setText(data.getEquipment().getLocalName());
+        }
+        if (data.getDescription() != null) {
+            textDefinition.setText(data.getDescription().getString());
+        }
+        buttonClose_Exercise.setOnAction((EventHandler<ActionEvent>) event -> {
+            closeExercise();
+        });
+
+    }
 
     /**
      * Closes the dialog
