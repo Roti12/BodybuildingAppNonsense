@@ -265,6 +265,10 @@ public class Controller implements Initializable {
 
     }
 
+    public void initializeEquipmentDialog() {
+        fillEquipmentPopup();
+    }
+
     public void fillEquipmentPopup() {
         textEquipmentWeight.clear();
         textEquipmentDefinition.clear();
@@ -280,7 +284,6 @@ public class Controller implements Initializable {
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
                     showEquipment("Equipment");
-                    fillEquipmentPopup();
                 }
             }
         });
@@ -410,7 +413,7 @@ public class Controller implements Initializable {
 
 
              if (fxmlFile.contains("dialogExercise.fxml")) controller.initializeExerciseDialog();
-
+            if (fxmlFile.contains("dialogEquipment.fxml")) controller.initializeEquipmentDialog();
             stage.showAndWait();
 
         } catch (IOException e) {
