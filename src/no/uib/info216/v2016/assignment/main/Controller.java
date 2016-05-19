@@ -1,8 +1,6 @@
 package no.uib.info216.v2016.assignment.main;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,19 +16,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
-import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
 import no.uib.info216.v2016.assignment.excercises.Equipment;
 import no.uib.info216.v2016.assignment.excercises.Exercise;
 import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Resource;
 
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -108,11 +101,11 @@ public class Controller implements Initializable {
     @FXML
     ListView<Equipment> listviewEquipment;
     @FXML
-    ListView<String> listviewMusclesWorked, listviewCanUse;
+    ListView<String> listviewExerciseMusclesWorked, listviewExerciseCanUse;
     @FXML
-    Label labelRequires;
+    Label labelExerciseRequires;
     @FXML
-    TextArea textDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn;
+    TextArea textExerciseDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn;
     @FXML
     Button buttonCreate_Program, buttonClose_Exercise, buttonClose_Machine, buttonClose_Equipment;
     @FXML
@@ -125,6 +118,9 @@ public class Controller implements Initializable {
 
 
     private Exercise currentExerciseSelected;
+
+
+    private Equipment currentEquipmentSelected;
     private ProgramCreator program = null;
 
     /**
@@ -140,6 +136,9 @@ public class Controller implements Initializable {
         this.currentExerciseSelected = currentExerciseSelected;
     }
 
+    public void setCurrentEquipmentSelected(Equipment currentEquipmentSelected) {
+        this.currentEquipmentSelected = currentEquipmentSelected;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -162,35 +161,37 @@ public class Controller implements Initializable {
 
         //Set days items list's
         listviewMonday.setItems(mondayList);
-        setListCellFactory(listviewMonday);
+        setExerciseCellFactory(listviewMonday);
         setExerciseListener(listviewMonday);
 
         listviewTuesday.setItems(tuesdayList);
-        setListCellFactory(listviewTuesday);
+        setExerciseCellFactory(listviewTuesday);
         setExerciseListener(listviewTuesday);
 
         listviewWednesday.setItems(wednesdayList);
-        setListCellFactory(listviewWednesday);
+        setExerciseCellFactory(listviewWednesday);
         setExerciseListener(listviewWednesday);
 
         listviewThursday.setItems(thursdayList);
-        setListCellFactory(listviewThursday);
+        setExerciseCellFactory(listviewThursday);
         setExerciseListener(listviewThursday);
 
         listviewFriday.setItems(fridayList);
-        setListCellFactory(listviewFriday);
+        setExerciseCellFactory(listviewFriday);
         setExerciseListener(listviewFriday);
 
         listviewSaturday.setItems(saturdayList);
-        setListCellFactory(listviewSaturday);
+        setExerciseCellFactory(listviewSaturday);
         setExerciseListener(listviewSaturday);
 
         listviewSunday.setItems(sundayList);
-        setListCellFactory(listviewSunday);
+        setExerciseCellFactory(listviewSunday);
         setExerciseListener(listviewSunday);
 
 
         listviewEquipment.setItems(equipmentList);
+        setEquipmentCellFactory(listviewEquipment);
+
         addListeners();
 
     }
@@ -201,10 +202,8 @@ public class Controller implements Initializable {
 
 
     public void initializeEquipmentDialog() {
-       //addEquipmentData();
-        ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipmentUsedIn);
-
-    }
+        addEquipmentData();
+       }
 
 
     /**
@@ -212,7 +211,7 @@ public class Controller implements Initializable {
      *
      * @param listview The listview to be customised
      */
-    private void setListCellFactory(ListView<Exercise> listview) {
+    private void setExerciseCellFactory(ListView<Exercise> listview) {
 
         listview
                 .setCellFactory(new Callback<ListView<Exercise>, ListCell<Exercise>>() {
@@ -232,6 +231,55 @@ public class Controller implements Initializable {
                                     setText(item.getName());
                                     if (item.getDescription() != null) {
                                         tooltip.setText(item.getDescription().getString());
+                                    }
+                                    setTooltip(tooltip);
+                                }
+                            }
+                        }; // ListCell
+
+
+                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty().getName()));
+                        detailsMenuItem.setOnAction(event -> showExercise());
+
+                        contextMenu.getItems().addAll(detailsMenuItem);
+
+                        cell.emptyProperty().addListener((obs, wasEmpty, isNowEmpty) -> {
+                            if (isNowEmpty) {
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(contextMenu);
+                            }
+                        });
+                        return cell;
+                    }
+                }); // setCellFactory
+    }
+
+    /**
+     * Will set the listviews cell to a custom exercise cell. this is to display the correct data.
+     *
+     * @param listview The listview to be customised
+     */
+    private void setEquipmentCellFactory(ListView<Equipment> listview) {
+
+        listview
+                .setCellFactory(new Callback<ListView<Equipment>, ListCell<Equipment>>() {
+
+                    public ListCell<Equipment> call(ListView<Equipment> param) {
+                        final ContextMenu contextMenu = new ContextMenu();
+                        final MenuItem detailsMenuItem = new MenuItem();
+
+                        final Label leadLbl = new Label();
+                        final Tooltip tooltip = new Tooltip();
+                        final ListCell<Equipment> cell = new ListCell<Equipment>() {
+                            @Override
+                            public void updateItem(Equipment item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (item != null) {
+                                    leadLbl.setText(item.getName());
+                                    setText(item.getName());
+                                    if (item.getDefinition() != null) {
+                                        tooltip.setText(item.getDefinition().getString());
                                     }
                                     setTooltip(tooltip);
                                 }
@@ -282,12 +330,17 @@ public class Controller implements Initializable {
     }
 
 
-    private void setEquipmentListener(ListView<Equipment> listviewEquipment) {
+    private void setEquipmentListener(ListView<Equipment> listview) {
+
+        listview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            currentEquipmentSelected = newValue;//Updates when item selection changed
+        });
+
         listviewEquipment.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    showEquipment("Equipment");
+                    showEquipment(currentEquipmentSelected.getName());
                 }
             }
         });
@@ -417,6 +470,7 @@ public class Controller implements Initializable {
 
             if (fxmlFile.contains("dialogExercise.fxml")) controller.initializeExerciseDialog();
             if (fxmlFile.contains("dialogEquipment.fxml")) controller.initializeEquipmentDialog();
+
             stage.showAndWait();
 
         } catch (IOException e) {
@@ -425,8 +479,10 @@ public class Controller implements Initializable {
     }
 
     private void addExerciseData(Exercise data) {
-        listviewMusclesWorked.setItems(musclesList);
-        listviewCanUse.setItems(equipmentUseList);
+
+        listviewExerciseMusclesWorked.setItems(musclesList);
+        listviewExerciseCanUse.setItems(equipmentUseList);
+
         if (data.getMuscles() != null) {
             musclesList.addAll(data.getMuscles().stream().map(Resource::getLocalName).collect(Collectors.toList()));
         }
@@ -436,10 +492,10 @@ public class Controller implements Initializable {
         }
 
         if (data.getEquipment() != null) {
-            labelRequires.setText(data.getEquipment().getLocalName());
+            labelExerciseRequires.setText(data.getEquipment().getLocalName());
         }
         if (data.getDescription() != null) {
-            textDefinition.setText(data.getDescription().getString());
+            textExerciseDefinition.setText(data.getDescription().getString());
         }
 
         buttonClose_Exercise.setOnAction((EventHandler<ActionEvent>) event -> {
@@ -449,13 +505,20 @@ public class Controller implements Initializable {
     }
 
 
-    private void addEquipmentData(Equipment equipment) {
+    private void addEquipmentData() {
+
+
         textEquipmentWeight.clear();
         textEquipmentDefinition.clear();
         textEquipmentUsedIn.clear();
-        textEquipmentDefinition.setText(equipment.getDefinition().getString());
-        textEquipmentUsedIn.setText(equipment.getUsed_in().toString());
-        textEquipmentWeight.setText(equipment.getWeight().getString());
+        textEquipmentDefinition.setText("Definition goes here");
+        textEquipmentUsedIn.setText("Used in goes here");
+        textEquipmentWeight.setText("Weight goes here.");
+
+        buttonClose_Equipment.setOnAction((EventHandler<ActionEvent>) event -> {
+            closeExercise();
+        });
+
     }
 
     /**
