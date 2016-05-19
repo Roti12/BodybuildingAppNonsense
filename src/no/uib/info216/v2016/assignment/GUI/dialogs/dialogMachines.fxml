@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="320.0" prefWidth="468.0">
+         <children>
+            <Label fx:id="offersLabel" layoutX="77.0" layoutY="72.0" text="Offers">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="implementsLabel" layoutX="52.0" layoutY="143.0" text="Implements">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="defMachines" layoutX="60.0" layoutY="222.0" text="Definition">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="textOffers" layoutX="236.0" layoutY="50.0" prefHeight="62.0" prefWidth="200.0" />
+            <TextArea fx:id="textDefMachines" layoutX="236.0" layoutY="206.0" prefHeight="62.0" prefWidth="200.0" />
+            <TextArea fx:id="textImplements" layoutX="236.0" layoutY="127.0" prefHeight="62.0" prefWidth="200.0" />
+            <Button fx:id="closeMachines" layoutX="323.0" layoutY="277.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Close" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
