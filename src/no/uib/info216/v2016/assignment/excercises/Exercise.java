@@ -11,11 +11,15 @@ import java.util.List;
 public class Exercise {
 
 
-    private String name= null;
+    private String name = null;
     private Literal definition = null;
     private Resource equipment = null;
-    private List<Resource> can_use= null;
-    private List<Resource> muscles= null;
+    private List<Resource> can_use = null;
+    private List<Resource> muscles = null;
+
+    public Exercise(String name) {
+        this.name = name;
+    }
 
     public Exercise(String name, Literal definition, Resource equipment, List<Resource> can_use, List<Resource> muscles) {
         setName(name);
@@ -31,7 +35,7 @@ public class Exercise {
 
         return String.format("%s", this.name);
 
-      //  return String.format("%s: %s, %s, %s, %s", this.name, getMusclesString(), this.equipment, this.description, getCan_UseString());
+        //  return String.format("%s: %s, %s, %s, %s", this.name, getMusclesString(), this.equipment, this.description, getCan_UseString());
     }
 
 
@@ -67,7 +71,7 @@ public class Exercise {
         this.can_use = can_use;
     }
 
-    public List<Resource>  getMuscles() {
+    public List<Resource> getMuscles() {
         return muscles;
     }
 
@@ -75,32 +79,28 @@ public class Exercise {
         this.muscles = muscles;
 
     }
-    public String getCan_UseString()
-    {
+
+    public String getCan_UseString() {
         if (getCan_use() == null) return null;
 
         StringBuilder can_use = new StringBuilder();
 
-        for (Resource s : getCan_use())
-        {
-            can_use.append(s.getLocalName() +", ");
+        for (Resource s : getCan_use()) {
+            can_use.append(s.getLocalName() + ", ");
         }
         return can_use.toString();
     }
 
 
-    public String getMusclesString()
-    {
+    public String getMusclesString() {
         if (getMuscles() == null) return null;
         StringBuilder muscles = new StringBuilder();
 
-        for (Resource s : getMuscles())
-        {
-            muscles.append(s.getLocalName() +", ");
+        for (Resource s : getMuscles()) {
+            muscles.append(s.getLocalName() + ", ");
         }
         return muscles.toString();
     }
-
 
 
 }

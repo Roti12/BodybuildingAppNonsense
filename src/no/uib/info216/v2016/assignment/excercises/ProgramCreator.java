@@ -67,50 +67,6 @@ public class ProgramCreator {
                                     //T
 
 
-    public Equipment getOlympiaBar() {
-
-        ResultSet result = QueryItems.queryOntology(QueryStrings.queryOlympiaBar);
-        List<Resource> is_used_in = new ArrayList<>();
-
-        //Literal label = null;
-        Literal weight = null;
-
-        while (result.hasNext()) {
-            QuerySolution binding = result.nextSolution();
-
-            Resource exercise = (Resource) binding.get("Exercises");
-            if (!is_used_in.contains(exercise)) {
-                is_used_in.add(exercise);
-            }
-            weight = binding.getLiteral("weight");
-        }
-
-        return new Equipment("Test", is_used_in, null, weight);
-
-    }
-
-    public Equipment getBenchRack() {
-
-        ResultSet result = QueryItems.queryOntology(QueryStrings.queryOlympiaBar);
-        List<Resource> is_used_in = new ArrayList<>();
-
-        Literal label = null;
-        Literal weight = null;
-
-        while (result.hasNext()) {
-            QuerySolution binding = result.nextSolution();
-
-            Resource exercise = (Resource) binding.get("Exercises");
-            if (!is_used_in.contains(exercise)) {
-                is_used_in.add(exercise);
-            }
-            weight = binding.getLiteral("weight");
-            label = binding.getLiteral("label");
-        }
-
-        return new Equipment("Test", is_used_in, label, weight);
-
-    }
 
 
 
@@ -564,6 +520,53 @@ public class ProgramCreator {
 
         return new Exercise("Bicep Curls", label, null, can_useList, muscles);
     }
+
+
+    public Equipment getOlympiaBar() {
+
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryOlympiaBar);
+        List<Resource> is_used_in = new ArrayList<>();
+
+        //Literal label = null;
+        Literal weight = null;
+
+        while (result.hasNext()) {
+            QuerySolution binding = result.nextSolution();
+
+            Resource exercise = (Resource) binding.get("Exercises");
+            if (!is_used_in.contains(exercise)) {
+                is_used_in.add(exercise);
+            }
+            weight = binding.getLiteral("weight");
+        }
+
+        return new Equipment("Test", is_used_in, null, weight);
+
+    }
+
+    public Equipment getBenchRack() {
+
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryOlympiaBar);
+        List<Resource> is_used_in = new ArrayList<>();
+
+        Literal label = null;
+        Literal weight = null;
+
+        while (result.hasNext()) {
+            QuerySolution binding = result.nextSolution();
+
+            Resource exercise = (Resource) binding.get("Exercises");
+            if (!is_used_in.contains(exercise)) {
+                is_used_in.add(exercise);
+            }
+            weight = binding.getLiteral("weight");
+            label = binding.getLiteral("label");
+        }
+
+        return new Equipment("Test", is_used_in, label, weight);
+
+    }
+
 
     public int getLEVEL() {
         return LEVEL;

@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
  * Created by sto020 on 05.05.2016.
  *
  * @author sto020
+ * @author can013
  */
 public class Controller implements Initializable {
 
@@ -82,6 +83,10 @@ public class Controller implements Initializable {
                     new Equipment("Kettlebells"),
                     new Equipment("Weighted Plates")
             );
+    private final ObservableList<Exercise> equipmentCanUseList =
+            FXCollections.observableArrayList(
+            );
+
     private final ObservableList<String> equipmentUseList =
             FXCollections.observableArrayList(
             );
@@ -92,34 +97,28 @@ public class Controller implements Initializable {
 
 
     @FXML
-    TabPane tabHolder;
+    private TabPane tabHolder;
     @FXML
-    Tab tabProgram, tabExercises, tabMachines, tabEquipment;
+    private Tab tabProgram, tabExercises, tabMachines, tabEquipment;
     @FXML
-    private
-    ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday;
+    private ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday,listviewEquipmentUsedIn;
     @FXML
-    ListView<Equipment> listviewEquipment;
+    private ListView<Equipment> listviewEquipment;
     @FXML
-    ListView<String> listviewExerciseMusclesWorked, listviewExerciseCanUse;
+    private ListView<String> listviewExerciseMusclesWorked, listviewExerciseCanUse;
     @FXML
-    Label labelExerciseRequires;
+    private Label labelExerciseRequires;
     @FXML
-    TextArea textExerciseDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn;
+    private TextArea textExerciseDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn;
     @FXML
-    Button buttonCreate_Program, buttonClose_Exercise, buttonClose_Machine, buttonClose_Equipment;
+    private Button buttonCreate_Program, buttonClose_Exercise, buttonClose_Machine, buttonClose_Equipment;
     @FXML
     private
     ComboBox<String> comboboxExperience;
 
     private Stage stage;
-
     private Controller mainController = null;
-
-
     private Exercise currentExerciseSelected;
-
-
     private Equipment currentEquipmentSelected;
     private ProgramCreator program = null;
 
@@ -139,6 +138,7 @@ public class Controller implements Initializable {
     public void setCurrentEquipmentSelected(Equipment currentEquipmentSelected) {
         this.currentEquipmentSelected = currentEquipmentSelected;
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -203,7 +203,7 @@ public class Controller implements Initializable {
 
     public void initializeEquipmentDialog() {
         addEquipmentData();
-       }
+    }
 
 
     /**
@@ -381,10 +381,6 @@ public class Controller implements Initializable {
 
     }
 
-    // private void getEquipment() {
-    //   program.getEquipment();
-    //}
-
 
     private void createNewProgram() {
 
@@ -400,7 +396,7 @@ public class Controller implements Initializable {
 
         if (workoutLevel > -1) {
             System.out.println("creating");
-            program.create(workoutLevel); //implement levels  ?
+            program.create(workoutLevel); //create from level, based on input from user
 
             //add newly created program to schedule
             mondayList.addAll(program.getMonday());
@@ -457,7 +453,7 @@ public class Controller implements Initializable {
             Controller controller = new Controller();
             controller.setMainController(this.mainController);
             controller.setCurrentExerciseSelected(currentExerciseSelected);
-
+            controller.setCurrentEquipmentSelected(currentEquipmentSelected);
             fxmlLoader.setController(controller);
 
             root = fxmlLoader.load();
@@ -507,14 +503,23 @@ public class Controller implements Initializable {
 
     private void addEquipmentData() {
 
+        //search for the shit and adddddd the things
 
-        textEquipmentWeight.clear();
-        textEquipmentDefinition.clear();
-        textEquipmentUsedIn.clear();
-        textEquipmentDefinition.setText("Definition goes here");
-        textEquipmentUsedIn.setText("Used in goes here");
-        textEquipmentWeight.setText("Weight goes here.");
 
+        listviewEquipmentUsedIn.setItems(equipmentCanUseList);
+
+        if (currentEquipmentSelected.getDefinition() != null) {
+            textEquipmentDefinition.setText(currentEquipmentSelected.getDefinition().getString());
+        }
+
+        if (currentEquipmentSelected.getUsed_in() != null) {
+            equipmentCanUseList.addAll(currentEquipmentSelected.getUsed_in().stream().map(e -> new Exercise(e.getLocalName())).collect(Collectors.toList()));
+            textEquipmentUsedIn.setText(currentEquipmentSelected.getUsed_in().toString());
+        }
+        if (currentEquipmentSelected.getWeight() != null) {
+
+            textEquipmentWeight.setText(currentEquipmentSelected.getWeight().getString());
+        }
         buttonClose_Equipment.setOnAction((EventHandler<ActionEvent>) event -> {
             closeExercise();
         });
