@@ -270,7 +270,7 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    showEquipment();
+                    showEquipment("Equipment");
                 }
             }
         });
@@ -353,8 +353,8 @@ public class Controller implements Initializable {
     /**
      * Creates a Popup for equipment
      */
-    public void showEquipment() {
-        createDialog("../GUI/dialogs/dialogEquipment.fxml", "title");
+    public void showEquipment(String title) {
+        createDialog("../GUI/dialogs/dialogEquipment.fxml", title);
     }
 
     /**
