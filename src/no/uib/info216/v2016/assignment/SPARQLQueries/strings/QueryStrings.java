@@ -89,6 +89,7 @@ public class QueryStrings {
 			+ "ont:label ?label . }";
 
 	public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
-			+ "SELECT * WHERE {"
-			+ "}";
+			+ "SELECT * "
+	+ "WHERE { ?equipment rdf:type owl:NamedIndividual ;"
+		+		"rdf:type ont:Equipment . }";
 }
