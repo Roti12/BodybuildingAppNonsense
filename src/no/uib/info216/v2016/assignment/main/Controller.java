@@ -104,7 +104,7 @@ public class Controller implements Initializable {
     @FXML
     Label labelRequires;
     @FXML
-    TextArea textDefinition;
+    TextArea textDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn;
     @FXML
     Button buttonCreate_Program, buttonClose_Exercise, buttonClose_Machine, buttonClose_Equipment;
     @FXML
@@ -265,11 +265,18 @@ public class Controller implements Initializable {
 
     }
 
+    public void fillEquipmentPopup() {
+        textEquipmentDefinition.setText("Definition goes here");
+        textEquipmentUsedIn.setText("Used in goes here");
+        textEquipmentWeight.setText("Weight goes here.");
+    }
+
     private void setEquipmentListener(ListView<String> listviewEquipment) {
         listviewEquipment.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
+                    fillEquipmentPopup();
                     showEquipment("Equipment");
                 }
             }

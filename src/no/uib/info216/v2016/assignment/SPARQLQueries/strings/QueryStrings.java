@@ -88,8 +88,12 @@ public class QueryStrings {
 			+ "ont:Seated_Cable_Row ont:Is_Used_In ?Excercises ;"
 			+ "ont:label ?label . }";
 
-	public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+	/*public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>, PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>, PREFIX owl: <http://www.w3.org/2002/07/owl#>"
 			+ "SELECT * "
 	+ "WHERE { ?equipment rdf:type owl:NamedIndividual ;"
-		+		"rdf:type ont:Equipment . }";
+		+		"rdf:type ont:Equipment . }";*/
+
+	public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "}";
 }
