@@ -221,7 +221,7 @@ public class Controller implements Initializable {
                         }; // ListCell
 
 
-                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty()));
+                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty().getName()));
                         detailsMenuItem.setOnAction(event -> showExercise());
 
                         contextMenu.getItems().addAll(detailsMenuItem);
@@ -245,15 +245,18 @@ public class Controller implements Initializable {
      * @param listview The listview to be listened
      */
     private void setListCellListener(ListView<Exercise> listview) {
+
+        listview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            currentExerciseSelected = newValue;//Updates when item selection changed
+        });
+
         listview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent click) {
 
                 if (click.getClickCount() == 2) {
-                     currentExerciseSelected = listview.getSelectionModel()
-                            .getSelectedItem();
-                    showExercise();
+                                     showExercise();
                 }
             }
         });
@@ -289,6 +292,8 @@ public class Controller implements Initializable {
 
                 }
         );
+
+
 
         buttonCreate_Program.setOnAction(event -> createNewProgram());
 
