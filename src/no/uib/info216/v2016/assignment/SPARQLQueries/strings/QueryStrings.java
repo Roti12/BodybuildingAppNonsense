@@ -82,7 +82,12 @@ public class QueryStrings {
 			+ "ont:label ?label . }";
 	
 	// Equipment
-	
+
+	public static String queryOlympiaBar = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "SELECT * WHERE {"
+			+ "ont:Olympic_Barbell_Men ont:Is_Used_In ?Excercises ;"
+			+ "ont:Weight ?weight . }";
+
 	public static String queryBenchPressRack = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"
 			+ "ont:Seated_Cable_Row ont:Is_Used_In ?Excercises ;"

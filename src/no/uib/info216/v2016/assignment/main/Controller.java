@@ -271,7 +271,7 @@ public class Controller implements Initializable {
 
     public void initializeEquipmentDialog() {
         fillEquipmentPopup();
-        ResultSet result = QueryItems.queryOntology(QueryStrings.getQueryEquipmentDefinition);
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryEquipmentUsedIn);
         System.out.println("hello");
         if (result.hasNext() != false) System.out.println("NOT EMPTY");
         while (result.hasNext()) {

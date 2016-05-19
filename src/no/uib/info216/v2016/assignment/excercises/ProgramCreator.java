@@ -2,6 +2,7 @@ package no.uib.info216.v2016.assignment.excercises;
 
 import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
 import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
+import org.apache.jena.query.Query;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
@@ -57,20 +58,31 @@ public class ProgramCreator {
      These are just a few examples for what you can do, but you really don’t need to make things more complicated than this.
      */
 
-    public List<String> getEquipment()
-    {
+    public Equipment getOlympiaBar() {
         //get all equipment from ontology ?
 
 
-        ResultSet resultOne = QueryItems.queryOntology( QueryStrings.queryEquipmentUsedIn);
-        ResultSet resultTwo = QueryItems.queryOntology( QueryStrings.getQueryEquipmentWeight);
-        List<String> tmp = new ArrayList<>();
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryOlympiaBar);
+        List<Resource> is_used_in = new ArrayList<>();
 
-        //parse
+        Literal label = null;
+        Literal weight = null;
 
+        while (result.hasNext()) {
+            QuerySolution binding = result.nextSolution();
 
-        return tmp;
+            Resource excercise = (Resource) binding.get("Exercises");
+            if (!is_used_in.contains(excercise)) {
+                is_used_in.add(excercise);
+            }
+        }
+
+        return new Equipment("Test", null, null, null);
+
     }
+
+
+
     public void create(int LEVEL) {
         clear();
         setLEVEL(LEVEL);
