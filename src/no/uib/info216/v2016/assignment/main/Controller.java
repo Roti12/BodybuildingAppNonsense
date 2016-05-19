@@ -469,7 +469,7 @@ public class Controller implements Initializable {
             }
 
 
-            return new Equipment(currentEquipmentSelected.getName(), is_used_in, null, weight);
+            return new Equipment(currentEquipmentSelected.getName(), is_used_in, label, weight);
 
     }
 
