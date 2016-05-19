@@ -266,6 +266,9 @@ public class Controller implements Initializable {
     }
 
     public void fillEquipmentPopup() {
+        textEquipmentWeight.clear();
+        textEquipmentDefinition.clear();
+        textEquipmentUsedIn.clear();
         textEquipmentDefinition.setText("Definition goes here");
         textEquipmentUsedIn.setText("Used in goes here");
         textEquipmentWeight.setText("Weight goes here.");
@@ -276,8 +279,8 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    fillEquipmentPopup();
                     showEquipment("Equipment");
+                    fillEquipmentPopup();
                 }
             }
         });
