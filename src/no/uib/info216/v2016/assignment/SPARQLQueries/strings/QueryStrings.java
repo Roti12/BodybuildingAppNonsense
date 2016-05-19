@@ -96,4 +96,10 @@ public class QueryStrings {
 			+ "SELECT * WHERE {"
 			+ "?equipment ont:Weight ?Weight . }";
 
+	public static String getQueryEquipmentDefinition = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+			+ "SELECT * WHERE {"
+			+ "?equipment ont:label ?Definition ;"
+			+ "rdf:type ont:Exercise_Equipment . }";
+
 }
