@@ -77,7 +77,8 @@ public class QueryStrings {
 	public static String queryOlympiaBar = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
 			+ "ont:Olympic_Barbell_Men ont:Is_Used_In ?Exercises ;"
-			+ "ont:Weight ?weight . }";
+			+ "ont:Weight ?weight ;"
+			+ "ont:label ?label . }";
 
 	public static String queryBench = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
@@ -96,7 +97,7 @@ public class QueryStrings {
 
 	public static String queryKettleBells = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "ont:KettleBells ont:Is_Used_In ?Excercises ;"
+			+ "ont:Kettebells ont:Is_Used_In ?Excercises ;"
 			+ "ont:label ?label ;"
 			+ "ont:Weight ?weight . }";
 
