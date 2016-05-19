@@ -151,7 +151,7 @@ public class Controller implements Initializable {
         program = new ProgramCreator();
 
         comboboxExperience.setItems(experienceList);
-        getEquipment();
+        //getEquipment();
 
 
         setEquipmentListener(listviewEquipment);
@@ -339,9 +339,9 @@ public class Controller implements Initializable {
 
     }
 
-    private void getEquipment() {
-        program.getEquipment();
-    }
+   // private void getEquipment() {
+     //   program.getEquipment();
+    //}
 
 
 

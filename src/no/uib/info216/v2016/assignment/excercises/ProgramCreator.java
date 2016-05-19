@@ -58,9 +58,40 @@ public class ProgramCreator {
      These are just a few examples for what you can do, but you really don’t need to make things more complicated than this.
      */
 
-    public Equipment getOlympiaBar() {
-        //get all equipment from ontology ?
+    // E
+        //Q
+            //U
+                //I
+                    //P
+                        //M
+                            //E
+                                //N
+                                    //T
 
+
+    public Equipment getOlympiaBar() {
+
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryOlympiaBar);
+        List<Resource> is_used_in = new ArrayList<>();
+
+        //Literal label = null;
+        Literal weight = null;
+
+        while (result.hasNext()) {
+            QuerySolution binding = result.nextSolution();
+
+            Resource exercise = (Resource) binding.get("Exercises");
+            if (!is_used_in.contains(exercise)) {
+                is_used_in.add(exercise);
+            }
+            weight = binding.getLiteral("weight");
+        }
+
+        return new Equipment("Test", is_used_in, null, weight);
+
+    }
+
+    public Equipment getBenchRack() {
 
         ResultSet result = QueryItems.queryOntology(QueryStrings.queryOlympiaBar);
         List<Resource> is_used_in = new ArrayList<>();
@@ -71,13 +102,15 @@ public class ProgramCreator {
         while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
 
-            Resource excercise = (Resource) binding.get("Exercises");
-            if (!is_used_in.contains(excercise)) {
-                is_used_in.add(excercise);
+            Resource exercise = (Resource) binding.get("Exercises");
+            if (!is_used_in.contains(exercise)) {
+                is_used_in.add(exercise);
             }
+            weight = binding.getLiteral("weight");
+            label = binding.getLiteral("label");
         }
 
-        return new Equipment("Test", null, null, null);
+        return new Equipment("Test", is_used_in, label, weight);
 
     }
 
