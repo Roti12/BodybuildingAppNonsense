@@ -100,7 +100,7 @@ public class Controller implements Initializable {
     private
     ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday;
     @FXML
-    ListView listviewEquipment, listviewMusclesWorked, listviewCanUse;
+    ListView<String> listviewEquipment, listviewMusclesWorked, listviewCanUse;
     @FXML
     Label labelRequires;
     @FXML
@@ -183,6 +183,10 @@ public class Controller implements Initializable {
         listviewEquipment.setItems(equipmentList);
         addListeners();
 
+    }
+
+    public void initializeExerciseDialog() {
+        addExerciseData(currentExerciseSelected);
     }
 
     /**
@@ -370,12 +374,15 @@ public class Controller implements Initializable {
             fxmlLoader.setController(controller);
 
             root = fxmlLoader.load();
-          //  if (fxmlFile.contains("dialogExercise.fxml")) addExerciseData(controller.currentExerciseSelected);
 
             stage.setScene(new Scene(root));
             stage.setTitle(title);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(buttonCreate_Program.getScene().getWindow());
+
+
+             if (fxmlFile.contains("dialogExercise.fxml")) controller.initializeExerciseDialog();
+
             stage.showAndWait();
 
         } catch (IOException e) {
@@ -385,8 +392,7 @@ public class Controller implements Initializable {
 
     private void addExerciseData(Exercise data) {
         listviewMusclesWorked.setItems(musclesList);
-        listviewCanUse.setItems(equipmentUseList);
-
+       listviewCanUse.setItems(equipmentUseList);
         if (data.getMuscles() != null) {
             musclesList.addAll(data.getMuscles().stream().map(Resource::getLocalName).collect(Collectors.toList()));
         }
@@ -401,6 +407,7 @@ public class Controller implements Initializable {
         if (data.getDescription() != null) {
             textDefinition.setText(data.getDescription().getString());
         }
+
         buttonClose_Exercise.setOnAction((EventHandler<ActionEvent>) event -> {
             closeExercise();
         });
