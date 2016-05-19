@@ -6,19 +6,39 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="443.0" prefWidth="558.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="452.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="305.0" prefWidth="423.0">
          <bottom>
             <AnchorPane prefHeight="47.0" prefWidth="558.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="buttonClose_FullExercise" layoutX="357.0" layoutY="10.0" mnemonicParsing="false" text="Close" />
+                  <Button fx:id="buttonClose_FullExercise" layoutX="533.0" layoutY="11.0" mnemonicParsing="false" text="Close" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="66.0" />
                </children>
             </AnchorPane>
          </bottom>
-         <center>
-            <ImageView fx:id="imageHeatmap" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-         </center>
+         <top>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imageHeatmap" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imagemalestart" fitHeight="221.0" fitWidth="290.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </left>
+         <right>
+         </right>
+         <right>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imagemaleend" fitHeight="231.0" fitWidth="287.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </right>
       </BorderPane>
    </children>
 </VBox>

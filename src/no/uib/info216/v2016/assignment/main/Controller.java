@@ -128,7 +128,7 @@ public class Controller implements Initializable {
     private
     ComboBox<String> comboboxExperience;
     @FXML
-    ImageView imageHeatmap;
+    ImageView imageHeatmap,imagemalestart,imagemaleend;
 
     private Stage stage;
     private Controller mainController = null;
@@ -316,8 +316,8 @@ public class Controller implements Initializable {
                         }; // ListCell
 
 
-                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty().getName()));
-                        detailsMenuItem.setOnAction(event -> showExercise());
+                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"",cell.itemProperty().getName()));
+                        detailsMenuItem.setOnAction(event -> showEquipment());
 
                         contextMenu.getItems().addAll(detailsMenuItem);
 
@@ -367,7 +367,7 @@ public class Controller implements Initializable {
 
 
                         detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty().getName()));
-                        detailsMenuItem.setOnAction(event -> showExercise());
+                        detailsMenuItem.setOnAction(event -> showFullExercise());
 
                         contextMenu.getItems().addAll(detailsMenuItem);
 
@@ -442,7 +442,7 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
-                    showEquipment(currentEquipmentSelected.getName());
+                    showEquipment();
                 }
             }
         });
@@ -597,8 +597,8 @@ public class Controller implements Initializable {
     /**
      * Creates a Popup for equipment
      */
-    public void showEquipment(String title) {
-        createDialog("../GUI/dialogs/dialogEquipment.fxml", title);
+    public void showEquipment() {
+        createDialog("../GUI/dialogs/dialogEquipment.fxml", currentEquipmentSelected.getName());
     }
 
     /**
@@ -694,7 +694,8 @@ public class Controller implements Initializable {
     private void addFullExerciseData() {
 
         imageHeatmap.setImage(new Image(currentFullExerciseSelected.getMucleHeatmap()));
-
+        imagemalestart.setImage(new Image(currentFullExerciseSelected.getMaleImageStart()));
+        imagemaleend.setImage(new Image(currentFullExerciseSelected.getMaleImageEnd()));
 
         buttonClose_FullExercise.setOnAction((EventHandler<ActionEvent>) event -> {
             closeFullExercise();
