@@ -545,7 +545,25 @@ public class Controller implements Initializable {
             query = QueryStrings.queryOlympiaBar;
         }
         if (search.equals("Bench")) {
+            query = QueryStrings.queryBenchPressRack;
+        }if (search.equals("Squat Rack")) {
+            query = QueryStrings.querySquatRack;
+        }if (search.equals("Olympic Barbell Men")) {
             query = QueryStrings.queryOlympiaBar;
+        }if (search.equals("Cap Barbell Dumbells")) {
+            query = QueryStrings.queryCapDumbbell;
+        }if (search.equals("Rounded Dumbells")) {
+            query = QueryStrings.queryRoundedDumbell;
+        }if (search.equals("Hexagonal Dumbells")) {
+            query = QueryStrings.queryHexDumbbell;
+        }if (search.equals("Squared Dumbells")) {
+            query = QueryStrings.querySquaredDumbell;
+        }if (search.equals("Kettlebells")) {
+            query = QueryStrings.queryKettleBells;
+        }if (search.equals("Weighted Plates")) {
+            query = QueryStrings.queryWeightedPlates;
+        }if (search.equals("Bench")) {
+            query = QueryStrings.queryBench;
         }
         ResultSet result = QueryItems.queryOntology(query);
         List<Resource> is_used_in = new ArrayList<>();
@@ -566,7 +584,8 @@ public class Controller implements Initializable {
         }
 
 
-        return new Equipment(currentEquipmentSelected.getName(), is_used_in, null, weight);
+
+            return new Equipment(currentEquipmentSelected.getName(), is_used_in, label, weight);
 
     }
 
@@ -687,6 +706,8 @@ public class Controller implements Initializable {
 
 
         listviewEquipmentUsedIn.setItems(equipmentCanUseList);
+
+       currentEquipmentSelected = searchEquipment();
 
         if (currentEquipmentSelected.getDefinition() != null) {
             textEquipmentDefinition.setText(currentEquipmentSelected.getDefinition().getString());
