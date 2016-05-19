@@ -150,6 +150,8 @@ public class Controller implements Initializable {
         getEquipment();
 
 
+        setEquipmentListener(listviewEquipment);
+
         //Set days items list's
         listviewMonday.setItems(mondayList);
         setListCellFactory(listviewMonday);
@@ -257,8 +259,19 @@ public class Controller implements Initializable {
                 }
             }
         });
+
     }
 
+    private void setEquipmentListener(ListView<String> listviewEquipment) {
+        listviewEquipment.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 2) {
+                    showEquipment();
+                }
+            }
+        });
+    }
 
 
 
