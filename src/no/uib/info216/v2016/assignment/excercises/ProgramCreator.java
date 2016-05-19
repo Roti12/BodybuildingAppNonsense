@@ -62,7 +62,8 @@ public class ProgramCreator {
         //get all equipment from ontology ?
 
 
-        ResultSet result = QueryItems.queryOntology( QueryStrings.queryEquipment);
+        ResultSet resultOne = QueryItems.queryOntology( QueryStrings.queryEquipmentUsedIn);
+        ResultSet resultTwo = QueryItems.queryOntology( QueryStrings.getQueryEquipmentWeight);
         List<String> tmp = new ArrayList<>();
 
         //parse

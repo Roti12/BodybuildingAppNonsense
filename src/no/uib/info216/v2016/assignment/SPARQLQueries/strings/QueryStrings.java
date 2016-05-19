@@ -88,14 +88,12 @@ public class QueryStrings {
 			+ "ont:Seated_Cable_Row ont:Is_Used_In ?Excercises ;"
 			+ "ont:label ?label . }";
 
-	public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+	public static String queryEquipmentUsedIn = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "?equipment ont:Is_Used_In ?Exercises ."
-			+ "OPTIONAL { ?equipment ont:Weight ?Weight } }";
+			+ "?equipment ont:Is_Used_In ?Exercises . }";
 
-
-
-	/*public static String queryEquipment = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+	public static String getQueryEquipmentWeight = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "}";*/
+			+ "?equipment ont:Weight ?Weight . }";
+
 }
