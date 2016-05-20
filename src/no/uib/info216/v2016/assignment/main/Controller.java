@@ -33,6 +33,7 @@ import org.apache.jena.rdf.model.Resource;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -110,14 +111,18 @@ public class Controller implements Initializable {
     private final ObservableList<String> descriptionList =
             FXCollections.observableArrayList(
             );
-
+    private final ObservableList<Exercise> implementsList =
+            FXCollections.observableArrayList(
+            );
 
     @FXML
     private TabPane tabHolder;
     @FXML
     private Tab tabProgram, tabExercises, tabMachines, tabEquipment;
     @FXML
-    private ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday, listviewFriday, listviewSaturday, listviewSunday, listviewEquipmentUsedIn;
+    private ListView<Exercise> listviewMonday, listviewTuesday, listviewWednesday, listviewThursday,
+                               listviewFriday, listviewSaturday, listviewSunday, listviewEquipmentUsedIn,
+                               listviewMachineImplements;
     @FXML
     private ListView<Equipment> listviewEquipment;
     @FXML
@@ -127,9 +132,9 @@ public class Controller implements Initializable {
     @FXML
     private ListView<String> listviewExerciseMusclesWorked, listviewExerciseCanUse, listviewFullExerciseDescription;
     @FXML
-    private Label labelExerciseRequires;
+    private Label labelExerciseRequires,labelMachineName;
     @FXML
-    private TextArea textExerciseDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn;
+    private TextArea textExerciseDefinition, textEquipmentDefinition, textEquipmentWeight, textEquipmentUsedIn,textMachinesDefinition;
     @FXML
     private Button buttonCreate_Program, buttonClose_Exercise, buttonClose_FullExercise, buttonClose_Machine, buttonClose_Equipment;
     @FXML
@@ -145,6 +150,7 @@ public class Controller implements Initializable {
     private Exercise currentExerciseSelected;
     private FullExercise currentFullExerciseSelected;
     private Equipment currentEquipmentSelected;
+    private Machine currentMachineSelected;
     private ProgramCreator program = null;
 
     /**
@@ -167,6 +173,11 @@ public class Controller implements Initializable {
 
     public void setCurrentEquipmentSelected(Equipment currentEquipmentSelected) {
         this.currentEquipmentSelected = currentEquipmentSelected;
+    }
+
+
+    public void setCurrentMachineSelected(Machine currentMachineSelected) {
+        this.currentMachineSelected = currentMachineSelected;
     }
 
     public void setListviewFullExercisesSource(ObservableList<FullExercise> exercises) {
@@ -193,6 +204,8 @@ public class Controller implements Initializable {
         //getEquipment();
 
         listviewMachines.setItems(machinesList);
+        setMachineCellFactory(listviewMachines);
+        setMachineListener(listviewMachines);
 
         setEquipmentListener(listviewEquipment);
 
@@ -247,6 +260,9 @@ public class Controller implements Initializable {
         addFullExerciseData();
     }
 
+    public void initializeMachineDialog() {
+        addMachineData();
+    }
     /**
      * Will set the listviews cell to a custom exercise cell. this is to display the correct data.
      *
@@ -369,8 +385,8 @@ public class Controller implements Initializable {
                                 if (item != null) {
                                     leadLbl.setText(item.getName());
                                     setText(item.getName());
-                                    if (item.getGuide() != null) {
-                                        tooltip.setText(item.getGuide().toString());
+                                    if (item.getLevel() != null) {
+                                        tooltip.setText(item.getLevel().toString());
                                     }
                                     setTooltip(tooltip);
                                 }
@@ -395,6 +411,55 @@ public class Controller implements Initializable {
                 }); // setCellFactory
     }
 
+
+    /**
+     * Will set the listviews cell to a custom exercise cell. this is to display the correct data.
+     *
+     * @param listview The listview to be customised
+     */
+    private void setMachineCellFactory(ListView<Machine> listview) {
+
+        listview
+                .setCellFactory(new Callback<ListView<Machine>, ListCell<Machine>>() {
+
+                    public ListCell<Machine> call(ListView<Machine> param) {
+                        final ContextMenu contextMenu = new ContextMenu();
+                        final MenuItem detailsMenuItem = new MenuItem();
+
+                        final Label leadLbl = new Label();
+                        final Tooltip tooltip = new Tooltip();
+                        final ListCell<Machine> cell = new ListCell<Machine>() {
+                            @Override
+                            public void updateItem(Machine item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (item != null) {
+                                    leadLbl.setText(item.getName());
+                                    setText(item.getName());
+                                    if (item.getDefinitionMachines() != null) {
+                                        tooltip.setText(item.getDefinitionMachines().toString());
+                                    }
+                                    setTooltip(tooltip);
+                                }
+                            }
+                        }; // ListCell
+
+
+                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty().getName()));
+                        detailsMenuItem.setOnAction(event -> showMachine());
+
+                        contextMenu.getItems().addAll(detailsMenuItem);
+
+                        cell.emptyProperty().addListener((obs, wasEmpty, isNowEmpty) -> {
+                            if (isNowEmpty) {
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(contextMenu);
+                            }
+                        });
+                        return cell;
+                    }
+                }); // setCellFactory
+    }
     /**
      * Will set the listviews listener to open correct window
      *
@@ -450,7 +515,7 @@ public class Controller implements Initializable {
             currentEquipmentSelected = newValue;//Updates when item selection changed
         });
 
-        listviewEquipment.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        listview.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 2) {
@@ -460,6 +525,22 @@ public class Controller implements Initializable {
         });
     }
 
+
+    private void setMachineListener(ListView<Machine> listview) {
+
+        listview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            currentMachineSelected = newValue;//Updates when item selection changed
+        });
+
+        listview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 2) {
+                    showMachine();
+                }
+            }
+        });
+    }
 
     /**
      * Adds listeners to the different TableView's
@@ -477,7 +558,6 @@ public class Controller implements Initializable {
 
 
                     } else if (t1.getId().equals(tabMachines.getId())) {
-                        //dosomething
                         getAllMachines();
                     } else if (t1.getId().equals(tabEquipment.getId())) {
                         //dosomething
@@ -494,7 +574,9 @@ public class Controller implements Initializable {
 
     }
 
-
+/**
+ * Creates a nm
+ */
     private void createNewProgram() {
 
         mondayList.clear();
@@ -522,19 +604,20 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Gets all machines from Ontology and puts them nicely into the list of machines
+     */
     private void getAllMachines() {
 
         ResultSet result = QueryItems.queryOntology(QueryStrings.queryAllMachines);
-
+        HashMap<String, Machine> machineMap = new HashMap<>();
         Resource machine = null;
-        List<Resource> exercises = null;
+        List<Resource> exercises = new ArrayList<>();
         Literal label = null;
-        ResultSetFormatter.out(result);
+        // ResultSetFormatter.out(result);
 
-      /*
-        if (!result.hasNext()) System.out.println("NOTHING HERE");
+
         while (result.hasNext()) {
-            ResultSetFormatter.out(result);
 
             QuerySolution binding = result.nextSolution();
 
@@ -542,15 +625,19 @@ public class Controller implements Initializable {
 
             machine = (Resource) binding.get("Machine");
 
-            if (!exercises.contains(exercise)) {
-                exercises.add(exercise);
-            }
+            exercises.add(exercise);
+
 
             label = binding.getLiteral("label");
-            System.out.println(label.getString());
-            machinesList.add(new Machine(machine.getLocalName(), exercises, label));
+
+            //the hacky way
+            if (machineMap.containsKey(machine)) {
+                machineMap.get(machine).getImplementsExercise().add(exercise);
+            } else {
+                machineMap.put(machine.getLocalName(), new Machine(machine.getLocalName(), exercises, label));
+            }
         }
-*/
+        machinesList.addAll(machineMap.values());
 
     }
 
@@ -653,7 +740,7 @@ public class Controller implements Initializable {
      * Creates a Popup for machines
      */
     public void showMachine() {
-        createDialog("../GUI/dialogs/dialogMachine.fxml", "title");
+        createDialog("../GUI/dialogs/dialogMachine.fxml", currentMachineSelected.getName());
 
     }
 
@@ -669,10 +756,13 @@ public class Controller implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
             Controller controller = new Controller();
+            //Set variables to be carried
             controller.setMainController(this.mainController);
             controller.setCurrentExerciseSelected(currentExerciseSelected);
             controller.setCurrentEquipmentSelected(currentEquipmentSelected);
             controller.setCurrentFullExerciseSelected(currentFullExerciseSelected);
+            controller.setCurrentMachineSelected(currentMachineSelected);
+
             fxmlLoader.setController(controller);
 
             root = fxmlLoader.load();
@@ -685,7 +775,8 @@ public class Controller implements Initializable {
 
             if (fxmlFile.contains("dialogExercise.fxml")) controller.initializeExerciseDialog();
             if (fxmlFile.contains("dialogEquipment.fxml")) controller.initializeEquipmentDialog();
-            if (fxmlFile.contains("dialogFullExercise.fxml")) controller.addFullExerciseData();
+            if (fxmlFile.contains("dialogFullExercise.fxml")) controller.initializeFullExerciseDialog();
+            if (fxmlFile.contains("dialogMachine.fxml")) controller.initializeMachineDialog();
 
 
             stage.showAndWait();
@@ -695,8 +786,13 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * adds data to the exercise popup window
+     * @param data the exercise to populate the fields
+     */
     private void addExerciseData(Exercise data) {
-
+        musclesList.clear();
+        equipmentUseList.clear();
         listviewExerciseMusclesWorked.setItems(musclesList);
         listviewExerciseCanUse.setItems(equipmentUseList);
 
@@ -720,9 +816,11 @@ public class Controller implements Initializable {
         });
 
     }
-
+    /**
+     * adds data to the fullexercise popup window
+     */
     private void addFullExerciseData() {
-
+        descriptionList.clear();
         listviewFullExerciseDescription.setItems(descriptionList);
         Task task = new Task() {
             @Override
@@ -733,23 +831,24 @@ public class Controller implements Initializable {
                     countGuide++;
 
                 }
-                int max = 3 + countGuide;
-                int i = 1;
+                int max = 30 + countGuide;
+                int i = 10;
                 imageHeatmap.setImage(new Image(currentFullExerciseSelected.getMucleHeatmap()));
                 updateProgress(i, max);
-
-                imagemalestart.setImage(new Image(currentFullExerciseSelected.getMaleImageStart()));
-                updateProgress(i++, max);
-
-                imagemaleend.setImage(new Image(currentFullExerciseSelected.getMaleImageEnd()));
-                updateProgress(i++, max);
-                System.out.println(max);
 
                 for (String s : currentFullExerciseSelected.getGuide()) {
                     descriptionList.add(s);
                     updateProgress(i++, max);
 
                 }
+
+                imagemalestart.setImage(new Image(currentFullExerciseSelected.getMaleImageStart()));
+                updateProgress(i+=10, max);
+
+                imagemaleend.setImage(new Image(currentFullExerciseSelected.getMaleImageEnd()));
+                updateProgress(i+=10, max);
+                System.out.println(max);
+
 
 
                 return null;
@@ -765,10 +864,12 @@ public class Controller implements Initializable {
         });
 
     }
-
+    /**
+     * adds data to the equipment popup window
+     */
     private void addEquipmentData() {
 
-
+        equipmentCanUseList.clear();
         listviewEquipmentUsedIn.setItems(equipmentCanUseList);
 
         currentEquipmentSelected = searchEquipment();
@@ -786,6 +887,32 @@ public class Controller implements Initializable {
         }
         buttonClose_Equipment.setOnAction((EventHandler<ActionEvent>) event -> {
             closeEquipment();
+        });
+
+    }
+
+    /**
+     * adds data to the machine popup window
+     */
+    private void addMachineData() {
+        implementsList.clear();
+        listviewMachineImplements.setItems(implementsList);
+
+
+        if (currentMachineSelected.getName() != null) {
+labelMachineName.setText(currentMachineSelected.getName());        }
+
+        if (currentMachineSelected.getDefinitionMachines() != null) {
+            textMachinesDefinition.setText(currentMachineSelected.getDefinitionMachines().getString());
+        }
+
+        if (currentMachineSelected.getImplementsExercise() != null) {
+            implementsList.addAll(currentMachineSelected.getImplementsExercise().stream().map(r -> new Exercise(r.getLocalName())).collect(Collectors.toList()));
+        }
+
+
+        buttonClose_Machine.setOnAction((EventHandler<ActionEvent>) event -> {
+            closeMachine();
         });
 
     }

@@ -75,8 +75,12 @@ public class Parser {
                             innerObj2.get("guide").toString().length() - 1));
                     List<String> guideList = new ArrayList<>();
 
-                    for (String s : guide.split("  ")
-                            ) {
+//fix guide to fit array
+                    for (String s : guide.split("\",\"")) {
+                        s = s.replace("\"", "");
+                        s = s.replace("\\r\\n", "");
+
+                        s = s.trim();
                         guideList.add(s);
 
                     }
@@ -88,7 +92,6 @@ public class Parser {
 
             }
 
-            System.out.println("Count: " + count);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
