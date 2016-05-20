@@ -28,6 +28,9 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(this.getClass().getResource("../GUI/GUI.css").toExternalForm());
         controller.initializeGUI();
+
+        System.out.println("Loading data from file..");
+
         controller.setListviewFullExercisesSource(Parser.parse());
 
         primaryStage.setTitle("Workout Planner");

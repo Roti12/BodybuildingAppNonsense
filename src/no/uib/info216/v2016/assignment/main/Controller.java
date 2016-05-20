@@ -799,7 +799,6 @@ public class Controller implements Initializable {
         if (data.getMuscles() != null) {
             musclesList.addAll(data.getMuscles().stream().map(Resource::getLocalName).collect(Collectors.toList()));
         }
-
         if (data.getCan_use() != null) {
             equipmentUseList.addAll(data.getCan_use().stream().map(Resource::getLocalName).collect(Collectors.toList()));
         }
@@ -847,7 +846,6 @@ public class Controller implements Initializable {
 
                 imagemaleend.setImage(new Image(currentFullExerciseSelected.getMaleImageEnd()));
                 updateProgress(i+=10, max);
-                System.out.println(max);
 
 
 
