@@ -4,6 +4,7 @@ import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
 import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 
@@ -395,7 +396,7 @@ public class ProgramCreator {
             label = binding.getLiteral("label");
 
             Resource tempUse = null;
-            can_use = (Resource) binding.get("Can_Use");
+            can_use = (Resource) binding.get("Equipment");
             if (!can_useList.contains(can_use)) {
 
                 can_useList.add(can_use);
@@ -407,7 +408,6 @@ public class ProgramCreator {
     }
 
     private Exercise getDeadlift() {
-        //	System.out.println("Hello, you have pressed a button");
         ResultSet result = QueryItems.queryOntology( QueryStrings.queryDeadlift);
         List<Resource> muscles = new ArrayList<>();
         List<Resource> can_useList = new ArrayList<>();
@@ -428,11 +428,7 @@ public class ProgramCreator {
             Resource tempUse = null;
             label = binding.getLiteral("label");
 
-            tempUse = (Resource) binding.get("Can_Use");
-            if (tempUse.equals(can_use)) {
-                break;
-            }
-            can_use = (Resource) binding.get("Can_Use");
+            can_use = (Resource) binding.get("Equipment");
             if (!can_useList.contains(can_use)) {
 
                 can_useList.add(can_use);
@@ -447,40 +443,71 @@ public class ProgramCreator {
 
     private Exercise getBenchPress() {
         ResultSet result = QueryItems.queryOntology( QueryStrings.queryBenchPress);
+        List<Resource> muscles = new ArrayList<>();
         List<Resource> can_useList = new ArrayList<>();
 
-        Resource can_use;
-        while (result.hasNext()) {
+        Resource equipment = null;
+        Literal label = null;
+        Resource can_use = null;
+       // ResultSetFormatter.out(result);
 
-            // ResultSetFormatter.out(result);
+        while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
 
-            can_use = (Resource) binding.get("Can_Use");
+            Resource muscle = (Resource) binding.get("Muscles");
+            if (!muscles.contains(muscle)) {
 
-            can_useList.add(can_use);
+                muscles.add(muscle);
+            }
+            equipment = (Resource) binding.get("Required_Equipment");
+            Resource tempUse = null;
+            label = binding.getLiteral("label");
+
+            can_use = (Resource) binding.get("Equipment");
+            if (!can_useList.contains(can_use)) {
+
+                can_useList.add(can_use);
+            }
 
         }
 
-        return new Exercise("Bench Press", null, null, can_useList, null);
+        return new Exercise("Bench Press", label, equipment, can_useList, muscles);
+
+
     }
 
     private Exercise getTricepExtension() {
         ResultSet result = QueryItems.queryOntology( QueryStrings.queryTricepExtension);
+        List<Resource> muscles = new ArrayList<>();
         List<Resource> can_useList = new ArrayList<>();
 
-        Resource can_use;
-        while (result.hasNext()) {
+        Resource equipment = null;
+        Literal label = null;
+        Resource can_use = null;
+        // ResultSetFormatter.out(result);
 
-            // ResultSetFormatter.out(result);
+        while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
 
-            can_use = (Resource) binding.get("Can_Use");
+            Resource muscle = (Resource) binding.get("Muscles");
+            if (!muscles.contains(muscle)) {
 
-            can_useList.add(can_use);
+                muscles.add(muscle);
+            }
+            equipment = (Resource) binding.get("Required_Equipment");
+            Resource tempUse = null;
+            label = binding.getLiteral("label");
+
+            can_use = (Resource) binding.get("Equipment");
+            if (!can_useList.contains(can_use)) {
+
+                can_useList.add(can_use);
+            }
 
         }
 
-        return new Exercise("Tricep Extension", null, null, can_useList, null);
+        return new Exercise("Tricep Extension", label, equipment, can_useList, muscles);
+
     }
 
     private Exercise getOverheadPress() {
@@ -488,12 +515,13 @@ public class ProgramCreator {
         List<Resource> can_useList = new ArrayList<>();
 
         Resource can_use;
+
         while (result.hasNext()) {
 
             // ResultSetFormatter.out(result);
             QuerySolution binding = result.nextSolution();
 
-            can_use = (Resource) binding.get("Can_Use");
+            can_use = (Resource) binding.get("Equipment");
 
             can_useList.add(can_use);
 

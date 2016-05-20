@@ -13,16 +13,20 @@ public class QueryStrings {
 			+ "ont:Deadlift ont:Works ?Muscles ;"
 			+ "ont:Requires ?Required_Equipment ;"
 			+ "ont:label ?label ;"
-			+ "ont:Can_Use ?Can_Use . }";
+			+ "ont:Can_Use ?Equipment . }";
 
 	public static String querySquat = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
 			+ "ont:Squat ont:Works ?Muscles ;"
+			+ "ont:Can_Use ?Equipment ; "
 			+ "ont:label ?label . }";
 
 	public static String queryBenchPress = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "ont:BenchPress ont:Can_Use ?Can_Use . }";
+			+ "ont:BenchPress ont:Works ?Muscles ;"
+			+ "ont:Requires ?Required_Equipment ;"
+			+ "ont:label ?label ;"
+			+ "ont:Can_Use ?Equipment . }";
 
 	public static String queryBicepCurl = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
