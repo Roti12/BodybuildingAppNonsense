@@ -1,12 +1,13 @@
 package no.uib.info216.v2016.assignment.excercises;
 
 /**
- * Created by can013 on 17.05.2016.
+ * Created by 117,103 on 17.05.2016.
  */
 
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Equipment {

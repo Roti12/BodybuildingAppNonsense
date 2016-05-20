@@ -7,22 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by cisse on 17.05.2016.
+ * Created by 117,103 on 17.05.2016.
  */
-public class Machines {
+public class Machine {
 
     private List<Resource> implementsExercise = null;
-    private List<Resource> offers = null;
 
     private String name = null;
     private Literal definitionMachines = null;
 
-    public Machines(String name, List<Resource> implementsExercise, List<Resource> offers, Literal definitionMachines   )
+    public Machine(String name, List<Resource> implementsExercise, Literal definitionMachines   )
     {
         this.name = name;
         this.implementsExercise = implementsExercise;
 
-        this.offers = offers;
         this.definitionMachines = definitionMachines;
 
     }
@@ -37,9 +35,6 @@ public class Machines {
         this.implementsExercise = implementsExercise;
     }
 
-    public void setOffers(List<Resource> offers) {
-        this.offers = offers;
-    }
 
     public void setDefinitionMachines(Literal definitionMachines) {
         this.definitionMachines = definitionMachines;
@@ -50,9 +45,6 @@ public class Machines {
         return implementsExercise;
     }
 
-    public List<Resource> getOffers() {
-        return offers;
-    }
 
     public Literal getDefinitionMachines() {
         return definitionMachines;

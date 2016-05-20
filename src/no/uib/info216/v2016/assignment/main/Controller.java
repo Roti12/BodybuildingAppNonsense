@@ -9,27 +9,23 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import no.uib.info216.v2016.assignment.SPARQLQueries.QueryItems;
 import no.uib.info216.v2016.assignment.SPARQLQueries.strings.QueryStrings;
-import no.uib.info216.v2016.assignment.excercises.Equipment;
-import no.uib.info216.v2016.assignment.excercises.Exercise;
-import no.uib.info216.v2016.assignment.excercises.FullExercise;
-import no.uib.info216.v2016.assignment.excercises.ProgramCreator;
+import no.uib.info216.v2016.assignment.excercises.*;
+import org.apache.jena.base.Sys;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 
@@ -104,8 +100,14 @@ public class Controller implements Initializable {
     private final ObservableList<String> equipmentUseList =
             FXCollections.observableArrayList(
             );
+    private final ObservableList<Machine> machinesList =
+            FXCollections.observableArrayList(
+            );
 
     private final ObservableList<String> musclesList =
+            FXCollections.observableArrayList(
+            );
+    private final ObservableList<String> descriptionList =
             FXCollections.observableArrayList(
             );
 
@@ -119,9 +121,11 @@ public class Controller implements Initializable {
     @FXML
     private ListView<Equipment> listviewEquipment;
     @FXML
+    private ListView<Machine> listviewMachines;
+    @FXML
     private ListView<FullExercise> listviewFullExercises;
     @FXML
-    private ListView<String> listviewExerciseMusclesWorked, listviewExerciseCanUse;
+    private ListView<String> listviewExerciseMusclesWorked, listviewExerciseCanUse, listviewFullExerciseDescription;
     @FXML
     private Label labelExerciseRequires;
     @FXML
@@ -132,7 +136,9 @@ public class Controller implements Initializable {
     private
     ComboBox<String> comboboxExperience;
     @FXML
-    ImageView imageHeatmap,imagemalestart,imagemaleend;
+    ImageView imageHeatmap, imagemalestart, imagemaleend;
+    @FXML
+    ProgressBar progressFullExercise;
 
     private Stage stage;
     private Controller mainController = null;
@@ -153,6 +159,7 @@ public class Controller implements Initializable {
     public void setCurrentExerciseSelected(Exercise currentExerciseSelected) {
         this.currentExerciseSelected = currentExerciseSelected;
     }
+
     public void setCurrentFullExerciseSelected(FullExercise currentFullExerciseSelected) {
         this.currentFullExerciseSelected = currentFullExerciseSelected;
     }
@@ -185,6 +192,7 @@ public class Controller implements Initializable {
         comboboxExperience.setItems(experienceList);
         //getEquipment();
 
+        listviewMachines.setItems(machinesList);
 
         setEquipmentListener(listviewEquipment);
 
@@ -320,7 +328,7 @@ public class Controller implements Initializable {
                         }; // ListCell
 
 
-                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"",cell.itemProperty().getName()));
+                        detailsMenuItem.textProperty().bind(Bindings.format("Show \"%s\"", cell.itemProperty().getName()));
                         detailsMenuItem.setOnAction(event -> showEquipment());
 
                         contextMenu.getItems().addAll(detailsMenuItem);
@@ -470,8 +478,7 @@ public class Controller implements Initializable {
 
                     } else if (t1.getId().equals(tabMachines.getId())) {
                         //dosomething
-
-
+                        getAllMachines();
                     } else if (t1.getId().equals(tabEquipment.getId())) {
                         //dosomething
 
@@ -501,7 +508,7 @@ public class Controller implements Initializable {
         int workoutLevel = comboboxExperience.getSelectionModel().getSelectedIndex();
 
         if (workoutLevel > -1) {
-            System.out.println("creating");
+            // System.out.println("creating");
             program.create(workoutLevel); //create from level, based on input from user
 
             //add newly created program to schedule
@@ -515,6 +522,37 @@ public class Controller implements Initializable {
         }
     }
 
+    private void getAllMachines() {
+
+        ResultSet result = QueryItems.queryOntology(QueryStrings.queryAllMachines);
+
+        Resource machine = null;
+        List<Resource> exercises = null;
+        Literal label = null;
+        ResultSetFormatter.out(result);
+
+      /*
+        if (!result.hasNext()) System.out.println("NOTHING HERE");
+        while (result.hasNext()) {
+            ResultSetFormatter.out(result);
+
+            QuerySolution binding = result.nextSolution();
+
+            Resource exercise = (Resource) binding.get("Exercise");
+
+            machine = (Resource) binding.get("Machine");
+
+            if (!exercises.contains(exercise)) {
+                exercises.add(exercise);
+            }
+
+            label = binding.getLiteral("label");
+            System.out.println(label.getString());
+            machinesList.add(new Machine(machine.getLocalName(), exercises, label));
+        }
+*/
+
+    }
 
     private Equipment searchEquipment() {
         String search = currentEquipmentSelected.getName();
@@ -523,25 +561,35 @@ public class Controller implements Initializable {
 
         if (search.equals("Bench")) {
             query = QueryStrings.queryBench;
-        }if (search.equals("Bench Press Rack")) {
+        }
+        if (search.equals("Bench Press Rack")) {
             query = QueryStrings.queryBenchPressRack;
-        }if (search.equals("Squat Rack")) {
+        }
+        if (search.equals("Squat Rack")) {
             query = QueryStrings.querySquatRack;
-        }if (search.equals("Olympic Barbell Men")) {
+        }
+        if (search.equals("Olympic Barbell Men")) {
             query = QueryStrings.queryOlympiaBar;
-        }if (search.equals("Cap Barbell Dumbells")) {
+        }
+        if (search.equals("Cap Barbell Dumbells")) {
             query = QueryStrings.queryCapDumbbell;
-        }if (search.equals("Rounded Dumbells")) {
+        }
+        if (search.equals("Rounded Dumbells")) {
             query = QueryStrings.queryRoundedDumbell;
-        }if (search.equals("Hexagonal Dumbells")) {
+        }
+        if (search.equals("Hexagonal Dumbells")) {
             query = QueryStrings.queryHexDumbbell;
-        }if (search.equals("Squared Dumbells")) {
+        }
+        if (search.equals("Squared Dumbells")) {
             query = QueryStrings.querySquaredDumbell;
-        }if (search.equals("Kettlebells")) {
+        }
+        if (search.equals("Kettlebells")) {
             query = QueryStrings.queryKettleBells;
-        }if (search.equals("Weighted Plates")) {
+        }
+        if (search.equals("Weighted Plates")) {
             query = QueryStrings.queryWeightedPlates;
-        }if (search.equals("Bench")) {
+        }
+        if (search.equals("Bench")) {
             query = QueryStrings.queryBench;
         }
         ResultSet result = QueryItems.queryOntology(query);
@@ -567,8 +615,7 @@ public class Controller implements Initializable {
         }
 
 
-
-            return new Equipment(currentEquipmentSelected.getName(), is_used_in, label, weight);
+        return new Equipment(currentEquipmentSelected.getName(), is_used_in, label, weight);
 
     }
 
@@ -676,24 +723,40 @@ public class Controller implements Initializable {
 
     private void addFullExerciseData() {
 
-
+        listviewFullExerciseDescription.setItems(descriptionList);
         Task task = new Task() {
             @Override
             protected Object call() throws Exception {
-                final int max = 3;
-                imageHeatmap.setImage(new Image(currentFullExerciseSelected.getMucleHeatmap()));
+                int countGuide = -1;
+                for (String r : currentFullExerciseSelected.getGuide()
+                        ) {
+                    countGuide++;
 
-                updateProgress(1, max);
+                }
+                int max = 3 + countGuide;
+                int i = 1;
+                imageHeatmap.setImage(new Image(currentFullExerciseSelected.getMucleHeatmap()));
+                updateProgress(i, max);
+
                 imagemalestart.setImage(new Image(currentFullExerciseSelected.getMaleImageStart()));
-                updateProgress(2, max);
+                updateProgress(i++, max);
+
                 imagemaleend.setImage(new Image(currentFullExerciseSelected.getMaleImageEnd()));
-                updateProgress(3, max);
+                updateProgress(i++, max);
+                System.out.println(max);
+
+                for (String s : currentFullExerciseSelected.getGuide()) {
+                    descriptionList.add(s);
+                    updateProgress(i++, max);
+
+                }
+
 
                 return null;
             }
-        }    ;
-        ProgressBar bar = new ProgressBar();
-        bar.progressProperty().bind(task.progressProperty());
+        };
+
+        progressFullExercise.progressProperty().bind(task.progressProperty());
         new Thread(task).start();
 
 
@@ -708,7 +771,7 @@ public class Controller implements Initializable {
 
         listviewEquipmentUsedIn.setItems(equipmentCanUseList);
 
-       currentEquipmentSelected = searchEquipment();
+        currentEquipmentSelected = searchEquipment();
 
         if (currentEquipmentSelected.getDefinition() != null) {
             textEquipmentDefinition.setText(currentEquipmentSelected.getDefinition().getString());

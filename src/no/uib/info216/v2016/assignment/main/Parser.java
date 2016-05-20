@@ -22,7 +22,7 @@ public class Parser {
 
     public static ObservableList<FullExercise> parse() {
 
-         final ObservableList<FullExercise> exercises =
+        final ObservableList<FullExercise> exercises =
                 FXCollections.observableArrayList(
                 );
 
@@ -51,41 +51,38 @@ public class Parser {
                     JSONObject innerObj2 = (JSONObject) i1.next();
 
 
-                    String name = objects[0].substring(1,objects[0].length() -1);
+                    String name = objects[0].substring(1, objects[0].length() - 1);
                     String link = (innerObj2.get("link").toString());
-                    String mainMuscles = ( innerObj2.get("Main Muscle Worked").toString());
-                    String sport = ( innerObj2.get("Sport").toString());
+                    String mainMuscles = (innerObj2.get("Main Muscle Worked").toString());
+                    String sport = (innerObj2.get("Sport").toString());
                     String otherMuscles = null;
                     try {
-                         otherMuscles = (innerObj2.get("Other Muscles").toString());
-                    } catch (NullPointerException nil)
-                    {
-
+                        otherMuscles = (innerObj2.get("Other Muscles").toString());
+                    } catch (NullPointerException nil) {
+//nada
                     }
-                    String mechanicsType = ( innerObj2.get("Mechanics Type").toString());
-                    String type = ( innerObj2.get("Type").toString());
-                    String level = ( innerObj2.get("Level").toString());
-                    String equipment = ( innerObj2.get("Equipment").toString());
+                    String mechanicsType = (innerObj2.get("Mechanics Type").toString());
+                    String type = (innerObj2.get("Type").toString());
+                    String level = (innerObj2.get("Level").toString());
+                    String equipment = (innerObj2.get("Equipment").toString());
                     String force = (innerObj2.get("Force").toString());
-                    String imageMaleStart = ( innerObj2.get("male_image_start").toString());
-                    String imageMaleEnd = ( innerObj2.get("male_image_end").toString());
-                    String imageFemaleStart =( innerObj2.get("female_image_start").toString());
-                    String imagefemaleEnd =( innerObj2.get("female_image_end").toString());
-                    String heatmap = ( innerObj2.get("mucle_heatmap").toString());
+                    String imageMaleStart = (innerObj2.get("male_image_start").toString());
+                    String imageMaleEnd = (innerObj2.get("male_image_end").toString());
+                    String imageFemaleStart = (innerObj2.get("female_image_start").toString());
+                    String imagefemaleEnd = (innerObj2.get("female_image_end").toString());
+                    String heatmap = (innerObj2.get("mucle_heatmap").toString());
                     String guide = (innerObj2.get("guide").toString().substring(1,
                             innerObj2.get("guide").toString().length() - 1));
                     List<String> guideList = new ArrayList<>();
 
-                    for (String s: guide.split(" ")
+                    for (String s : guide.split("  ")
                             ) {
                         guideList.add(s);
 
                     }
 
 
-
-
-                    exercises.add(new FullExercise(name,mainMuscles,force,level,heatmap,imagefemaleEnd,imageFemaleStart,guideList,imageMaleStart,equipment,link,imageMaleEnd,sport,type,mechanicsType));
+                    exercises.add(new FullExercise(name, mainMuscles, force, level, heatmap, imagefemaleEnd, imageFemaleStart, guideList, imageMaleStart, equipment, link, imageMaleEnd, sport, type, mechanicsType));
 
                 }
 
@@ -101,7 +98,7 @@ public class Parser {
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
-return exercises;
+        return exercises;
     }
 
     public static String remove(String str) {

@@ -50,16 +50,16 @@ public class QueryStrings {
 			+ "ont:Can_Be_Performed_With ?Equipment ;"
 			+ "ont:label ?label . }";
 	
-	//Machines
+	//Machine
 
 	public static String queryAllMachines = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
 											+ "PREFIX owl: <http://www.w3.org/2002/07/owl#>"
 											+ "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 											+ "SELECT * WHERE {"
 											+ "?Machine rdf:type owl:NamedIndividual ;"
-											+ 	 		"rdf:type ont:Machines ;"
-											+ 			"ont:Implements ?Exercise"
-											+  			"ont:labal ?label . }";
+											+ 	 		"rdf:type ont:Machine ;"
+											+ 			"ont:Implements ?Exercise ;"
+											+  			"ont:label ?label . } ";
 
 	public static String queryCableCrossMachine = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>" 
 			+ "SELECT * WHERE {"

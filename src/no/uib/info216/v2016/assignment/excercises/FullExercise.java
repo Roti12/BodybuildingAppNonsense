@@ -14,7 +14,7 @@ public class FullExercise {
     private String mucleHeatmap;
     private String femaleImageEnd;
     private String femaleImageStart;
-    private List<String> guide = new ArrayList<String>();
+    private List<String> guide = new ArrayList<>();
     private String maleImageStart;
     private String Equipment;
     private String link;
