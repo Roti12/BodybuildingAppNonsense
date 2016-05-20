@@ -801,7 +801,7 @@ public class Controller implements Initializable {
         }
 
         if (data.getCan_use() != null) {
-            equipmentUseList.addAll(data.getCan_use().stream().map(Resource::getLocalName).collect(Collectors.toList()));
+           equipmentUseList.addAll(data.getCan_use().stream().map(Resource::getLocalName).collect(Collectors.toList()));
         }
 
         if (data.getEquipment() != null) {

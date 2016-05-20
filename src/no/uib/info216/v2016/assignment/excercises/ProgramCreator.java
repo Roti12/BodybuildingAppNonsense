@@ -382,8 +382,10 @@ public class ProgramCreator {
         //	System.out.println("Hello, you have pressed a button");
         ResultSet result = QueryItems.queryOntology( QueryStrings.querySquat);
         List<Resource> muscles = new ArrayList<>();
-        Literal label = null;
+        List<Resource> can_useList = new ArrayList<>();
 
+        Literal label = null;
+        Resource can_use = null;
         while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
             Resource muscle = (Resource) binding.get("Muscles");
@@ -392,9 +394,15 @@ public class ProgramCreator {
             }
             label = binding.getLiteral("label");
 
+            Resource tempUse = null;
+            can_use = (Resource) binding.get("Can_Use");
+            if (!can_useList.contains(can_use)) {
+
+                can_useList.add(can_use);
+            }
 
         }
-        return new Exercise("Squats", label, null, null, muscles);
+        return new Exercise("Squats", label, null, can_useList, muscles);
 
     }
 
