@@ -1,5 +1,7 @@
 package no.uib.info216.v2016.assignment.SPARQLQueries.strings;
-
+/**
+ * Created by 117, 103.
+ */
 public class QueryStrings {
 
 
@@ -19,7 +21,8 @@ public class QueryStrings {
 			+ "SELECT * WHERE {"
 			+ "ont:Squat ont:Works ?Muscles ;"
 			+ "ont:Can_Use ?Equipment ; "
-			+ "ont:label ?label . }";
+			+ "ont:label ?label ; "
+			+ "ont:Requires ?Required_Equipment . }";
 
 	public static String queryBenchPress = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
@@ -36,22 +39,24 @@ public class QueryStrings {
 
 	public static String queryOverheadPress = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "ont:Overhead_press ont:Can_Use ?Equipment . }";
+			+ "ont:Overhead_press ont:Can_Use ?Equipment ;"
+			+ "ont:Works ?Muscles ;"
+			+ "ont:label ?label . }";
 
 	public static String queryLPulldownMachine = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
 			+ "ont:Lat_Pulldown_Machine ont:Implements ?Excercise . }";
 
-	public static String querySeatedCableRow = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
+	public static String queryBentOverRow = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "ont:Seated_Cable_Row ont:Can_Be_Performed_With ?Machine ;"
+			+ "ont:Seated_Cable_Row ont:Can_Use ?Equipment ;"
 			+ "ont:Works ?Muscles ;"
 			+ "ont:label ?label . }";
 
 	public static String queryTricepExtension = "PREFIX ont: <http://machinesandexercises.com/ontology.owl#>"
 			+ "SELECT * WHERE {"
-			+ "ont:Seated_Cable_Row ont:Works ?Muscles ;"
-			+ "ont:Can_Be_Performed_With ?Equipment ;"
+			+ "ont:Tricep_Extension ont:Works ?Muscles ;"
+			+ "ont:Can_Use ?Equipment ;"
 			+ "ont:label ?label . }";
 
 	//Machines

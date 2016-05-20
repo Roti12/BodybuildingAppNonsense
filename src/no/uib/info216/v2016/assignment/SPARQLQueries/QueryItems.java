@@ -4,7 +4,9 @@ package no.uib.info216.v2016.assignment.SPARQLQueries;
 import no.uib.info216.v2016.assignment.dataset.Datasets;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
-
+/**
+ * Created by 117, 103.
+ */
 public class QueryItems {
 
 	

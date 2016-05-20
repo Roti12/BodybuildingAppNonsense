@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by qrtmain on 18.05.2016.
+ * Created by 117, 103 on 18.05.2016.
  */
 public class ProgramCreator {
 
@@ -385,6 +385,7 @@ public class ProgramCreator {
         List<Resource> muscles = new ArrayList<>();
         List<Resource> can_useList = new ArrayList<>();
 
+        Resource equipment = null;
         Literal label = null;
         Resource can_use = null;
         while (result.hasNext()) {
@@ -393,6 +394,7 @@ public class ProgramCreator {
             if (!muscles.contains(muscle)) {
                 muscles.add(muscle);
             }
+            equipment = (Resource) binding.get("Required_Equipment");
             label = binding.getLiteral("label");
 
             Resource tempUse = null;
@@ -403,7 +405,7 @@ public class ProgramCreator {
             }
 
         }
-        return new Exercise("Squats", label, null, can_useList, muscles);
+        return new Exercise("Squats", label, equipment, can_useList, muscles);
 
     }
 
@@ -425,7 +427,6 @@ public class ProgramCreator {
                 muscles.add(muscle);
             }
             equipment = (Resource) binding.get("Required_Equipment");
-            Resource tempUse = null;
             label = binding.getLiteral("label");
 
             can_use = (Resource) binding.get("Equipment");
@@ -460,7 +461,6 @@ public class ProgramCreator {
                 muscles.add(muscle);
             }
             equipment = (Resource) binding.get("Required_Equipment");
-            Resource tempUse = null;
             label = binding.getLiteral("label");
 
             can_use = (Resource) binding.get("Equipment");
@@ -484,7 +484,6 @@ public class ProgramCreator {
         Resource equipment = null;
         Literal label = null;
         Resource can_use = null;
-        // ResultSetFormatter.out(result);
 
         while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
@@ -512,39 +511,64 @@ public class ProgramCreator {
 
     private Exercise getOverheadPress() {
         ResultSet result = QueryItems.queryOntology( QueryStrings.queryOverheadPress);
+        List<Resource> muscles = new ArrayList<>();
         List<Resource> can_useList = new ArrayList<>();
 
-        Resource can_use;
+        Resource equipment = null;
+        Literal label = null;
+        Resource can_use = null;
 
         while (result.hasNext()) {
-
-            // ResultSetFormatter.out(result);
             QuerySolution binding = result.nextSolution();
 
-            can_use = (Resource) binding.get("Equipment");
+            Resource muscle = (Resource) binding.get("Muscles");
+            if (!muscles.contains(muscle)) {
 
-            can_useList.add(can_use);
+                muscles.add(muscle);
+            }
+            equipment = (Resource) binding.get("Required_Equipment");
+            label = binding.getLiteral("label");
+
+            can_use = (Resource) binding.get("Equipment");
+            if (!can_useList.contains(can_use)) {
+
+                can_useList.add(can_use);
+            }
 
         }
 
-        return new Exercise("Overhead Press", null, null, can_useList, null);
+        return new Exercise("Overhead Press", label, equipment, can_useList, muscles);
     }
 
     private Exercise getCableRow() {
-        ResultSet result = QueryItems.queryOntology( QueryStrings.querySeatedCableRowMachine);
+        ResultSet result = QueryItems.queryOntology( QueryStrings.queryBentOverRow);
+        List<Resource> muscles = new ArrayList<>();
+        List<Resource> can_useList = new ArrayList<>();
+
+        Resource equipment = null;
         Literal label = null;
+        Resource can_use = null;
 
         while (result.hasNext()) {
-
-            // ResultSetFormatter.out(result);
             QuerySolution binding = result.nextSolution();
 
+            Resource muscle = (Resource) binding.get("Muscles");
+            if (!muscles.contains(muscle)) {
+
+                muscles.add(muscle);
+            }
+            equipment = (Resource) binding.get("Required_Equipment");
             label = binding.getLiteral("label");
 
+            can_use = (Resource) binding.get("Equipment");
+            if (!can_useList.contains(can_use)) {
+
+                can_useList.add(can_use);
+            }
 
         }
 
-        return new Exercise("Seated Cable Row", label, null, null, null);
+        return new Exercise("Bent-Over Row", label, equipment, can_useList, muscles);
     }
 
 

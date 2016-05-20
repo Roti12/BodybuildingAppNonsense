@@ -9,7 +9,9 @@ import org.apache.jena.rdf.model.Resource;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Created by 117, 103.
+ */
 public class Equipment {
 
 

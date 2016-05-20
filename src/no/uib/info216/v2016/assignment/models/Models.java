@@ -5,7 +5,9 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.util.FileManager;
 
-
+/**
+ * Created by 117, 103.
+ */
 public class Models {
 	
 	private Model model = ModelFactory.createDefaultModel();

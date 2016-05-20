@@ -692,7 +692,12 @@ bench press exercises.</label>
 
     <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row">
         <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row_Machine"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Plates"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rear_Deltoid"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rhomboids"/>

@@ -59,7 +59,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Label fx:id="labelExerciseRequires" layoutX="14.0" layoutY="24.0" text="Label" />
+                        <Label fx:id="labelExerciseRequires" layoutX="14.0" layoutY="24.0" text="Nothing" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">

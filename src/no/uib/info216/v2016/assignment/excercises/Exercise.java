@@ -6,7 +6,7 @@ import org.apache.jena.rdf.model.Resource;
 import java.util.List;
 
 /**
- * Created by sto020 on 03.05.2016.
+ * Created by 117, 103.
  */
 public class Exercise {
 

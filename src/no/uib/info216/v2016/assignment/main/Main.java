@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import no.uib.info216.v2016.assignment.dataset.Datasets;
 import no.uib.info216.v2016.assignment.models.Models;
-
+/**
+ * Created by 117, 103.
+ */
 public class Main extends Application {
     private static Datasets dataset;
     private static Models model;
