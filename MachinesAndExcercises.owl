@@ -515,7 +515,7 @@ bench press exercises.</label>
 
     <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Lat_Pulldown">
         <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown_Machine"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown_Machine"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Brachialis"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi"/>
@@ -613,9 +613,9 @@ bench press exercises.</label>
 
     <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Preacher_Curl">
         <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl_Machine"/>
         <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
         <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
         <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
         <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep"/>
@@ -692,8 +692,7 @@ bench press exercises.</label>
 
     <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row">
         <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Cable_Cross_machine"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row_Machine"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row_Machine"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rear_Deltoid"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rhomboids"/>
@@ -789,11 +788,14 @@ bench press exercises.</label>
 
     <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Tricep_Extension">
         <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Cable_Cross_machine"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cable_Cross_machine"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Kettebells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
+        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Plates"/>
         <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exercise focusing on the triceps</label>
     </owl:NamedIndividual>
