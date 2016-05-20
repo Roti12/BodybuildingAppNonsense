@@ -111,24 +111,22 @@ public class ProgramCreator {
                 break;
             case WORKOUT.LEVEL_5:
                 monday.add(getBicepCurl());
-                monday.add(getBicepCurl());
-                monday.add(getBicepCurl());
-                monday.add(getBicepCurl());
-                monday.add(getBicepCurl());
+                monday.add(getOverheadPress());
+                monday.add(getBenchPress());
                 break;
             case WORKOUT.LEVEL_6:
                 monday.add(getSquat());
                 monday.add(getDeadlift());
                 monday.add(getBenchPress());
-                monday.add(getCableRow());
+                monday.add(getOverheadPress());
                 monday.add(getBicepCurl());
                 break;
             case  WORKOUT.LEVEL_7:
                 monday.add(getSquat());
                 monday.add(getDeadlift());
-                monday.add(getBenchPress());
                 monday.add(getCableRow());
                 monday.add(getBicepCurl());
+                monday.add(getBenchPress());
                 break;
         }
 
@@ -146,38 +144,34 @@ public class ProgramCreator {
                 tuesday.add(getBicepCurl());
                 break;
             case WORKOUT.LEVEL_3:
-                tuesday.add(getSquat());
-                tuesday.add(getDeadlift());
+                tuesday.add(getOverheadPress());
                 tuesday.add(getBenchPress());
-                tuesday.add(getCableRow());
+                tuesday.add(getTricepExtension());
                 tuesday.add(getBicepCurl());
                 break;
             case WORKOUT.LEVEL_4:
-                tuesday.add(getDeadlift());
-                tuesday.add(getDeadlift());
-                tuesday.add(getDeadlift());
-                tuesday.add(getDeadlift());
+                tuesday.add(getBicepCurl());
+                tuesday.add(getCableRow());
+                tuesday.add(getSquat());
                 tuesday.add(getDeadlift());
                 break;
             case WORKOUT.LEVEL_5:
                 tuesday.add(getSquat());
-                tuesday.add(getSquat());
-                tuesday.add(getSquat());
-                tuesday.add(getSquat());
-                tuesday.add(getSquat());
+                tuesday.add(getDeadlift());
+                tuesday.add(getTricepExtension());
+                tuesday.add(getCableRow());
                 break;
             case WORKOUT.LEVEL_6:
-                tuesday.add(getBicepCurl());
-                tuesday.add(getBicepCurl());
-                tuesday.add(getBicepCurl());
-                tuesday.add(getBicepCurl());
+                tuesday.add(getSquat());
+                tuesday.add(getCableRow());
+                tuesday.add(getDeadlift());
+                tuesday.add(getOverheadPress());
                 tuesday.add(getBicepCurl());
                 break;
             case  WORKOUT.LEVEL_7:
-                tuesday.add(getBicepCurl());
-                tuesday.add(getBicepCurl());
-                tuesday.add(getBicepCurl());
-                tuesday.add(getBicepCurl());
+                tuesday.add(getTricepExtension());
+                tuesday.add(getOverheadPress());
+                tuesday.add(getBenchPress());
                 tuesday.add(getBicepCurl());
                 break;
         }
@@ -200,31 +194,28 @@ public class ProgramCreator {
                 break;
             case WORKOUT.LEVEL_4:
                 wednesday.add(getBenchPress());
-                wednesday.add(getBenchPress());
+                wednesday.add(getOverheadPress());
                 wednesday.add(getBicepCurl());
-                wednesday.add(getBenchPress());
-                wednesday.add(getBenchPress());
+                wednesday.add(getTricepExtension());
                 break;
             case WORKOUT.LEVEL_5:
                 wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
+                wednesday.add(getDeadlift());
+                wednesday.add(getSquat());
+                wednesday.add(getBicepCurl());
                 break;
             case WORKOUT.LEVEL_6:
                 wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
-                wednesday.add(getCableRow());
+                wednesday.add(getDeadlift());
+                wednesday.add(getBicepCurl());
+                wednesday.add(getBenchPress());
+                wednesday.add(getTricepExtension());
                 break;
             case  WORKOUT.LEVEL_7:
                 wednesday.add(getDeadlift());
-                wednesday.add(getDeadlift());
-                wednesday.add(getDeadlift());
-                wednesday.add(getDeadlift());
-                wednesday.add(getDeadlift());
+                wednesday.add(getSquat());
+                wednesday.add(getCableRow());
+                wednesday.add(getBicepCurl());
                 break;
         }
 
@@ -251,27 +242,24 @@ public class ProgramCreator {
                 thursday.add(getBicepCurl());
                 break;
             case WORKOUT.LEVEL_4:
+                thursday.add(getSquat());
+                thursday.add(getDeadlift());
                 thursday.add(getCableRow());
-                thursday.add(getCableRow());
-                thursday.add(getCableRow());
-                thursday.add(getCableRow());
-                thursday.add(getCableRow());
+                thursday.add(getBicepCurl());
                 break;
             case WORKOUT.LEVEL_5:
                 break;
             case WORKOUT.LEVEL_6:
+                thursday.add(getSquat());
+                thursday.add(getBenchPress());
                 thursday.add(getDeadlift());
-                thursday.add(getDeadlift());
-                thursday.add(getDeadlift());
-                thursday.add(getDeadlift());
-                thursday.add(getDeadlift());
+                thursday.add(getTricepExtension());
                 break;
             case  WORKOUT.LEVEL_7:
                 thursday.add(getBenchPress());
-                thursday.add(getBenchPress());
-                thursday.add(getBenchPress());
-                thursday.add(getBenchPress());
-                thursday.add(getBenchPress());
+                thursday.add(getOverheadPress());
+                thursday.add(getTricepExtension());
+                thursday.add(getBicepCurl());
                 break;
 
         }
@@ -301,24 +289,22 @@ public class ProgramCreator {
                 break;
             case WORKOUT.LEVEL_5:
                 friday.add(getBenchPress());
-                friday.add(getBenchPress());
-                friday.add(getBenchPress());
-                friday.add(getBenchPress());
-                friday.add(getBenchPress());
+                friday.add(getSquat());
+                friday.add(getTricepExtension());
+                friday.add(getOverheadPress());
                 break;
             case WORKOUT.LEVEL_6:
+                friday.add(getBicepCurl());
+                friday.add(getOverheadPress());
                 friday.add(getBenchPress());
-                friday.add(getBenchPress());
-                friday.add(getBenchPress());
-                friday.add(getBenchPress());
-                friday.add(getBenchPress());
+                friday.add(getDeadlift());
                 break;
             case  WORKOUT.LEVEL_7:
+                friday.add(getDeadlift());
+                friday.add(getSquat());
                 friday.add(getCableRow());
-                friday.add(getCableRow());
-                friday.add(getCableRow());
-                friday.add(getCableRow());
-                friday.add(getCableRow());
+                friday.add(getBicepCurl());
+                friday.add(getTricepExtension());
                 break;
         }
 
@@ -339,21 +325,20 @@ public class ProgramCreator {
                 break;
             case WORKOUT.LEVEL_4:
                 saturday.add(getSquat());
-                saturday.add(getSquat());
-                saturday.add(getSquat());
-                saturday.add(getSquat());
-                saturday.add(getSquat());
+                saturday.add(getDeadlift());
+                saturday.add(getCableRow());
+                saturday.add(getBicepCurl());
                 break;
             case WORKOUT.LEVEL_5:
                 break;
             case WORKOUT.LEVEL_6:
                 break;
             case  WORKOUT.LEVEL_7:
+                saturday.add(getBenchPress());
                 saturday.add(getSquat());
-                saturday.add(getSquat());
-                saturday.add(getSquat());
-                saturday.add(getSquat());
-                saturday.add(getSquat());
+                saturday.add(getOverheadPress());
+                saturday.add(getTricepExtension());
+                saturday.add(getBicepCurl());
                 break;
         }
 
@@ -368,26 +353,23 @@ public class ProgramCreator {
                 break;
             case WORKOUT.LEVEL_3:
                 sunday.add(getSquat());
-                sunday.add(getSquat());
-                sunday.add(getSquat());
-                sunday.add(getSquat());
-                sunday.add(getSquat());
+                sunday.add(getDeadlift());
+                sunday.add(getBenchPress());
+                sunday.add(getBicepCurl());
                 break;
             case WORKOUT.LEVEL_4:
                 break;
             case WORKOUT.LEVEL_5:
                 sunday.add(getDeadlift());
-                sunday.add(getDeadlift());
-                sunday.add(getDeadlift());
-                sunday.add(getDeadlift());
-                sunday.add(getDeadlift());
+                sunday.add(getCableRow());
+                sunday.add(getBicepCurl());
+                sunday.add(getOverheadPress());
                 break;
             case WORKOUT.LEVEL_6:
                 sunday.add(getSquat());
-                sunday.add(getSquat());
-                sunday.add(getSquat());
-                sunday.add(getSquat());
-                sunday.add(getSquat());
+                sunday.add(getDeadlift());
+                sunday.add(getCableRow());
+                sunday.add(getBicepCurl());
                 break;
             case  WORKOUT.LEVEL_7:
 
@@ -472,6 +454,44 @@ public class ProgramCreator {
         }
 
         return new Exercise("Bench Press", null, null, can_useList, null);
+    }
+
+    private Exercise getTricepExtension() {
+        ResultSet result = QueryItems.queryOntology( QueryStrings.queryTricepExtension);
+        List<Resource> can_useList = new ArrayList<>();
+
+        Resource can_use;
+        while (result.hasNext()) {
+
+            // ResultSetFormatter.out(result);
+            QuerySolution binding = result.nextSolution();
+
+            can_use = (Resource) binding.get("Can_Use");
+
+            can_useList.add(can_use);
+
+        }
+
+        return new Exercise("Tricep Extension", null, null, can_useList, null);
+    }
+
+    private Exercise getOverheadPress() {
+        ResultSet result = QueryItems.queryOntology( QueryStrings.queryOverheadPress);
+        List<Resource> can_useList = new ArrayList<>();
+
+        Resource can_use;
+        while (result.hasNext()) {
+
+            // ResultSetFormatter.out(result);
+            QuerySolution binding = result.nextSolution();
+
+            can_use = (Resource) binding.get("Can_Use");
+
+            can_useList.add(can_use);
+
+        }
+
+        return new Exercise("Overhead Press", null, null, can_useList, null);
     }
 
     private Exercise getCableRow() {
