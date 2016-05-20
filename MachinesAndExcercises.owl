@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://machinesandexercises.com/ontology.owl#"
-     xml:base="http://machinesandexercises.com/ontology.owl"
+<rdf:RDF xmlns="http://machines&amp;excercises.com/ontology.owl#"
+     xml:base="http://machines&amp;excercises.com/ontology.owl"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:ontology="http://machinesandexercises.com/ontology.owl#">
-    <owl:Ontology rdf:about="http://machinesandexercises.com/ontology.owl"/>
+     xmlns:ontology="http://machines&amp;excercises.com/ontology.owl#">
+    <owl:Ontology rdf:about="http://machinesandexcercises.com/ontology.owl"/>
     
 
 
@@ -22,76 +22,76 @@
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Can_Be_Performed_With -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Can_Be_Performed_With -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Can_Be_Performed_With">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Equipment"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Machines"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Can_Be_Performed_With">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Machines"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Can_Use -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Can_Use -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Can_Use">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Equipment"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Can_Use">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Implements -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Implements -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Implements">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Machines"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Implements">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Machines"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Is_Used_In -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Is_Used_In -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Is_Used_In">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Equipment"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Is_Used_In">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Offers -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Offers -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Offers">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Equipment"/>
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Machines"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Offers">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Machines"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Requires -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Requires -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Requires">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Equipment"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Requires">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Trained_Using -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Trained_Using -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Trained_Using">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Muscles"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Trained_Using">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Muscles"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Works -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Works -->
 
-    <owl:ObjectProperty rdf:about="http://machinesandexercises.com/ontology.owl#Works">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <rdfs:range rdf:resource="http://machinesandexercises.com/ontology.owl#Muscles"/>
+    <owl:ObjectProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Works">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <rdfs:range rdf:resource="http://machines&amp;excercises.com/ontology.owl#Muscles"/>
     </owl:ObjectProperty>
     
 
@@ -107,40 +107,40 @@
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Weight -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Weight -->
 
-    <owl:DatatypeProperty rdf:about="http://machinesandexercises.com/ontology.owl#Weight">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Barbells"/>
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Dumbbells"/>
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Excercise_Equipment"/>
+    <owl:DatatypeProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#Weight">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Barbells"/>
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Dumbbells"/>
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercise_Equipment"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#label -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#label -->
 
-    <owl:DatatypeProperty rdf:about="http://machinesandexercises.com/ontology.owl#label">
+    <owl:DatatypeProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#label">
         <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#major_musclegroups_worked -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#major_musclegroups_worked -->
 
-    <owl:DatatypeProperty rdf:about="http://machinesandexercises.com/ontology.owl#major_musclegroups_worked">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
+    <owl:DatatypeProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#major_musclegroups_worked">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#muscles_worked -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#muscles_worked -->
 
-    <owl:DatatypeProperty rdf:about="http://machinesandexercises.com/ontology.owl#muscles_worked">
-        <rdfs:domain rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
+    <owl:DatatypeProperty rdf:about="http://machines&amp;excercises.com/ontology.owl#muscles_worked">
+        <rdfs:domain rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -157,131 +157,131 @@
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Abdominals -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Abdominals -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Abdominals">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Upper_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Abdominals">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Upper_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Arms -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Arms -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Arms">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Upper_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Arms">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Upper_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Back -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Back -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Back">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Upper_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Back">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Upper_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Barbells -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Barbells -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Barbells">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Equipment"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Barbells">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Weighted_Equipment"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Chest -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Chest -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Chest">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Upper_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Chest">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Upper_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Dumbbells -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Dumbbells -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Dumbbells">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Equipment"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Dumbbells">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Weighted_Equipment"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Equipment -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Equipment -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Equipment"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Excercise_Equipment -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Excercise_Equipment -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Excercise_Equipment">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Equipment"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Excercise_Equipment">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Excercises -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Excercises -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Excercises"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Legs -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Legs -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Legs">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Lower_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Legs">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lower_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Lower_body -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Lower_body -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Lower_body">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Muscles"/>
-        <owl:disjointWith rdf:resource="http://machinesandexercises.com/ontology.owl#Upper_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Lower_body">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Muscles"/>
+        <owl:disjointWith rdf:resource="http://machines&amp;excercises.com/ontology.owl#Upper_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Machines -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Machines -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Machines"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Machines"/>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Muscles -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Muscles -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Muscles"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Muscles"/>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Neck -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Neck -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Neck">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Upper_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Neck">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Upper_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Shoulder -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Shoulder -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Shoulder">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Upper_body"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Shoulder">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Upper_body"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Upper_body -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Upper_body -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Upper_body">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Muscles"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Upper_body">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Muscles"/>
     </owl:Class>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Weighted_Equipment -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Weighted_Equipment -->
 
-    <owl:Class rdf:about="http://machinesandexercises.com/ontology.owl#Weighted_Equipment">
-        <rdfs:subClassOf rdf:resource="http://machinesandexercises.com/ontology.owl#Equipment"/>
+    <owl:Class rdf:about="http://machines&amp;excercises.com/ontology.owl#Weighted_Equipment">
+        <rdfs:subClassOf rdf:resource="http://machines&amp;excercises.com/ontology.owl#Equipment"/>
     </owl:Class>
     
 
@@ -297,516 +297,517 @@
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Bench -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Bench -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Bench">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercise_Equipment"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Bench">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercise_Equipment"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used to support and minimize risk when performing bench press.</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#BenchPress -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#BenchPress -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#BenchPress">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Plates"/>
-        <Requires rdf:resource="http://machinesandexercises.com/ontology.owl#Bench"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Frontal_Deltoid"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Pectoris_Major"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Pectoris_Minor"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#BenchPress">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Olympic_Barbell_Men"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rounded_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squared_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Weighted_Plates"/>
+        <Requires rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bench"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Frontal_Deltoid"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Pectoris_Major"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Pectoris_Minor"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Tricep"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compound excercise mainly focused on working the chest</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Bench_Press_Rack -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Bench_Press_Rack -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Bench_Press_Rack">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercise_Equipment"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Bench_Press_Rack">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercise_Equipment"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rack specifically built to support and minimize risk when performing various
 bench press exercises.</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Bicep -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Bicep -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Bicep">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Arms"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Bicep">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Arms"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Bicep_Curl -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Bicep_Curl -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Bicep_Curl">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Forearms"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Olympic_Barbell_Men"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rounded_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squared_Dumbells"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Forearms"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Excercise focusing on the biceps</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Brachialis -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Brachialis -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Brachialis">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Arms"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Brachialis">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Arms"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Cable_Cross_machine -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Cable_Cross_machine -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Cable_Cross_machine">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Machines"/>
-        <Offers rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Offers rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row"/>
-        <Offers rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Cable_Cross_machine">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Machines"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Tricep_Extension"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Machine which offers a selection of different excercises</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Calves -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Calves -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Calves">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Legs"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Calves">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Legs"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Cap_Barbell_Dumbells -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Dumbbells"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep_Extension"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Cap_Barbell_Dumbells">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Dumbbells"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Tricep_Extension"/>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1-90KG</Weight>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumbbells with rouded weighted plates.</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Deadlift -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Deadlift -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Deadlift">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Plates"/>
-        <Requires rdf:resource="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Erector_Spinae"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Forearms"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Hamstrings"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Obliques"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rectus_Abdominis"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Trapezius"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Deadlift">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Weighted_Plates"/>
+        <Requires rdf:resource="http://machines&amp;excercises.com/ontology.owl#Olympic_Barbell_Men"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Erector_Spinae"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Forearms"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Hamstrings"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Latissimus_Dorsi"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Obliques"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rectus_Abdominis"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Trapezius"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Excercise for lower back and hamstrings</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Erector_Spinae -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Erector_Spinae -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Erector_Spinae">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Back"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Erector_Spinae">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Back"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Forearms -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Forearms -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Forearms">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Arms"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Forearms">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Arms"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Frontal_Deltoid -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Frontal_Deltoid -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Frontal_Deltoid">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Shoulder"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Frontal_Deltoid">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Shoulder"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Gluteus_Maximus -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Gluteus_Maximus -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Gluteus_Maximus">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Legs"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Gluteus_Maximus">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Legs"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Hamstrings -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Hamstrings -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Hamstrings">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Legs"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Hamstrings">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Legs"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Hexagonal_Dumbells -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Dumbbells"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep_Extension"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Hexagonal_Dumbells">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Dumbbells"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Tricep_Extension"/>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1-90KG</Weight>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumbbells with hexagonal weights at each end</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Kettebells -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Kettebells -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Kettebells">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Equipment"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Kettebells">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Weighted_Equipment"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4 - 48KG</Weight>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cast iron steel weight used to perform exercises with</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Lat_Pulldown -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Lat_Pulldown">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown_Machine"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Brachialis"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Teres_Major"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown_Machine"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Brachialis"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Latissimus_Dorsi"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Teres_Major"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Excercise mainly focusing on working the lats</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Lat_Pulldown_Machine -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown_Machine -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Lat_Pulldown_Machine">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Machines"/>
-        <Implements rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown_Machine">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Machines"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Machine made for lateral excercises</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Lateral_Deltoid -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Lateral_Deltoid -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Lateral_Deltoid">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Shoulder"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Lateral_Deltoid">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Shoulder"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Latissimus_Dorsi -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Back"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Latissimus_Dorsi">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Back"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Obliques -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Obliques -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Obliques">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Abdominals"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Obliques">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Abdominals"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Olympic_Barbell_Men -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Barbells"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
-        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.4</Weight>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Olympic_Barbell_Men">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Barbells"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20.4</Weight>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Barbell to support weight up to 700 - 1000 lbs</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Overhead_press -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Overhead_press -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Overhead_press">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Frontal_Deltoid"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Lateral_Deltoid"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Overhead_press">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Olympic_Barbell_Men"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rounded_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squared_Dumbells"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Frontal_Deltoid"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lateral_Deltoid"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compound excercise mainly focusing on the shoulders</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Pectoris_Major -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Pectoris_Major -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Pectoris_Major">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Chest"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Pectoris_Major">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Chest"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Pectoris_Minor -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Pectoris_Minor -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Pectoris_Minor">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Chest"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Pectoris_Minor">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Chest"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Preacher_Curl -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Preacher_Curl -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Preacher_Curl">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl_Machine"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl_Machine"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rounded_Dumbells"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squared_Dumbells"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Excercise focusing on the peak of the bicep</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Preacher_Curl_Machine -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Preacher_Curl_Machine -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Preacher_Curl_Machine">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Machines"/>
-        <Implements rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Implements rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl_Machine">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Machines"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Machine made for bicep excercises</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Quadriceps -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Quadriceps -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Quadriceps">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Legs"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Quadriceps">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Legs"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Rear_Deltoid -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Rear_Deltoid -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Rear_Deltoid">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Shoulder"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Rear_Deltoid">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Shoulder"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Rectus_Abdominis -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Rectus_Abdominis -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Rectus_Abdominis">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Abdominals"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Rectus_Abdominis">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Abdominals"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Rhomboids -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Rhomboids -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Rhomboids">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Back"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Rhomboids">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Back"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Rounded_Dumbells -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Rounded_Dumbells -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Dumbbells"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep_Extension"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Rounded_Dumbells">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Dumbbells"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Tricep_Extension"/>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1-90KG</Weight>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumbbells with rounded weights at both ends</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Seated_Cable_Row -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Cable_Cross_machine"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row_Machine"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Latissimus_Dorsi"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rear_Deltoid"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rhomboids"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Teres_Major"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Cable_Cross_machine"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row_Machine"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Latissimus_Dorsi"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rear_Deltoid"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rhomboids"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Teres_Major"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Excercise focusing on working the back muscles</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Seated_Cable_Row_Machine -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row_Machine -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row_Machine">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Machines"/>
-        <Implements rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row_Machine">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Machines"/>
+        <Implements rdf:resource="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Machine focusing on back excercises, only has one variation.</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Squared_Dumbells -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Squared_Dumbells -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Squared_Dumbells">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Dumbbells"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Bicep_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Preacher_Curl"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep_Extension"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Squared_Dumbells">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Dumbbells"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Bicep_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Preacher_Curl"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Tricep_Extension"/>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1-90KG</Weight>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumbbells with squared weights at both ends</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Squat -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Squat -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Squat">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Squat_Rack"/>
-        <Can_Use rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Plates"/>
-        <Requires rdf:resource="http://machinesandexercises.com/ontology.owl#Olympic_Barbell_Men"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Erector_Spinae"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Gluteus_Maximus"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Hamstrings"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Quadriceps"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Rectus_Abdominis"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Squat">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat_Rack"/>
+        <Can_Use rdf:resource="http://machines&amp;excercises.com/ontology.owl#Weighted_Plates"/>
+        <Requires rdf:resource="http://machines&amp;excercises.com/ontology.owl#Olympic_Barbell_Men"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Erector_Spinae"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Gluteus_Maximus"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Hamstrings"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Quadriceps"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rectus_Abdominis"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compound excercise mainly focused on working the legs</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Squat_Rack -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Squat_Rack -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Squat_Rack">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercise_Equipment"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Squat_Rack">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercise_Equipment"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rack to support and minimize risk when performing a squat</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Teres_Major -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Teres_Major -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Teres_Major">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Back"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Lat_Pulldown"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Seated_Cable_Row"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Teres_Major">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Back"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Lat_Pulldown"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Seated_Cable_Row"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Trapezius -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Trapezius -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Trapezius">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Back"/>
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Neck"/>
-        <Trained_Using rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Trapezius">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Back"/>
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Neck"/>
+        <Trained_Using rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Tricep -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Tricep -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Tricep">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Arms"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Tricep">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Arms"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Tricep_Extension -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Tricep_Extension -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Tricep_Extension">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Excercises"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Cable_Cross_machine"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Hexagonal_Dumbells"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Rounded_Dumbells"/>
-        <Can_Be_Performed_With rdf:resource="http://machinesandexercises.com/ontology.owl#Squared_Dumbells"/>
-        <Works rdf:resource="http://machinesandexercises.com/ontology.owl#Tricep"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Tricep_Extension">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Excercises"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Cable_Cross_machine"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Cap_Barbell_Dumbells"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Hexagonal_Dumbells"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Rounded_Dumbells"/>
+        <Can_Be_Performed_With rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squared_Dumbells"/>
+        <Works rdf:resource="http://machines&amp;excercises.com/ontology.owl#Tricep"/>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exercise focusing on the triceps</label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://machinesandexercises.com/ontology.owl#Weighted_Plates -->
+    <!-- http://machines&amp;excercises.com/ontology.owl#Weighted_Plates -->
 
-    <owl:NamedIndividual rdf:about="http://machinesandexercises.com/ontology.owl#Weighted_Plates">
-        <rdf:type rdf:resource="http://machinesandexercises.com/ontology.owl#Weighted_Equipment"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#BenchPress"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Deadlift"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Overhead_press"/>
-        <Is_Used_In rdf:resource="http://machinesandexercises.com/ontology.owl#Squat"/>
+    <owl:NamedIndividual rdf:about="http://machines&amp;excercises.com/ontology.owl#Weighted_Plates">
+        <rdf:type rdf:resource="http://machines&amp;excercises.com/ontology.owl#Weighted_Equipment"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#BenchPress"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Deadlift"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Overhead_press"/>
+        <Is_Used_In rdf:resource="http://machines&amp;excercises.com/ontology.owl#Squat"/>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.25 - 25KG</Weight>
         <label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plates used to attach to objects to increase resistance</label>
     </owl:NamedIndividual>
